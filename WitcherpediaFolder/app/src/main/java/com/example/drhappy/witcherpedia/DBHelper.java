@@ -294,25 +294,24 @@ class DBHelper extends SQLiteOpenHelper {
 		db.execSQL("INSERT INTO Unit VALUES('Caingornian Swordsman', 'Hengfors League', 'Melee', 'Bronze', 'Hengforsian', 3, 'caingornian_swordsman') ");
 		db.execSQL("INSERT INTO Unit VALUES('Malleorean Longbowman', 'Hengfors League', 'Ranged', 'Bronze', 'Hengforsian', 4, 'malleorean_longbowman') ");
 		db.execSQL("INSERT INTO Unit VALUES('Royal Mercenary Guard', 'Hengfors League', 'Melee', 'Bronze', 'Hengforsian', 5, 'royal_mercenary_guard') ");
-	   
+
 		db.execSQL("INSERT INTO Unit VALUES('Temple Guard', 'Novigrad', 'Melee', 'Bronze', 'Novigradian', 1, 'temple_guard') ");
 		db.execSQL("INSERT INTO Unit VALUES('Order of the Flaming Rose Zealot', 'Novigrad', 'Melee', 'Bronze', 'Novigradian', 2, 'order_of_the_flaming_rose_zealot') ");
 		db.execSQL("INSERT INTO Unit VALUES('Witch Hunter', 'Novigrad', 'Melee', 'Bronze', 'Novigradian', 3, 'witch_hunter') ");
 		db.execSQL("INSERT INTO Unit VALUES('Redanian Crossbowman', 'Novigrad', 'Ranged', 'Bronze', 'Redanian', 4, 'redanian_crossbowman') ");
 		db.execSQL("INSERT INTO Unit VALUES('Priest of the Eternal Fire', 'Novigrad', 'Support', 'Silver', 'Novigradian', 5, 'priest_of_the_eternal_fire') ");
 
-        db.execSQL("INSERT INTO Unit VALUES('Vrihedd Vanguard', 'Scoia’tael', 'Melee', 'Bronze', 'Scoia’tael', 1, 'vrihedd_vanguard') ");
-        db.execSQL("INSERT INTO Unit VALUES('Vrihedd Dragoon', 'Scoia’tael', 'Melee', 'Bronze', 'Scoia’tael', 2, 'vrihedd_dragoon') ");
-        db.execSQL("INSERT INTO Unit VALUES('Vrihedd Brigade', 'Scoia’tael', 'Ranged', 'Bronze', 'Scoia’tael', 3, 'vrihedd_brigade') ");
-        db.execSQL("INSERT INTO Unit VALUES('Dol Blathanna Defender', 'Scoia’tael', 'Melee', 'Bronze', 'Scoia’tael', 4, 'dol_blathanna_defender') ");
-        db.execSQL("INSERT INTO Unit VALUES('Dol Blathanna Archer', 'Scoia’tael', 'Ranged', 'Bronze', 'Scoia’tael', 5, 'dol_blathanna_archer') ");
-        db.execSQL("INSERT INTO Unit VALUES('Elven Wardancer', 'Scoia’tael', 'Melee', 'Bronze', 'Scoia’tael', 6, 'elven_wardancer') ");
-        db.execSQL("INSERT INTO Unit VALUES('Elven Marksman', 'Scoia’tael', 'Ranged', 'Bronze', 'Scoia’tael', 7, 'elven_marksman') ");
-        db.execSQL("INSERT INTO Unit VALUES('Elven Deadeye', 'Scoia’tael', 'Melee', 'Silver', 'Scoia’tael', 8, 'elven_deadeye') ");
-        db.execSQL("INSERT INTO Unit VALUES('Vrihedd Sapper', 'Scoia’tael', 'Support', 'Silver', 'Scoia’tael', 9, 'vrihedd_sapper') ");
+		db.execSQL("INSERT INTO Unit VALUES('Vrihedd Vanguard', 'Scoia’tael', 'Melee', 'Bronze', 'Scoia’tael', 1, 'vrihedd_vanguard') ");
+		db.execSQL("INSERT INTO Unit VALUES('Vrihedd Dragoon', 'Scoia’tael', 'Melee', 'Bronze', 'Scoia’tael', 2, 'vrihedd_dragoon') ");
+		db.execSQL("INSERT INTO Unit VALUES('Vrihedd Brigade', 'Scoia’tael', 'Ranged', 'Bronze', 'Scoia’tael', 3, 'vrihedd_brigade') ");
+		db.execSQL("INSERT INTO Unit VALUES('Dol Blathanna Defender', 'Scoia’tael', 'Melee', 'Bronze', 'Scoia’tael', 4, 'dol_blathanna_defender') ");
+		db.execSQL("INSERT INTO Unit VALUES('Dol Blathanna Archer', 'Scoia’tael', 'Ranged', 'Bronze', 'Scoia’tael', 5, 'dol_blathanna_archer') ");
+		db.execSQL("INSERT INTO Unit VALUES('Elven Wardancer', 'Scoia’tael', 'Melee', 'Bronze', 'Scoia’tael', 6, 'elven_wardancer') ");
+		db.execSQL("INSERT INTO Unit VALUES('Elven Marksman', 'Scoia’tael', 'Ranged', 'Bronze', 'Scoia’tael', 7, 'elven_marksman') ");
+		db.execSQL("INSERT INTO Unit VALUES('Elven Deadeye', 'Scoia’tael', 'Melee', 'Silver', 'Scoia’tael', 8, 'elven_deadeye') ");
+		db.execSQL("INSERT INTO Unit VALUES('Vrihedd Sapper', 'Scoia’tael', 'Support', 'Silver', 'Scoia’tael', 9, 'vrihedd_sapper') ");
 
-
-        // fill the gap (brokilon)
+		// fill the gap (brokilon)
 
 		db.execSQL("INSERT INTO Unit VALUES('Mahakam Defender', 'Mahakam', 'Melee', 'Bronze', 'Mahakam', 1, 'mahakam_defender') ");
 		db.execSQL("INSERT INTO Unit VALUES('Mahakam Axeman', 'Mahakam', 'Melee', 'Bronze', 'Mahakam', 2, 'mahakam_axeman') ");
@@ -361,7 +360,6 @@ class DBHelper extends SQLiteOpenHelper {
 		db.execSQL("INSERT INTO Unit VALUES('Zerrikanian Fire Warlock', 'Zerrikania', 'Mage', 'Silver', 'Zerrikanian', 7, 'zerrikanian_fire_warlock') ");
 		db.execSQL("INSERT INTO Unit VALUES('Zerrikanian Fire Scorpion', 'Zerrikania', 'Ranged', 'Silver', 'Zerrikanian', 8, 'zerrikanian_fire_skorpion') ");
 		db.execSQL("INSERT INTO Unit VALUES('War Elephant', 'Zerrikania', 'Ranged', 'Bronze', 'Zerrikanian', 9, 'war_elephant') ");
-
 
 
 		//Create Melee table
@@ -509,24 +507,24 @@ class DBHelper extends SQLiteOpenHelper {
 				"If any allied Priests of the Eternal Fire are on the field, receives +1 Strength<br>&#8226; " +
 				"+2 Armour against ranged attacks<br>&#8226; " +
 				"Negates any Ranged anti-armour bonus damage (like from enemy Crossbowmen)') ");
-        db.execSQL("INSERT INTO Melee VALUES('Vrihedd Dragoon', 'Light Cavalry', '1', 4, 0, 8, '3 armies', '<br>&#8226; +3 Initiative bonus against Ranged units<br>&#8226; " +
-                "May perform Maneuver<br>&#8226; " +
-                "May perform Charge with +1 Strength bonus') ");
-        db.execSQL("INSERT INTO Melee VALUES('Vrihedd Vanguard', 'Medium Cavalry', '2', 4, 0, 10, '3 armies', '<br>&#8226; 1 Armour<br>&#8226; " +
-                "May perform Charge with +1 Strength bonus') ");
-        db.execSQL("INSERT INTO Melee VALUES('Dol Blathanna Defender', 'Medium Polearm Infantry/ Shieldunit', '1', 2, 0, 6, '3 armies', '<br>&#8226; Agility<br>&#8226; " +
-                "May perform Shield Ally, for 1 allied unit<br>&#8226; " +
-                "+1 Strength bonus against Cavalry<br>&#8226; " +
-                "+2 Armour against Ranged attacks<br>&#8226; " +
-                "Negates any Ranged anti-armour bonus damage (like from enemy Crossbowmen)') ");
-        db.execSQL("INSERT INTO Melee VALUES('Elven Wardancer', 'Light Infantry', '2', 2, 0, 7, '5 armies', '<br>&#8226; Agility<br>&#8226; " +
-                "May perform Dancing Whirlwind, gaining 6 Strength (3 Dice x 2 Strength)') ");
-        db.execSQL("INSERT INTO Melee VALUES('Elven Deadeye', 'Special Forces', '4', 3, 2, 25, '1 army', '<br>&#8226; May perform Ambush<br>&#8226; " +
-                "Cannot be Focus-Fired or Ambushed<br>&#8226; " +
-                "+2 Strength against Humans<br>&#8226; " +
-                "+2 Strength when fighting in Forests<br>&#8226; " +
-                "May waste an action to Mark a unit or division. On subsequent turns, when the Deadeye attack their Marked target, they will attack twice. (stacks with Iorveth’s ability or any kind of bonus). Only one group of units can be Marked at a time. The Deadeye can spend an action or its whole movement to move their mark to another unit or group.') ");
-        // fill the gap
+		db.execSQL("INSERT INTO Melee VALUES('Vrihedd Dragoon', 'Light Cavalry', '1', 4, 0, 8, '3 armies', '<br>&#8226; +3 Initiative bonus against Ranged units<br>&#8226; " +
+				"May perform Maneuver<br>&#8226; " +
+				"May perform Charge with +1 Strength bonus') ");
+		db.execSQL("INSERT INTO Melee VALUES('Vrihedd Vanguard', 'Medium Cavalry', '2', 4, 0, 10, '3 armies', '<br>&#8226; 1 Armour<br>&#8226; " +
+				"May perform Charge with +1 Strength bonus') ");
+		db.execSQL("INSERT INTO Melee VALUES('Dol Blathanna Defender', 'Medium Polearm Infantry/ Shieldunit', '1', 2, 0, 6, '3 armies', '<br>&#8226; Agility<br>&#8226; " +
+				"May perform Shield Ally, for 1 allied unit<br>&#8226; " +
+				"+1 Strength bonus against Cavalry<br>&#8226; " +
+				"+2 Armour against Ranged attacks<br>&#8226; " +
+				"Negates any Ranged anti-armour bonus damage (like from enemy Crossbowmen)') ");
+		db.execSQL("INSERT INTO Melee VALUES('Elven Wardancer', 'Light Infantry', '2', 2, 0, 7, '5 armies', '<br>&#8226; Agility<br>&#8226; " +
+				"May perform Dancing Whirlwind, gaining 6 Strength (3 Dice x 2 Strength)') ");
+		db.execSQL("INSERT INTO Melee VALUES('Elven Deadeye', 'Special Forces', '4', 3, 2, 25, '1 army', '<br>&#8226; May perform Ambush<br>&#8226; " +
+				"Cannot be Focus-Fired or Ambushed<br>&#8226; " +
+				"+2 Strength against Humans<br>&#8226; " +
+				"+2 Strength when fighting in Forests<br>&#8226; " +
+				"May waste an action to Mark a unit or division. On subsequent turns, when the Deadeye attack their Marked target, they will attack twice. (stacks with Iorveth’s ability or any kind of bonus). Only one group of units can be Marked at a time. The Deadeye can spend an action or its whole movement to move their mark to another unit or group.') ");
+		// fill the gap
 		db.execSQL("INSERT INTO Melee VALUES('Mahakam Defender', 'Heavily Armoured Spearunit', '2', 2, 0, 11, '1-2 armies', '<br>&#8226; 3 Armour<br>&#8226; " +
 				"+1 Strength bonus against Cavalry') ");
 		db.execSQL("INSERT INTO Melee VALUES('Mahakam Axeman', 'Medium Armoured Infantry', '2', 2, 0, 8, '1-2 armies', '<br>&#8226; 1 armour<br>&#8226; " +
@@ -599,7 +597,6 @@ class DBHelper extends SQLiteOpenHelper {
 				"+3 Strength in Desert biome, unaffected by Tundra biome penalties') ");
 
 
-
 		//Create Ranged table
 		db.execSQL("CREATE TABLE Ranged " +
 				"( unitn TEXT PRIMARY KEY, specialization TEXT, strength TEXT, speed INTEGER, initiative INTEGER, range INTEGER, cost INTEGER, armylimit TEXT, abilities TEXT, FOREIGN KEY(unitn) REFERENCES Unit(unitn))");
@@ -657,12 +654,12 @@ class DBHelper extends SQLiteOpenHelper {
 				"Can either attack units, or fortifications with 12 Strength (4 Dice x 3 Strength)<br>&#8226; " +
 				"Can attack enemy siege or ships (in naval battles) with 15 Strength (5 Dice x 3 Strength)') ");
 		db.execSQL("INSERT INTO Ranged VALUES('Malleorean Longbowman', 'Archer', '1', 2, 2, 4, 5, '3 armies', 'None') ");
-        db.execSQL("INSERT INTO Ranged VALUES('Vrihedd Brigade', 'Light Cavalry Archer', '2', 4, 1, 2, 14, '3 armies', '<br>&#8226; May perform Hit and Run<br>&#8226; " +
-                "May perform Maneuver<br>&#8226; " +
-                "On each successful attack, this unit gets a free attack, but this time with default Strength and no added boni') ");
-        db.execSQL("INSERT INTO Ranged VALUES('Dol Blathanna Archer', 'Archer', '2', 2, 2, 4, 7, '3 armies', '<br>&#8226; +1 Strength bonus when fighting in the default Dol Blathanna and Brokilon territories') ");
-        db.execSQL("INSERT INTO Ranged VALUES('Elven Marksman', 'Archer', '2', 2, 2, 4, 9, '5 armies', '<br>&#8226; May perform Precise Shot against Heavily Armoured Units, with -0.5 Strength penalty. This attack negates their armour') ");
-        // fill the gap
+		db.execSQL("INSERT INTO Ranged VALUES('Vrihedd Brigade', 'Light Cavalry Archer', '2', 4, 1, 2, 14, '3 armies', '<br>&#8226; May perform Hit and Run<br>&#8226; " +
+				"May perform Maneuver<br>&#8226; " +
+				"On each successful attack, this unit gets a free attack, but this time with default Strength and no added boni') ");
+		db.execSQL("INSERT INTO Ranged VALUES('Dol Blathanna Archer', 'Archer', '2', 2, 2, 4, 7, '3 armies', '<br>&#8226; +1 Strength bonus when fighting in the default Dol Blathanna and Brokilon territories') ");
+		db.execSQL("INSERT INTO Ranged VALUES('Elven Marksman', 'Archer', '2', 2, 2, 4, 9, '5 armies', '<br>&#8226; May perform Precise Shot against Heavily Armoured Units, with -0.5 Strength penalty. This attack negates their armour') ");
+		// fill the gap
 		db.execSQL("INSERT INTO Ranged VALUES('Mahakam Skirmisher', 'Light Spearunit/Ranged', '1.5', 2, 0, 2, 7, '1-2 armies', '<br>&#8226; +0.5 Strength against Cavalry<br>&#8226; " +
 				"+1.5 Strength and +1 Initiative against Crossbowmen') ");
 		db.execSQL("INSERT INTO Ranged VALUES('Mahakam Arbalist', 'Crossbowman', '3 (3 Dice x 1 Strength)', 2, 1, 2, 10, '1-2 armies', '<br>&#8226; Deals double damage on Armoured Units<br>&#8226; " +
@@ -694,7 +691,6 @@ class DBHelper extends SQLiteOpenHelper {
 				"Receives half-damage from enemy Ranged attacks.<br>&#8226; " +
 				"When left with less than 10 Hit Points, the elephant may go berserk. Roll a D8 each turn (until the Elephant dies). If it rolls 5-8, the unit goes berserk, attacking anything close by, with double Strength (2D8+8).On the next turn, and each , the Rider may attempt to kill the elephant , rolling his usual D6 to attack it. If the damage is enough to kill it, the unit dies.<br>&#8226; " +
 				"When out of combat, the War Elephant may pull an allied siege unit along, increasing its movement by 1.') ");
-
 
 
 		//Create Mage table
@@ -776,11 +772,11 @@ class DBHelper extends SQLiteOpenHelper {
 				"After the battle is over, the player controlling the battle site can resurrect (D6-1) bronze units for each priest.<br>&#8226; " +
 				"Instead of healing, the Priest can waste 2 turns to light a Sacred Flame. On the start of the 3rd turn, on 5 Initiative, each Sacred Flame deals D4 Fire damage to selected groups of units, enemy or allied, cancels any Magical effects these units have, and prevents any new Magical effects of affecting them for the remainder of the turn.<br>&#8226; " +
 				"Each Priest can light only one Flame per battle, and it keeps burning for the remainder of the fight, as long as the Priest is alive. Additionally, the Flames can burn out by the use of Dispelling spells, extreme weather conditions or by Fire Absorbing abilities.')");
-        db.execSQL("INSERT INTO Support VALUES('Vrihedd Sapper', 'Siege Support', 2, 4, 40, '2 armies', '<br>&#8226; When fighting in enemy Fortified territory, the Sapper can undermine their defenses, dealing 1 damage to fortifications, and +1 damage for every subsequent undermining, up to a maximum of 5.<br>&#8226; " +
-                "When fighting in allied Fortified territory, the Sapper can repair damaged fortifications, repairing D4 damage each turn.<br>&#8226; " +
-                "When fighting in Open territories, the Sapper can attempt to build temporary defensive structures and trenches in any combat row. For each Sapper, roll a D6. For each 1-3, the sapper builds one level of their intended structure. In extreme weather conditions, each 6 will instead reduce the level of the structure by 1.<br>&#8226; " +
-                "The Defensive Structure can house up to 12 non-mounted units per level, halving the damage they receive from ranged attacks and AOE spells, while enemy melee units have to waste an extra movement to attack them. It also has 3 hit points per level, and it can only be damaged by anti-building attacks. Siege attacks (like balista’s) will hit normally. Fire damage might set it on fire (roll D6 per Fire attack, 6 lights it up) and will deal 2 damage to the building, while also dealing D4 Fire damage to the units inside.\n" +
-                "The Trench can be dug in a row, reducing the Speed of 12 (per level) enemy units that try to march through this row by 1. Enemy units that end their turn in the Trench will receive +50% damage from allied Ranged and Siege attacks.')");
+		db.execSQL("INSERT INTO Support VALUES('Vrihedd Sapper', 'Siege Support', 2, 4, 40, '2 armies', '<br>&#8226; When fighting in enemy Fortified territory, the Sapper can undermine their defenses, dealing 1 damage to fortifications, and +1 damage for every subsequent undermining, up to a maximum of 5.<br>&#8226; " +
+				"When fighting in allied Fortified territory, the Sapper can repair damaged fortifications, repairing D4 damage each turn.<br>&#8226; " +
+				"When fighting in Open territories, the Sapper can attempt to build temporary defensive structures and trenches in any combat row. For each Sapper, roll a D6. For each 1-3, the sapper builds one level of their intended structure. In extreme weather conditions, each 6 will instead reduce the level of the structure by 1.<br>&#8226; " +
+				"The Defensive Structure can house up to 12 non-mounted units per level, halving the damage they receive from ranged attacks and AOE spells, while enemy melee units have to waste an extra movement to attack them. It also has 3 hit points per level, and it can only be damaged by anti-building attacks. Siege attacks (like balista’s) will hit normally. Fire damage might set it on fire (roll D6 per Fire attack, 6 lights it up) and will deal 2 damage to the building, while also dealing D4 Fire damage to the units inside.\n" +
+				"The Trench can be dug in a row, reducing the Speed of 12 (per level) enemy units that try to march through this row by 1. Enemy units that end their turn in the Trench will receive +50% damage from allied Ranged and Siege attacks.')");
 		// fill the gap
 		db.execSQL("INSERT INTO Support VALUES('Mahakam Shield-Bearer', 'Shieldman', 2, 3, 18, '1-2 armies', '<br>&#8226; 6 Armour<br>&#8226; " +
 				"Negates any Ranged anti-armour bonus damage (like from enemy Crossbowmen)<br>&#8226; " +
