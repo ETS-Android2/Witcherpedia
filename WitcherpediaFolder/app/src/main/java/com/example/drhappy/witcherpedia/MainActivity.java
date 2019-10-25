@@ -14,60 +14,58 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
-import java.sql.SQLOutput;
-
 public class MainActivity extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener {
+		implements NavigationView.OnNavigationItemSelectedListener {
 
-    private FragmentManager manager;
+	private FragmentManager manager;
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main_menu);
-        Toolbar toolbar = findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.activity_main_menu);
+		Toolbar toolbar = findViewById(R.id.toolbar);
+		setSupportActionBar(toolbar);
 
-        FloatingActionButton fab = findViewById(R.id.fab);
-        fab.setOnClickListener(view -> {
-            //Intent intent = new Intent(MainActivity.this, DescriptionActivity.class);
+		FloatingActionButton fab = findViewById(R.id.fab);
+		fab.setOnClickListener(view -> {
+			//Intent intent = new Intent(MainActivity.this, DescriptionActivity.class);
                 /*EditText editText = (EditText) findViewById(R.id.editText);
                   String message = editText.getText().toString();
                   intent.putExtra(EXTRA_MESSAGE, message);*/
-            //startActivity(intent);
+			//startActivity(intent);
 
-            ListFragment listFragment = ListFragment.newInstance("Factions");
+			ListFragment listFragment = ListFragment.newInstance("Factions");
 
-            FragmentTransaction ft = manager.beginTransaction();
-            ft.setCustomAnimations(android.R.anim.fade_in, android.R.anim.fade_out);
+			FragmentTransaction ft = manager.beginTransaction();
+			ft.setCustomAnimations(android.R.anim.fade_in, android.R.anim.fade_out);
 
-            ft.replace(R.id.frame_container, listFragment, "ListFragment");
-            ft.commit();
+			ft.replace(R.id.frame_container, listFragment, "ListFragment");
+			ft.commit();
 
-            //Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-            //        .setAction("Action", null).show();
-        });
+			//Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+			//        .setAction("Action", null).show();
+		});
 
-        DrawerLayout drawer = findViewById(R.id.drawer_layout);
-        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
-                this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
-        drawer.addDrawerListener(toggle);
-        toggle.syncState();
+		DrawerLayout drawer = findViewById(R.id.drawer_layout);
+		ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
+				this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
+		drawer.addDrawerListener(toggle);
+		toggle.syncState();
 
-        NavigationView navigationView = findViewById(R.id.nav_view);
-        navigationView.setNavigationItemSelectedListener(this);
+		NavigationView navigationView = findViewById(R.id.nav_view);
+		navigationView.setNavigationItemSelectedListener(this);
 
-        manager = getSupportFragmentManager();
+		manager = getSupportFragmentManager();
 
-        if (savedInstanceState == null) {
-            FragmentTransaction ft = manager.beginTransaction();
-            //ft.setCustomAnimations(android.R.anim.fade_in, android.R.anim.fade_out);
-            System.out.println("null on create");
-            ft.replace(R.id.frame_container, HomeFragment.newInstance());
-            ft.commit();
-        }
+		if (savedInstanceState == null) {
+			FragmentTransaction ft = manager.beginTransaction();
+			//ft.setCustomAnimations(android.R.anim.fade_in, android.R.anim.fade_out);
+			System.out.println("null on create");
+			ft.replace(R.id.frame_container, HomeFragment.newInstance());
+			ft.commit();
+		}
 
-        System.out.println("On create: " + ((Witcherpedia)getApplicationContext()).getCurrent_view());
+		System.out.println("On create: " + ((Witcherpedia) getApplicationContext()).getCurrent_view());
         /*
         String current_view = ((Witcherpedia)getApplicationContext()).getCurrent_view();
 
@@ -94,7 +92,7 @@ public class MainActivity extends AppCompatActivity
 
             setTitle(current_view);
         }*/
-    }
+	}
 
     /*@Override
     protected void onSaveInstanceState(Bundle outState) {
@@ -110,60 +108,60 @@ public class MainActivity extends AppCompatActivity
         System.out.println("On restore instance state: " + ((Witcherpedia)getApplicationContext()).getCurrent_view());
     }*/
 
-    @Override
-    public void onBackPressed() {
-        DrawerLayout drawer = findViewById(R.id.drawer_layout);
-        if (drawer.isDrawerOpen(GravityCompat.START)) {
-            drawer.closeDrawer(GravityCompat.START);
-        } else {
-            //super.onBackPressed();
+	@Override
+	public void onBackPressed() {
+		DrawerLayout drawer = findViewById(R.id.drawer_layout);
+		if (drawer.isDrawerOpen(GravityCompat.START)) {
+			drawer.closeDrawer(GravityCompat.START);
+		} else {
+			//super.onBackPressed();
 
-            String current_view = ((Witcherpedia)getApplicationContext()).getCurrent_view();
+			String current_view = ((Witcherpedia) getApplicationContext()).getCurrent_view();
 
-            if (current_view.equals("Witcherpedia")) {
-                drawer.openDrawer(GravityCompat.START);
+			if (current_view.equals("Witcherpedia")) {
+				drawer.openDrawer(GravityCompat.START);
 
-            } else if (current_view.equals("Factions")) {
-                //setAdapter("Witcherpedia");
-                FragmentTransaction ft = manager.beginTransaction();
-                ft.setCustomAnimations(android.R.anim.fade_in, android.R.anim.fade_out);
+			} else if (current_view.equals("Factions")) {
+				//setAdapter("Witcherpedia");
+				FragmentTransaction ft = manager.beginTransaction();
+				ft.setCustomAnimations(android.R.anim.fade_in, android.R.anim.fade_out);
 
-                ft.replace(R.id.frame_container, HomeFragment.newInstance());
-                ft.commit();
+				ft.replace(R.id.frame_container, HomeFragment.newInstance());
+				ft.commit();
 
 
-                NavigationView navigationView = findViewById(R.id.nav_view);
-                navigationView.getMenu().findItem(R.id.pedia).setChecked(false);
+				NavigationView navigationView = findViewById(R.id.nav_view);
+				navigationView.getMenu().findItem(R.id.pedia).setChecked(false);
 
-            } else if (current_view.equals("Contents")) {
-                //setAdapter("Factions");
-                ListFragment listFragment = (ListFragment)manager.findFragmentByTag("ListFragment");
-                if (listFragment != null && listFragment.isVisible()) {
-                    listFragment.setListAdapter("Factions");
+			} else if (current_view.equals("Contents")) {
+				//setAdapter("Factions");
+				ListFragment listFragment = (ListFragment) manager.findFragmentByTag("ListFragment");
+				if (listFragment != null && listFragment.isVisible()) {
+					listFragment.setListAdapter("Factions");
 
-                    CustomArrayAdapter adapter = (CustomArrayAdapter) listFragment.getListView().getAdapter();
-                    listFragment.getListView().setSelection(adapter.labels.indexOf(((Witcherpedia)getApplicationContext()).getFaction_selected()) - 2);
-                }
+					CustomArrayAdapter adapter = (CustomArrayAdapter) listFragment.getListView().getAdapter();
+					listFragment.getListView().setSelection(adapter.labels.indexOf(((Witcherpedia) getApplicationContext()).getFaction_selected()) - 2);
+				}
 
-                ((Witcherpedia)getApplicationContext()).setFaction_selected("");
+				((Witcherpedia) getApplicationContext()).setFaction_selected("");
 
-            } else if (current_view.equals("Units") || current_view.equals("Territories") || current_view.equals("Overview")) {
-                if (current_view.equals("Overview")) {
-                    ListFragment listFragment = ListFragment.newInstance("Contents");
+			} else if (current_view.equals("Units") || current_view.equals("Territories") || current_view.equals("Overview")) {
+				if (current_view.equals("Overview")) {
+					ListFragment listFragment = ListFragment.newInstance("Contents");
 
-                    FragmentTransaction ft = manager.beginTransaction();
-                    ft.setCustomAnimations(android.R.anim.fade_in, android.R.anim.fade_out);
+					FragmentTransaction ft = manager.beginTransaction();
+					ft.setCustomAnimations(android.R.anim.fade_in, android.R.anim.fade_out);
 
-                    ft.replace(R.id.frame_container, listFragment, "ListFragment");
-                    ft.commit();
-                } else {
-                    ListFragment listFragment = (ListFragment)manager.findFragmentByTag("ListFragment");
-                    if (listFragment != null && listFragment.isVisible()) {
-                        listFragment.setListAdapter("Contents");
-                    }
-                }
+					ft.replace(R.id.frame_container, listFragment, "ListFragment");
+					ft.commit();
+				} else {
+					ListFragment listFragment = (ListFragment) manager.findFragmentByTag("ListFragment");
+					if (listFragment != null && listFragment.isVisible()) {
+						listFragment.setListAdapter("Contents");
+					}
+				}
 
-            }
+			}
             /*else if (current_view.contains("Description")) {
                 ListFragment listFragment = null;
                 if (current_view.contains("Unit")) {
@@ -184,69 +182,69 @@ public class MainActivity extends AppCompatActivity
                 listFragment.getListView().setSelection(adapter.labels.indexOf(((Witcherpedia)getApplicationContext()).getDesc_selected()) - 2);
             }*/
 
-            //setTitle(((Witcherpedia)getApplicationContext()).getCurrent_view());
-        }
-    }
+			//setTitle(((Witcherpedia)getApplicationContext()).getCurrent_view());
+		}
+	}
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.main_menu, menu);
-        return true;
-    }
+	@Override
+	public boolean onCreateOptionsMenu(Menu menu) {
+		// Inflate the menu; this adds items to the action bar if it is present.
+		getMenuInflater().inflate(R.menu.main_menu, menu);
+		return true;
+	}
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
+	@Override
+	public boolean onOptionsItemSelected(MenuItem item) {
+		// Handle action bar item clicks here. The action bar will
+		// automatically handle clicks on the Home/Up button, so long
+		// as you specify a parent activity in AndroidManifest.xml.
+		int id = item.getItemId();
 
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        }
+		//noinspection SimplifiableIfStatement
+		if (id == R.id.action_settings) {
+			return true;
+		}
 
-        return super.onOptionsItemSelected(item);
-    }
+		return super.onOptionsItemSelected(item);
+	}
 
-    @Override
-    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-        // Handle navigation view item clicks here.
-        item.setChecked(true);
-        int id = item.getItemId();
+	@Override
+	public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+		// Handle navigation view item clicks here.
+		item.setChecked(true);
+		int id = item.getItemId();
 
-        switch (id) {
-            case R.id.pedia:
-                ListFragment listFragment = ListFragment.newInstance("Factions");
+		switch (id) {
+			case R.id.pedia:
+				ListFragment listFragment = ListFragment.newInstance("Factions");
 
-                FragmentTransaction ft = manager.beginTransaction();
-                ft.setCustomAnimations(android.R.anim.fade_in, android.R.anim.fade_out);
+				FragmentTransaction ft = manager.beginTransaction();
+				ft.setCustomAnimations(android.R.anim.fade_in, android.R.anim.fade_out);
 
-                ft.replace(R.id.frame_container, listFragment, "ListFragment");
-                ft.commit();
+				ft.replace(R.id.frame_container, listFragment, "ListFragment");
+				ft.commit();
 
-                break;
-            case R.id.nav_gallery:
+				break;
+			case R.id.nav_gallery:
 
-                break;
-            case R.id.nav_manage:
+				break;
+			case R.id.nav_manage:
 
-                break;
-            case R.id.nav_share:
+				break;
+			case R.id.nav_share:
 
-                break;
-            case R.id.nav_send:
+				break;
+			case R.id.nav_send:
 
-                break;
-        }
+				break;
+		}
 
-        //setTitle(((Witcherpedia)getApplicationContext()).getCurrent_view());
+		//setTitle(((Witcherpedia)getApplicationContext()).getCurrent_view());
 
-        DrawerLayout drawer = findViewById(R.id.drawer_layout);
-        drawer.closeDrawer(GravityCompat.START);
+		DrawerLayout drawer = findViewById(R.id.drawer_layout);
+		drawer.closeDrawer(GravityCompat.START);
 
-        return true;
-    }
+		return true;
+	}
 
 }
