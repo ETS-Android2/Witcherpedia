@@ -26,12 +26,12 @@ import java.util.Objects;
  * create an instance of this fragment.
  */
 public class ListFragment extends Fragment {
-	// TODO: Rename parameter arguments, choose names that match
+	// Rename parameter arguments, choose names that match
 	// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
 	static final String ARG_LIST_ADAPTER_TYPE = "adapter_type";
 
 
-	// TODO: Rename and change types of parameters
+	// parameters
 	private String adapter_type;
 
 	private DBHelper witcherDB;
@@ -52,7 +52,7 @@ public class ListFragment extends Fragment {
 	 * @param type Parameter 1.
 	 * @return A new instance of fragment ListFragment.
 	 */
-	// TODO: Rename and change types and number of parameters
+	// Rename and change types and number of parameters
 	public static ListFragment newInstance(String type) {
 		ListFragment fragment = new ListFragment();
 
