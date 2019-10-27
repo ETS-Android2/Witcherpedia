@@ -323,7 +323,7 @@ class DBHelper extends SQLiteOpenHelper {
 		db.execSQL("INSERT INTO Unit VALUES('Mahakam Pyrotechnician', 'Mahakam', 'Support', 'Silver', 'Mahakam', 8, 'mahakam_pyrotechnician') ");
 
 		db.execSQL("INSERT INTO Unit VALUES('Bruggian Lancer', 'Brugge', 'Melee', 'Bronze', 'Bruggian', 1, 'bruggian_lancer') ");
-		db.execSQL("INSERT INTO Unit VALUES('Bruggian Axeman', 'Brugge', 'Melee', 'Bronze', 'Bruggian', 2, 'bruggian_axeman') ");
+		db.execSQL("INSERT INTO Unit VALUES('Bruggian Gladiator', 'Brugge', 'Melee', 'Bronze', 'Bruggian', 2, 'bruggian_axeman') ");
 		db.execSQL("INSERT INTO Unit VALUES('Bruggian Crossbowman', 'Brugge', 'Ranged', 'Bronze', 'Bruggian', 3, 'bruggian_crossbowman') ");
 		db.execSQL("INSERT INTO Unit VALUES('Bruggian Slinger', 'Brugge', 'Ranged', 'Bronze', 'Bruggian', 4, 'bruggian_slinger') ");
 
@@ -348,6 +348,12 @@ class DBHelper extends SQLiteOpenHelper {
 		db.execSQL("INSERT INTO Unit VALUES('Verdenian Guerilla Bomber', 'Verden', 'Melee', 'Bronze', 'Verdenian', 7, 'verdenian_guerilla_bomber') ");
 		db.execSQL("INSERT INTO Unit VALUES('Verdenian Guerilla Trapper', 'Verden', 'Melee', 'Bronze', 'Verdenian', 8, 'verdenian_guerilla_trapper') ");
 
+		db.execSQL("INSERT INTO Unit VALUES('Angrenian Horseman', 'Angren', 'Melee', 'Bronze', 'Angrenian', 1, 'angrenian_horseman') ");
+		db.execSQL("INSERT INTO Unit VALUES('Angrenian Protector', 'Angren', 'Melee', 'Bronze', 'Angrenian', 2, 'angrenian_protector') ");
+		db.execSQL("INSERT INTO Unit VALUES('Angrenian Claimhdean', 'Angren', 'Melee', 'Bronze', 'Angrenian', 3, 'angrenian_claimhdean') ");
+		db.execSQL("INSERT INTO Unit VALUES('Angrenian Bowman', 'Angren', 'Ranged', 'Bronze', 'Angrenian', 4, 'angrenian_bowman') ");
+		db.execSQL("INSERT INTO Unit VALUES('Druid of the Black Grove', 'Angren', 'Mage', 'Silver', 'Angrenian', 5, 'druid_of_the_black_grove') ");
+
 		// missing a lot
 
 		db.execSQL("INSERT INTO Unit VALUES('Zerrikanian Swordsman', 'Zerrikania', 'Melee', 'Bronze', 'Zerrikanian', 1, 'zerrikanian_swordsman') ");
@@ -366,7 +372,7 @@ class DBHelper extends SQLiteOpenHelper {
 		db.execSQL("CREATE TABLE Melee " +
 				"( unitn TEXT PRIMARY KEY, specialization TEXT, strength TEXT, speed INTEGER, initiative INTEGER, cost INTEGER, armylimit TEXT, abilities TEXT, FOREIGN KEY(unitn) REFERENCES Unit(unitn))");
 
-		//Insert Melee entries
+		// region Insert Melee entries
 		db.execSQL("INSERT INTO Melee VALUES('Aedirnian Cavalier', 'Heavy Cavalry', '2.5 (2, plus 1 for every 2 units)', 3, 0, 10, '4 armies', '<br>&#8226; 1 Armour<br>&#8226; " +
 				"May perform Charge with +1 Strength bonus') ");
 		db.execSQL("INSERT INTO Melee VALUES('Lyrian Huszár', 'Light Cavalry', '1', 4, 0, 6, '6 armies', '<br>&#8226; +3 Initiative against Ranged units<br>&#8226; " +
@@ -536,7 +542,7 @@ class DBHelper extends SQLiteOpenHelper {
 				"Negates the Armour of Heavy Infantry/Spearunits') ");
 		db.execSQL("INSERT INTO Melee VALUES('Bruggian Lancer', 'Medium Cavalry/Lancer', '1', 3, 0, 6, '2 armies', '<br>&#8226; +1 Strength against Cavalry<br>&#8226; " +
 				"May perform Charge with +1 Strength bonus') ");
-		db.execSQL("INSERT INTO Melee VALUES('Bruggian Axeman', 'Heavy Infantry', '3', 2, 0, 11, '2 armies', '<br>&#8226; 2 Armour') ");
+		db.execSQL("INSERT INTO Melee VALUES('Bruggian Gladiator', 'Heavy Infantry', '3', 2, 0, 11, '2 armies', '<br>&#8226; 2 Armour') ");
 		// missing sodden
 		db.execSQL("INSERT INTO Melee VALUES('Cidarian Companion', 'Light Cavalry/Lancer', '1', 4, 0, 8, '2 armies', '<br>&#8226; +1 Strength against Light Cavalry<br>&#8226; " +
 				"+0.5 Strength against other types of Cavalry<br>&#8226; " +
@@ -578,6 +584,12 @@ class DBHelper extends SQLiteOpenHelper {
 				"May waste an action and 3 Speed to place a trap on his current Row. Each group of Trappers can only trap one row. If the Trappers want to place another trap in another turn, they will need to disarm the trap, which costs an action and 1 Speed. The trap can harm (D8+2) units, dealing 1 damage, and if they are Heavy units, or Charging Cavalry of any kind, they are damaged before attacking.<br>&#8226; " +
 				"If enemy melee units attack allied units on that Row the trap was placed, they are damaged by the trap. If enemy Medium or Heavy Infantry/Cavalry try to cross the Trapper’s Row where a trap was placed, they are damaged as well. Note that there’s a limited amount of units that can be harmed each turn (basically, it’s n*[D8+2], where n = the number of Trappers that place a trap)<br>&#8226; " +
 				"When performing an Ambush, on the first combat round, the Trappers can freely place a trap in any row and then move to a completely different row, as if they have unlimited movement. This however consumes the Dual-Action bonus of the Ambush.') ");
+		db.execSQL("INSERT INTO Melee VALUES('Angrenian Horseman', 'Heavy Cavalry', '2.5 (2 plus 1 for every 2 units)', 3, 0, 11, '2 armies', '<br>&#8226; 1 Armour<br>&#8226; " +
+				"May perform Charge with +1 Strength bonus') ");
+		db.execSQL("INSERT INTO Melee VALUES('Angrenian Protector', 'Heavy Polearm Infantry', '1', 2, 0, 8, '2 armies', '<br>&#8226; 2 Armour<br>&#8226; " +
+				"+1 Strength against Cavalry') ");
+		db.execSQL("INSERT INTO Melee VALUES('Angrenian Claimhdean', 'Medium Infantry', '2', 2, 0, 6, '2 armies', '<br>&#8226; +1 Strength against Polearm Infantry<br>&#8226; " +
+				"When moving or fighting in the default Angren territories, gains +1 Speed and +1 Strength boni.') ");
 		// missing a lot
 		db.execSQL("INSERT INTO Melee VALUES('Zerrikanian Swordsman', 'Light Infantry', '1', 2, 0, 4, '4 armies', '<br>&#8226; +1 Strength bonus against Light Infantry<br>&#8226; " +
 				"+1 Strength bonus in Desert biome') ");
@@ -595,13 +607,13 @@ class DBHelper extends SQLiteOpenHelper {
 				"+2 Strength bonus against Infantry<br>&#8226; " +
 				"Negates enemy anti-cavalry and anti-armour Strength boni (enemy units that Double their damage, like Crossbowmen, will still do, just without receiving the bonus strength, while units that completely Ignore Armour, like Siege, will instead deal double damage, like Crossbowmen).<br>&#8226; " +
 				"+3 Strength in Desert biome, unaffected by Tundra biome penalties') ");
-
+		// endregion
 
 		//Create Ranged table
 		db.execSQL("CREATE TABLE Ranged " +
 				"( unitn TEXT PRIMARY KEY, specialization TEXT, strength TEXT, speed INTEGER, initiative INTEGER, range INTEGER, cost INTEGER, armylimit TEXT, abilities TEXT, FOREIGN KEY(unitn) REFERENCES Unit(unitn))");
 
-		//Insert Ranged entries
+		// region Insert Ranged entries
 		db.execSQL("INSERT INTO Ranged VALUES('Aedirnian Longbowman', 'Archer', '1', 2, 2, 4, 7, '4 armies', '<br>&#8226; Can only attack using an active ability<br>&#8226; " +
 				"Can perform Double-Shot, with default Strength<br>&#8226; " +
 				"Can perform Precise-Shot, with +0.5 Strength<br>&#8226; " +
@@ -672,6 +684,7 @@ class DBHelper extends SQLiteOpenHelper {
 		db.execSQL("INSERT INTO Ranged VALUES('Cidarian Toxotai', 'Archer', '1', 2, 2, 4, 6, '2 armies', '<br>&#8226; +1 Strength against units at 2 tiles or less') ");
 		db.execSQL("INSERT INTO Ranged VALUES('Kerackian Archer', 'Light Archer', '1', 2, 2, 4, 5, '2 armies', 'None') ");
 		db.execSQL("INSERT INTO Ranged VALUES('Verdenian Longbowman', 'Light Archer', '1', 2, 2, 4, 5, '2 armies', 'None') ");
+		db.execSQL("INSERT INTO Ranged VALUES('Angrenian Bowman', 'Light Archer', '1', 2, 2, 4, 5, '2 armies', 'None') ");
 		// missing a lot
 		db.execSQL("INSERT INTO Ranged VALUES('Zerrikanian Archer', 'Archer', '0.5', 2, 2, 4, 6, '4 armies', '<br>&#8226; +1.5 Strength when Defending a Zerrikanian Town/Fort/etc<br>&#8226; " +
 				"+1 Initiative in Desert biome') ");
@@ -691,13 +704,13 @@ class DBHelper extends SQLiteOpenHelper {
 				"Receives half-damage from enemy Ranged attacks.<br>&#8226; " +
 				"When left with less than 10 Hit Points, the elephant may go berserk. Roll a D8 each turn (until the Elephant dies). If it rolls 5-8, the unit goes berserk, attacking anything close by, with double Strength (2D8+8).On the next turn, and each , the Rider may attempt to kill the elephant , rolling his usual D6 to attack it. If the damage is enough to kill it, the unit dies.<br>&#8226; " +
 				"When out of combat, the War Elephant may pull an allied siege unit along, increasing its movement by 1.') ");
-
+		// endregion
 
 		//Create Mage table
 		db.execSQL("CREATE TABLE Mage " +
 				"( unitn TEXT PRIMARY KEY, specialization TEXT, strength TEXT, essence INTEGER, speed INTEGER, initiative INTEGER, range INTEGER, cost INTEGER, armylimit TEXT, abilities TEXT, FOREIGN KEY(unitn) REFERENCES Unit(unitn))");
 
-		//Insert Mage entries
+		// region Insert Mage entries
 		db.execSQL("INSERT INTO Mage VALUES('Mage', 'Mage', '5', 15, 2, 2, 6, 40, '2 armies', '<br>&#8226; Restores 3 Essence each turn up to a maximum of 45 Essence<br>&#8226; " +
 				"Teleportation<br>&#8226; " +
 				"Generic Mage Spellbook')");
@@ -719,17 +732,20 @@ class DBHelper extends SQLiteOpenHelper {
 				"Does not restore Essence each turn<br>&#8226; " +
 				"May waste a Spell Action to restore (8n+8+D8) Essence, where n is the amount of Magisters in the army, minus their leader/commander, up to a maximum of 90 Essence<br>&#8226; " +
 				"Lan Exeter Spellbook')");
+		// missing brokilon
+		db.execSQL("INSERT INTO Mage VALUES('Druid of the Black Grove', 'Druid', '9 (3 Dice x 3 Strength)', 15, 2, 2, 6, 50, '1 army', '<br>&#8226; Restores 3 Essence each turn up to a maximum of 45 Essence<br>&#8226; " +
+				"Caed Dhu spellbook')");
 		// missing a lot
 		db.execSQL("INSERT INTO Mage VALUES('Zerrikanian Fire Warlock', 'Mage', '5', 20, 2, 2, 6, 50, '3 armies', '<br>&#8226; Teleportation<br>&#8226; " +
 				"Restores 10 Essence each turn that doesn’t cast a spell up to a maximum of 90 Essence.<br>&#8226; " +
 				"Zerrikanian Spellbook')");
-
+		// endregion
 
 		//Create Support table
 		db.execSQL("CREATE TABLE Support " +
 				"( unitn TEXT PRIMARY KEY, specialization TEXT, speed INTEGER, initiative INTEGER, cost INTEGER, armylimit TEXT, abilities TEXT, FOREIGN KEY(unitn) REFERENCES Unit(unitn))");
 
-		//Insert Support entries
+		// region Insert Support entries
 		db.execSQL("INSERT INTO Support VALUES('Rivian Warcrier', 'Bard', 2, 2, 15, '2 armies', '<br>&#8226; Gives +0.5 Strength to 10 allied units<br>&#8226; " +
 				"This bonus changes to +1 if the aforementioned units are either attacking or being attacked by units with a bonus against them. -for instance, if a handful of Lyrian Huszárok is attacking enemy Spearmen, it gets +1 bonus, instead of +0.5-')");
 		db.execSQL("INSERT INTO Support VALUES('Field Medic', 'Healer', 2, -2, 40, '1 army', '<br>&#8226; Can resurrect D4 bronze units every turn<br>&#8226; " +
@@ -787,7 +803,7 @@ class DBHelper extends SQLiteOpenHelper {
 		db.execSQL("INSERT INTO Support VALUES('Mahakam Pyrotechnician', 'Dwarven Style Siege', 2, 2, 40, '1 army', '<br>&#8226; Cannot attack on the first round<br>&#8226; " +
 				"Can either attack enemy fortifications, dealing 3 damage to gates per combat round.<br>&#8226; " +
 				"<i>Or</i> can spend two turns moving towards the enemy siege line and attack enemy Siege, with 12 Strength (4 Dice x 3 Strength).')");
-
+		// endregion
 
 		//Create Navy table
 		db.execSQL("CREATE TABLE Navy " +
@@ -858,7 +874,7 @@ class DBHelper extends SQLiteOpenHelper {
 	}
 
 	private void insertTerritories(SQLiteDatabase db) {
-		//Fortified Territories
+		// region Fortified Territories
 		db.execSQL("INSERT INTO Territory VALUES(1, 'Tridam', 'Kovir & Poviss', 'Fortified', 'Poviss', 0, '') ");
 		db.execSQL("INSERT INTO Territory VALUES(2, 'Lan Exeter', 'Kovir & Poviss', 'Fortified', 'Kovir', 0, '') ");
 		db.execSQL("INSERT INTO Territory VALUES(3, 'Pont Vanis', 'Kovir & Poviss', 'Fortified', 'Kovir', 0, '') ");
@@ -996,9 +1012,9 @@ class DBHelper extends SQLiteOpenHelper {
 		db.execSQL("INSERT INTO Territory VALUES(116, 'Castel Graupian', 'Nilfgaardian Empire', 'Fortified', 'Nilfgaard', 0, '') ");
 		db.execSQL("INSERT INTO Territory VALUES(117, 'Winneburg Castle', 'Nilfgaardian Empire', 'Fortified', 'Nilfgaard', 0, '') ");
 		db.execSQL("INSERT INTO Territory VALUES(118, 'Nilfgaard', 'Nilfgaardian Empire', 'Fortified', 'Nilfgaard', 0, '') ");
+		// endregion
 
-
-		//Open Territories
+		// region Open Territories
 		db.execSQL("INSERT INTO Territory VALUES(1, 'Tonia Valley', 'Kovir & Poviss', 'Open', 'Poviss', 0, '') ");
 		db.execSQL("INSERT INTO Territory VALUES(2, 'Velhad', 'Kovir & Poviss', 'Open', 'Poviss', 0, '') ");
 		db.execSQL("INSERT INTO Territory VALUES(3, 'Talgar', 'Kovir & Poviss', 'Open', 'Poviss', 0, '') ");
@@ -1164,13 +1180,13 @@ class DBHelper extends SQLiteOpenHelper {
 		db.execSQL("INSERT INTO Territory VALUES(143, 'Liddertal', 'Nilfgaardian Empire', 'Open', 'Nilfgaard', 0, '') ");
 		db.execSQL("INSERT INTO Territory VALUES(144, 'Golden Fields', 'Nilfgaardian Empire', 'Open', 'Nilfgaard', 0, '') ");
 		db.execSQL("INSERT INTO Territory VALUES(145, 'Wiineburg', 'Nilfgaardian Empire', 'Open', 'Nilfgaard', 0, '') ");
-
+		// endregion
 
 		//Create Fortified table
 		db.execSQL("CREATE TABLE Fortified " +
 				"( territoryn TEXT PRIMARY KEY, status TEXT, defences TEXT, FOREIGN KEY(territoryn) REFERENCES Territory(territoryn))");
 
-		//Insert Fortified entries
+		// region Insert Fortified entries
 		db.execSQL("INSERT INTO Fortified VALUES('Tridam', 'City', '') ");
 		db.execSQL("INSERT INTO Fortified VALUES('Lan Exeter', 'City', '') ");
 		db.execSQL("INSERT INTO Fortified VALUES('Pont Vanis', 'Capital', '') ");
@@ -1308,6 +1324,6 @@ class DBHelper extends SQLiteOpenHelper {
 		db.execSQL("INSERT INTO Fortified VALUES('Castel Graupian', 'Castle', '') ");
 		db.execSQL("INSERT INTO Fortified VALUES('Winneburg Castle', 'Castle', '') ");
 		db.execSQL("INSERT INTO Fortified VALUES('Nilfgaard', 'Capital', '') ");
-
+		// endregion
 	}
 }
