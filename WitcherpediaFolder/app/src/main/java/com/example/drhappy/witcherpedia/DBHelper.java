@@ -625,7 +625,7 @@ class DBHelper extends SQLiteOpenHelper {
 				"Can attack enemy siege with 6 Strength (3 Dice x 2 Strength)') ");
 		db.execSQL("INSERT INTO Ranged VALUES('Ballista', 'Ranged Siege', '12 (4 Dice x 3 Strength)', 1, 3, 6, 35, '2 armies', '<br>&#8226; Can focus-fire units even inside fortifications<br>&#8226; " +
 				"Can attack enemy siege with 5 Strength (5 Dice x 1 Strength)') ");
-		db.execSQL("INSERT INTO Ranged VALUES('Kaedweni Bowman', 'Archer', '1', 2, 2, 4, 5, '6 armies', 'None') ");
+		db.execSQL("INSERT INTO Ranged VALUES('Kaedweni Bowman', 'Archer', '1', 2, 2, 3, 5, '6 armies', 'None') ");
 		db.execSQL("INSERT INTO Ranged VALUES('Trebuchet', 'Ranged Siege', '10 (2 Dice x 5 Strength)', 1, 3, 6, 40, '2 armies', '<br>&#8226; Needs 2 Combat Rounds to set up.<br>&#8226; " +
 				"Can either attack units or fortifications with 6 Strength (1 Die x 6 Strength)<br>&#8226; " +
 				"Can attack enemy siege with 6 Strength (2 Dice x 3 Strength)') ");
@@ -682,11 +682,11 @@ class DBHelper extends SQLiteOpenHelper {
 				"+1 Strength against Medium Infantry and Light Ranged Units') ");
 		// missing sodden
 		db.execSQL("INSERT INTO Ranged VALUES('Cidarian Toxotai', 'Archer', '1', 2, 2, 4, 6, '2 armies', '<br>&#8226; +1 Strength against units at 2 tiles or less') ");
-		db.execSQL("INSERT INTO Ranged VALUES('Kerackian Archer', 'Light Archer', '1', 2, 2, 4, 5, '2 armies', 'None') ");
+		db.execSQL("INSERT INTO Ranged VALUES('Kerackian Archer', 'Light Archer', '1', 2, 2, 3, 5, '2 armies', 'None') ");
 		db.execSQL("INSERT INTO Ranged VALUES('Verdenian Longbowman', 'Light Archer', '1', 2, 2, 4, 5, '2 armies', 'None') ");
-		db.execSQL("INSERT INTO Ranged VALUES('Angrenian Bowman', 'Light Archer', '1', 2, 2, 4, 5, '2 armies', 'None') ");
+		db.execSQL("INSERT INTO Ranged VALUES('Angrenian Bowman', 'Light Archer', '1', 2, 2, 3, 5, '2 armies', 'None') ");
 		// missing a lot
-		db.execSQL("INSERT INTO Ranged VALUES('Zerrikanian Archer', 'Archer', '0.5', 2, 2, 4, 6, '4 armies', '<br>&#8226; +1.5 Strength when Defending a Zerrikanian Town/Fort/etc<br>&#8226; " +
+		db.execSQL("INSERT INTO Ranged VALUES('Zerrikanian Archer', 'Archer', '0.5', 2, 2, 3, 6, '4 armies', '<br>&#8226; +1.5 Strength when Defending a Zerrikanian Town/Fort/etc<br>&#8226; " +
 				"+1 Initiative in Desert biome') ");
 		db.execSQL("INSERT INTO Ranged VALUES('Zerrikanian Crossbowman', 'Crossbowman', '1', 2, 1, 2, 6, '4 armies', '<br>&#8226; +1 Strength against Heavily Armoured units<br>&#8226; " +
 				"Deals double damage on Armoured Units<br>&#8226; " +
