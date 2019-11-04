@@ -305,8 +305,9 @@ Cancels the effects of an ongoing spell or magic ability.
 **Specifics**:  
 Summons a Random Elemental based on a D8 Roll based on the table below:  
 
-| 1 | Water Elemental            | Stats    |
+|D8|||
 |---|----------------------------|----------|
+| 1 | Water Elemental            | Stats    |
 | 2 | Earth Elemental            | Can      |
 | 3 | Fire Elemental             | Be       |
 | 4 | Wind Elemental             | Found    |
