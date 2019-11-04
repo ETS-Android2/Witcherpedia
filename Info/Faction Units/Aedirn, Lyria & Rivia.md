@@ -51,9 +51,8 @@ May perform Charge with +1 Strength bonus
 **Initiative**: 0  
 **Cost**: 6  
 **Limit**: 6 armies  
-**Specials**:
-
-\+3 Initiative against Ranged units  
+**Specials**:  
++3 Initiative against Ranged units  
 May perform Maneuver  
 May perform Charge with +1 Strength bonus
 
@@ -66,8 +65,7 @@ May perform Charge with +1 Strength bonus
 **Initiative**: 0  
 **Cost**: 7  
 **Limit**: 4 armies  
-**Specials**:
-
+**Specials**:  
 1 Armour  
 Negates the armour of any Heavy units.  
 +1 Strength bonus against Armoured monsters -like Ogroids, Conscructs, etc-
@@ -81,8 +79,7 @@ Negates the armour of any Heavy units.
 **Initiative**: 0  
 **Cost**: 3  
 **Limit**: 6 armies  
-**Specials**:
-
+**Specials**:  
 None
 
 ### 4 Name: Rivian Billman
@@ -94,9 +91,8 @@ None
 **Initiative**: 0  
 **Cost**: 4  
 **Limit**: 4 armies  
-**Specials**:
-
-\+1 Strength against cavalry
+**Specials**:  
++1 Strength against cavalry
 
 ### 5 Name: Aedirnian Longbowman
 
@@ -108,8 +104,7 @@ None
 **Range**: 2  
 **Cost**: 7  
 **Limit**: 4 armies  
-**Specials**:
-
+**Specials**:  
 Can only attack using an active ability  
 Can perform Double-Shot, with default Strength  
 Can perform Precise-Shot, with +0.5 Strength  
@@ -125,8 +120,7 @@ Can perform Scatter-Shot, with -1 Initiative
 **Range**: 1  
 **Cost**: 10  
 **Limit**: 4 armies  
-**Specials**:
-
+**Specials**:  
 Negates the armour of Heavily Armoured Units.  
 Can perform Double-Shot, with default Strength
 
@@ -139,8 +133,7 @@ Can perform Double-Shot, with default Strength
 **Initiative**: 2  
 **Cost**: 15  
 **Limit**: 2 armies  
-**Specials**:
-
+**Specials**:  
 Gives +0.5 Strength to 10 allied units.  
 This bonus changes to +1 if the aforementioned units are either attacking or
 being attacked by units with a bonus against them. -for instance, if a handful
@@ -156,8 +149,7 @@ of Lyrian huszárok is attacking enemy Spearmen, it gets +1 bonus, instead of
 **Initiative**: 2  
 **Cost**: 16  
 **Limit**: 2 armies  
-**Specials**:
-
+**Specials**:  
 May perform Ambush  
 Cannot be focus-fired or Ambushed  
 +2 Strength bonus when fighting inside the default Aedirnian, Lyrian and Rivian
@@ -175,8 +167,7 @@ borders
 **Range**: 2  
 **Cost**: 40  
 **Limit**: 2 armies  
-**Specials**:
-
+**Specials**:  
 Restore 1 Essence each turn  
 Teleportation  
 Generic Mage Spellbook\*
@@ -190,8 +181,7 @@ Generic Mage Spellbook\*
 **Initiative**: -2  
 **Cost**: 40  
 **Limit**: 1 army  
-**Specials**:
-
+**Specials**:  
 Can resurrect D4 bronze units every turn  
 In non-siege battles, after the 1st combat round, this unit has a chance to get
 damaged in the crossfire by non-focused attacks. For each Field Medic, roll a
@@ -211,8 +201,7 @@ After the battle is over, the player controlling the battle site can resurrect
 **Initiative**: 0  
 **Cost**: 10  
 **Limit**: 2 armies  
-**Specials**:
-
+**Specials**:  
 Cannot engage in combat, die or get captured by enemy units  
 May perform Espionage and Counter-Espionage  
 May perform Diplomacy with Players’ or NPC’s parties
@@ -226,8 +215,7 @@ May perform Diplomacy with Players’ or NPC’s parties
 **Initiative**: 5  
 **Cost**: 30  
 **Limit**: 1 or 2 armies, for a total of 5 siege armies  
-**Special**:
-
+**Special**:  
 Can destroy gates to allow allied units to walk into fortifications and cities.
 Needs 3 Combat Rounds to reach the gates. Deals 2 Siege damage to gates each
 Round.  
@@ -244,8 +232,7 @@ Has 5 Hit Points, and 100 Armour against Ranged attacks.
 **Range**: 3  
 **Cost**: 40  
 **Limit**: 1-2  
-**Specials**:
-
+**Specials**:  
 Needs 2 Combat Rounds to set up.  
 Can either attack units or fortifications with 4 Strength (1 Die x 4 Strength)  
 Can attack enemy siege with 6 Strength (3 Dice x 2 Strength)
@@ -260,10 +247,10 @@ Can attack enemy siege with 6 Strength (3 Dice x 2 Strength)
 **Range**: 3  
 **Cost**: 35  
 **Limit**: 1 or 2 armies, for a total of 5 siege armies  
-**Specials**:
-
+**Specials**:  
 Can focus-fire units even inside fortifications  
 Can attack enemy siege with 5 Strength (5 Dice x 1 Strength)
+
 
 \*Generic Mage Spellbook List of Spells\*
 -----------------------------------------
@@ -277,8 +264,7 @@ the Elements, which I refer to as Essence.
 **Type**: Destructive Spell  
 **Essence Cost**: 12  
 **Cooldown**: 3 Combat Rounds  
-**Specifics**:
-
+**Specifics**:  
 Deals (D8 + 2) Damage to a selected gathering of units. The Damage can either be
 fire, thunder or ice type.  
 The cooldown counts for all forms of this spell.
@@ -288,8 +274,7 @@ The cooldown counts for all forms of this spell.
 **Type**: Blessing Spell  
 **Essence Cost**: 15  
 **Cooldown**: 2 Combat Rounds after the effect’s end  
-**Specifics**:
-
+**Specifics**:  
 Provides +1 Armour to (D6 + 3) units, and changes their category to “heavy”.
 Lasts for 4 Combat Rounds.  
 Can be dispelled
@@ -299,8 +284,7 @@ Can be dispelled
 **Type**: Destructive Spell  
 **Essence Cost**: 12  
 **Cooldown**: 3 Combat Rounds after the effect’s end  
-**Specifics**:
-
+**Specifics**:  
 Deals Poison damage to a selected gathering of units, for 4 turns. The damage is
 a D4, rolled individually each turn.  
 Can be dispelled
@@ -310,8 +294,7 @@ Can be dispelled
 **Type**: Blessing Spell  
 **Essence Cost**: 8  
 **Cooldown**: 3 Combat Rounds  
-**Specifics**:
-
+**Specifics**:  
 Cancels the effects of an ongoing spell or magic ability.
 
 ### Name: Summon Elemental
@@ -319,9 +302,8 @@ Cancels the effects of an ongoing spell or magic ability.
 **Type**: Summoning Spell  
 **Essence Cost**: 30  
 **Cooldown**: Once per battle  
-**Specifics**:
-
-Summons a Random Elemental based on a D8 Roll based on the table below:
+**Specifics**:  
+Summons a Random Elemental based on a D8 Roll based on the table below:  
 
 | 1 | Water Elemental            | Stats    |
 |---|----------------------------|----------|
