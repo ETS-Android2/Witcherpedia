@@ -456,7 +456,7 @@ class DBHelper extends SQLiteOpenHelper {
 		db.execSQL("INSERT INTO Melee VALUES('Slave Infantry', 'Light Infantry', '0.5', 2, 0, 2, '8 armies', 'None')");
 		db.execSQL("INSERT INTO Melee VALUES('Imperial Golem', 'Construct', '12 (4 Dice x 3 Strength)', 2, 0, 60, '1 army', '<br>&#8226; 5 Hit Points<br>&#8226; " +
 				"8 Armour<br>&#8226; " +
-				"Can only be recruited in Nilfgaard, Xarthisius' Tower and Vicovaro Academy<br>&#8226; " +
+				"Can only be recruited in Nilfgaard, Xarthisius' Tower, Vicovaro Academy and Academy of Magic<br>&#8226; " +
 				"Immune to Magic -that includes allied and enemy spells, and mages’ ranged attacks-<br>&#8226; " +
 				"Absorbs D4 Magic damage each Combat Round')");
 		db.execSQL("INSERT INTO Melee VALUES('Cintrian Knight', 'Heavy Cavalry', '2.5 (2, plus 1 for every 2 units)', 3, 0, 12, '4 armies', '<br>&#8226; 2 Armour<br>&#8226; " +
@@ -728,7 +728,7 @@ class DBHelper extends SQLiteOpenHelper {
 				"Teleportation<br>&#8226; " +
 				"Aretuza Spellbook')");
 		db.execSQL("INSERT INTO Mage VALUES('Vicovaro Novice', 'Mage', '4', 15, 2, 2, 6, 40, '2 armies', '<br>&#8226; Restores 3 Essence each turn up to a maximum of 45 Essence<br>&#8226; " +
-				"Can only be recruited in Vicovaro Academy<br>&#8226; " +
+				"Can only be recruited in Vicovaro Academy and Academy of Magic<br>&#8226; " +
 				"Teleportation<br>&#8226; " +
 				"Vicovaro Spellbook')");
 		db.execSQL("INSERT INTO Mage VALUES('Vaedermakar', 'Mage', '8 (2 Dice x 4 Strength)', 35, 2, 2, 6, 75, '2 armies', '<br>&#8226; Restores 4 Essence each turn up to a maximum of 60 Essence<br>&#8226; " +
