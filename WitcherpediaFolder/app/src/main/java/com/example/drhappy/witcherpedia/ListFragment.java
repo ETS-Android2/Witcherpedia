@@ -1,6 +1,7 @@
 package com.example.drhappy.witcherpedia;
 
 
+import android.app.ActivityOptions;
 import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
@@ -228,7 +229,8 @@ public class ListFragment extends Fragment {
 		intent.putExtra("Item_Selected", name);
 		intent.putStringArrayListExtra("Adapter", ((CustomArrayAdapter) listView.getAdapter()).labels);
 
-		startActivity(intent);
+		startActivity(intent, ActivityOptions
+				.makeSceneTransitionAnimation(getActivity()).toBundle());
 
         /*
         // when we return
