@@ -131,7 +131,7 @@ public class MainActivity extends AppCompatActivity
 
 
 				NavigationView navigationView = findViewById(R.id.nav_view);
-				navigationView.getMenu().findItem(R.id.pedia).setChecked(false);
+				navigationView.getMenu().findItem(R.id.factions).setChecked(false);
 
 			} else if (current_view.equals("Contents")) {
 				//setAdapter("Factions");
@@ -215,7 +215,7 @@ public class MainActivity extends AppCompatActivity
 		int id = item.getItemId();
 
 		switch (id) {
-			case R.id.pedia:
+			case R.id.factions:
 				ListFragment listFragment = ListFragment.newInstance("Factions");
 
 				FragmentTransaction ft = manager.beginTransaction();

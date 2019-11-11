@@ -5,8 +5,8 @@
 
     <group android:checkableBehavior="single">
         <item
-            android:id="@+id/pedia"
-            android:icon="@drawable/ic_menu_pedia"
+            android:id="@+id/factions"
+            android:icon="@drawable/ic_menu_factions"
             android:title="@string/factions" />
 
         <item
