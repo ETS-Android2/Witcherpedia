@@ -12,10 +12,12 @@ eccentric ruler. The vast majority of the soldiers are generally poor, and that
 is depicted on their half-decent armours and weaponry, but their discipline is
 rock-solid, as they are being constantly coordinated by the significant amount
 of high-ranking officers who fight beside them.  
+
 The thing that actually made Kaedwen a military force to be reckoned, is its
 outstanding cavalry, the Dun Banner. These (in)famous vsadniki, known for their
 characteristic Beaver hats, spread terror and disarray into enemy lines, giving
 enough momentum for their infantry comrades to break through.  
+
 In the back lines, protected from the onslaught, lies the Kaedweni artillery,
 war machines of death, that are massively produced in extreme amounts, compared
 to other kingdoms. The siege units are supported by capable engineers, who
