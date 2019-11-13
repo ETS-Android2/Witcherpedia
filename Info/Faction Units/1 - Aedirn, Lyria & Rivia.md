@@ -3,9 +3,9 @@ The Northern Wars - Board Game
 
 **A Tale of Cringe and Bullshittery**
 
-**Unit Statistics and Properties \#4**
-
 ### Aedirn / Lyria & Rivia
+
+#### Overview
 
 Aedirn and Lyria are somewhat smaller kingdoms, at least in comparison with the
 major Northern Kingdoms. Lacking the sufficient numbers, some troops from Aedirn
@@ -29,6 +29,8 @@ who bolster their compatriots with their trumpets. Elite troops from Aedirn, the
 Special Forces, armed with bows and swords, patrol the forests, searching for
 Scoia’tael guerillas to hone their most practiced skill: Extermination.
 
+#### Unit Statistics and Properties \#4
+
 ### 1 Name: Aedirnian Cavalier
 
 **Category**: Heavy Cavalry-Me  
@@ -39,8 +41,7 @@ Scoia’tael guerillas to hone their most practiced skill: Extermination.
 **Cost**: 10  
 **Limit**: 4 armies  
 **Specials**:  
-1 Armour
-May perform Charge with +1 Strength bonus
+1 Armour May perform Charge with +1 Strength bonus
 
 ### 2 Name: Lyrian Huszár
 
@@ -251,7 +252,6 @@ Can attack enemy siege with 6 Strength (3 Dice x 2 Strength)
 Can focus-fire units even inside fortifications  
 Can attack enemy siege with 5 Strength (5 Dice x 1 Strength)
 
-
 \*Generic Mage Spellbook List of Spells\*
 -----------------------------------------
 
@@ -303,15 +303,15 @@ Cancels the effects of an ongoing spell or magic ability.
 **Essence Cost**: 30  
 **Cooldown**: Once per battle  
 **Specifics**:  
-Summons a Random Elemental based on a D8 Roll based on the table below:  
+Summons a Random Elemental based on a D8 Roll based on the table below:
 
-|D8|||
-|---|----------------------------|----------|
-| 1 | Water Elemental            | Stats    |
-| 2 | Earth Elemental            | Can      |
-| 3 | Fire Elemental             | Be       |
-| 4 | Wind Elemental             | Found    |
-| 5 | Thunder Elemental          | At       |
-| 6 | Gargoyle                   | The      |
-| 7 | Golem                      | Bestiary |
-| 8 | Choice between the first 4 | File     |
+| D8 |                            |          |
+|----|----------------------------|----------|
+| 1  | Water Elemental            | Stats    |
+| 2  | Earth Elemental            | Can      |
+| 3  | Fire Elemental             | Be       |
+| 4  | Wind Elemental             | Found    |
+| 5  | Thunder Elemental          | At       |
+| 6  | Gargoyle                   | The      |
+| 7  | Golem                      | Bestiary |
+| 8  | Choice between the first 4 | File     |
