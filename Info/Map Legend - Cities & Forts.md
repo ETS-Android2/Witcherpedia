@@ -150,7 +150,7 @@ The Nurdiln Warz – Legendary Map Legend
 | 117 | Winneburg Castle  | Castle  | Nilfgaard   | Nilfgaard   |
 | 118 | Nilfgaard         | Capital | Nilfgaard   | Nilfgaard   |
 
-### Other Continental Locations
+### Other Continental Locations:
 
 | \#  | Name                 | Region        | Kingdom     |   |
 |-----|----------------------|---------------|-------------|---|
