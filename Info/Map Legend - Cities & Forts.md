@@ -1,6 +1,7 @@
 The Nurdiln Warz – Legendary Map Legend
+=======================================
 
-Kingdoms:
+### Kingdoms:
 
 | Name             | Number of Territories | Capital            |
 |------------------|-----------------------|--------------------|
@@ -26,7 +27,7 @@ Kingdoms:
 | Nilfgaard        | 111                   | Nilfgaard          |
 | Zerrikania       | Few                   | Persepolis         |
 
-Cities and Keeps:
+### Cities and Keeps:
 
 | \#  | Name              | Status  | Region      | Kingdom     |
 |-----|-------------------|---------|-------------|-------------|
@@ -107,8 +108,8 @@ Cities and Keeps:
 | 75  | Beauclair         | Capital | Toussaint   | Nilfgaard   |
 | 76  | Pomerol           | Town    | Toussaint   | Nilfgaard   |
 | 77  | Bellhaven         | Town    | Toussaint   | Nilfgaard   |
-| 78  | Riedbrune         | Town    | Dol Angra   | Dol Angra   |
-| 79  | Glevitzingen      | Fort    | Dol Angra   | Dol Angra   |
+| 78  | Riedbrune         | Town    | Dol Angra   | Angren      |
+| 79  | Glevitzingen      | Fort    | Dol Angra   | Angren      |
 | 80  | Gwendeith         | Castle  | Blue Mts.   | Scoia’tael  |
 | 81  | Tergano           | City    | Mag Turga   | Nilfgaard   |
 | 82  | Neunreuth         | City    | Metinna     | Nilfgaard   |
@@ -149,7 +150,7 @@ Cities and Keeps:
 | 117 | Winneburg Castle  | Castle  | Nilfgaard   | Nilfgaard   |
 | 118 | Nilfgaard         | Capital | Nilfgaard   | Nilfgaard   |
 
-Other Continental Locations
+### Other Continental Locations
 
 | \#  | Name                 | Region        | Kingdom     |   |
 |-----|----------------------|---------------|-------------|---|
@@ -238,11 +239,11 @@ Other Continental Locations
 | 83  | Dun Tyne             | Toussaint     | Nilfgaard   |   |
 | 84  | Caer Myrkvid         | Toussaint     | Nilfgaard   |   |
 | 85  | Cervantes Pass       | Toussaint     | Nilfgaard   |   |
-| 86  | Ysgith               | Dol Angra     | Dol Angra   |   |
-| 87  | Kluzc                | Dol Angra     | Dol Angra   |   |
-| 88  | Kazcan               | Dol Angra     | Dol Angra   |   |
-| 89  | Porog                | Dol Angra     | Dol Angra   |   |
-| 90  | Dire Mire            | Dol Angra     | Dol Angra   |   |
+| 86  | Ysgith               | Dol Angra     | Angren      |   |
+| 87  | Kluzc                | Dol Angra     | Angren      |   |
+| 88  | Kazcan               | Dol Angra     | Angren      |   |
+| 89  | Porog                | Dol Angra     | Angren      |   |
+| 90  | Dire Mire            | Dol Angra     | Angren      |   |
 | 91  | Sudduth Valley       | Mag Turga     | Nilfgaard   |   |
 | 92  | Caravista            | Mag Turga     | Nilfgaard   |   |
 | 93  | Solveiga Pass        | Mag Turga     | Nilfgaard   |   |
