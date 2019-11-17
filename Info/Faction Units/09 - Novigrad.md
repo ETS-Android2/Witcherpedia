@@ -20,7 +20,8 @@ The Northern Wars - Board Game
 **Initiative:** 0  
 **Cost:** 11  
 **Limit:** 2 armies  
-**Specials:** 2 Armour  
+**Specials:**  
+2 Armour  
 +1 Strength against Armoured Infantry  
 Deals double damage against Armoured units
 
@@ -33,7 +34,8 @@ Deals double damage against Armoured units
 **Initiative:** 0  
 **Cost:** 6  
 **Limit:** 4 armies  
-**Specials:** 1 Armour  
+**Specials:**  
+1 Armour  
 +3 Initiative bonus against Mages  
 Can focus fire on Mages.  
 May waste a turn to throw a Dimeritium Bomb, at either the allies’ or the
@@ -50,7 +52,8 @@ is 2 turns after the effect finishes.
 **Initiative:** 0  
 **Cost:** 10  
 **Limit:** 2 armies  
-**Specials:** 1 Armour  
+**Specials:**  
+1 Armour  
 If any allied Priests of the Eternal Fire are on the field, receives +1 Strength  
 +2 Armour against ranged attacks  
 Negates any Ranged anti-armour bonus damage (like from enemy Crossbowmen)
@@ -65,7 +68,8 @@ Negates any Ranged anti-armour bonus damage (like from enemy Crossbowmen)
 **Range:** 2  
 **Cost:** 7  
 **Limit:** 2 armies  
-**Specials:** +1 Strength bonus against Heavy Cavalry and Heavy Infantry.  
+**Specials:**  
++1 Strength bonus against Heavy Cavalry and Heavy Infantry.  
 Deals double damage to Armoured Units.
 
 ### Name: Priest of the Eternal Fire
@@ -77,7 +81,8 @@ Deals double damage to Armoured Units.
 **Initiative:** -2  
 **Cost:** 60  
 **Limit:** 1 army  
-**Specials:** Can resurrect D6 bronze units every turn  
+**Specials:**  
+Can resurrect D6 bronze units every turn  
 In non-siege battles, after the 1st combat round, this unit has a chance to get
 damaged in the crossfire by non-focused attacks. For each Priest, roll a D10. If
 it rolls 1, it dies.  
