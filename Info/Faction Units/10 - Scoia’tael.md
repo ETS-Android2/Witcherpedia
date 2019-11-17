@@ -131,7 +131,7 @@ Iorveth’s ability or any kind of bonus). Only one group of units can be Marked
 at a time. The Deadeye can spend an action or its whole movement to move their
 mark to another unit or group.
 
-### Name: Elven Sapper
+### Name: Vrihedd Sapper
 
 **Category**: Support  
 **Class**: Scoia’tael, Silver  
