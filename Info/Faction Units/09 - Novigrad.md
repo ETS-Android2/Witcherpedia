@@ -3,7 +3,7 @@ The Northern Wars - Board Game
 
 **A Tale of Cringe and Bullshittery**
 
-### Free City of Novigrad
+### Novigrad
 
 #### Overview
 
