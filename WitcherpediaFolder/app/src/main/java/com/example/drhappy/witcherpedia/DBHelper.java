@@ -265,7 +265,7 @@ class DBHelper extends SQLiteOpenHelper {
 		db.execSQL("INSERT INTO Unit VALUES('Drummond Shieldmaiden', 'Skellige & Cintra', 'Melee', 'Bronze', 'Skelligan', 7, 'clan_drummond_shieldmaiden') ");
 		db.execSQL("INSERT INTO Unit VALUES('Dimun Pirate', 'Skellige & Cintra', 'Melee', 'Bronze', 'Skelligan', 8, 'clan_dimun_pirate') ");
 		db.execSQL("INSERT INTO Unit VALUES('Dimun Corsair', 'Skellige & Cintra', 'Melee', 'Silver', 'Skelligan', 8, 'clan_dimun_corsair') ");
-		db.execSQL("INSERT INTO Unit VALUES('Heymaey Skjald', 'Skellige & Cintra', 'Support', 'Silver', 'Skelligan', 9, 'clan_heymaey_skjald') ");
+		db.execSQL("INSERT INTO Unit VALUES('Heymaey Skjald', 'Skellige & Cintra', 'Support', 'Silver', 'Skelligan', 9, 'heymaey_skjald') ");
 		db.execSQL("INSERT INTO Unit VALUES('Heymaey Battlemaiden', 'Skellige & Cintra', 'Melee', 'Bronze', 'Skelligan', 9, 'clan_heymaey_battlemaiden') ");
 		db.execSQL("INSERT INTO Unit VALUES('Tordarroch Mastersmith', 'Skellige & Cintra', 'Support', 'Silver', 'Skelligan', 10, 'clan_tordarroch_mastersmith') ");
 		db.execSQL("INSERT INTO Unit VALUES('Tordarroch Flaminica', 'Skellige & Cintra', 'Support', 'Silver', 'Skelligan', 10, 'clan_tordarroch_flaminica') ");
@@ -853,7 +853,9 @@ class DBHelper extends SQLiteOpenHelper {
 				"<br><br>The meat of the army is supported by Crossbowmen and a limited amount of Paladins, heavily armoured cavalrymen, and mounted Arquebusiers, hard-hitting mobile shooters that use a peculiar device that launches small metallic lumps with the power of gunpowder." +
 				"<br><br>Kovir’s loud embrace towards magic and science has brought many highly capable scholars and magisters, who can spell doom for enemy nations, in the form of either powerful spells, or innovative siege engines, like the Carambola, a large and heavy tube that fires humongous cannonballs, which specializes in obliterating fortifications or enemy siege units before they can even attempt to fire back.<br>') ");
 		db.execSQL("INSERT INTO Overview VALUES('Hengfors League', 'hengfors_league_overview', '') ");
-		db.execSQL("INSERT INTO Overview VALUES('Novigrad', 'novigrad_overview', '') ");
+		db.execSQL("INSERT INTO Overview VALUES('Novigrad', 'novigrad_overview', '<br>The free city of Novigrad, a grandiose metropolis surrounded by Redanian lands, capital of culture and commerce, and the seat of the church of the Eternal Fire, has retained its immense and ever-growing wealth and independence through a combination of diplomacy, naval might and religious fanatism." +
+				"<br><br>The City is governed by the Hierarch himself, head of the church, while being protected by the Novigrad Security Bureau, whose armed hand, the Temple Guard, patrols the streets vigilantly. Other religious militant groups such as the Witch Hunters and the Order of the Flaming Rose serve the church and protect its interests." +
+				"<br><br>Novigrad is also notorious for its organized crime network, consisted of several gangs that control the various means of illegal business, namely gambling, smuggling, thievery and assassination contracts. Given the wealth and influence these crime lords accumulate, they possess a strong hand in the city’s political game.<br>') ");
 		db.execSQL("INSERT INTO Overview VALUES('Scoia’tael', 'scoiatael_overview', '') ");
 		db.execSQL("INSERT INTO Overview VALUES('Brokilon', 'brokilon_overview', '') ");
 		db.execSQL("INSERT INTO Overview VALUES('Mahakam', 'mahakam_overview', '<br>The sturdy, iron-willed Dwarves of Mahakam protect their homeland with great care, ensuring that nothing can pass through the paths of Mount Gorge without their permission." +
@@ -866,7 +868,7 @@ class DBHelper extends SQLiteOpenHelper {
 		db.execSQL("INSERT INTO Overview VALUES('Kerack', 'kerack_overview', '') ");
 		db.execSQL("INSERT INTO Overview VALUES('Verden', 'verden_overview', '') ");
 		db.execSQL("INSERT INTO Overview VALUES('Angren', 'angren_oveview', '') ");
-		db.execSQL("INSERT INTO Overview VALUES('Toussaint', 'ic_overview', '') ");
+		db.execSQL("INSERT INTO Overview VALUES('Toussaint', 'toussaint_overview', '') ");
 		db.execSQL("INSERT INTO Overview VALUES('Nazair', 'ic_overview', '') ");
 		db.execSQL("INSERT INTO Overview VALUES('Mag Turga', 'ic_overview', '') ");
 		db.execSQL("INSERT INTO Overview VALUES('Ebbing', 'ic_overview', '') ");
