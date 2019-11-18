@@ -232,7 +232,7 @@ turn, chosen by the Caster.
 The sands breathe flames, as a molting firebird rises to the skies, obeying the
 Warlock’s commands. Its stats are the following:
 
--   #### Name: Phoenix  
+-   ### Name: Phoenix  
     **Category**: Artificial Avian  
     **Hit Points**: 3D8+10  
     **Strength**: 16 (4 Dice x 4 Strength)  
