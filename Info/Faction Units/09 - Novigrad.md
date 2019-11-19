@@ -7,7 +7,11 @@ The Northern Wars - Board Game
 
 #### Overview
 
->   TODO
+The free city of Novigrad, a grandiose metropolis surrounded by Redanian lands, capital of culture and commerce, and the seat of the church of the Eternal Fire, has retained its immense and ever-growing wealth and independence through a combination of diplomacy, naval might and religious fanatism.  
+
+The City is governed by the Hierarch himself, head of the church, while being protected by the Novigrad Security Bureau, whose armed hand, the Temple Guard, patrols the streets vigilantly. Other religious militant groups such as the Witch Hunters and the Order of the Flaming Rose serve the church and protect its interests.  
+
+Novigrad is also notorious for its organized crime network, consisted of several gangs that control the various means of illegal business, namely gambling, smuggling, thievery and assassination contracts. Given the wealth and influence these crime lords accumulate, they possess a strong hand in the city’s political game.  
 
 #### Unit Statistics and Properties \#9
 
