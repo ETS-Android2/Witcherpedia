@@ -4,15 +4,19 @@ import android.content.Intent;
 import android.database.Cursor;
 import android.graphics.Paint;
 import android.graphics.Rect;
-import android.os.Build;
+import android.graphics.Typeface;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
+import android.support.v4.content.res.ResourcesCompat;
+import android.support.v4.text.HtmlCompat;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.text.Html;
+import android.text.Spannable;
+import android.text.SpannableStringBuilder;
 import android.text.Spanned;
 import android.text.TextUtils;
 import android.util.DisplayMetrics;
@@ -174,11 +178,11 @@ public class DescriptionActivity extends AppCompatActivity {
 						
 						String specialization = resultSet.getString(resultSet.getColumnIndex("specialization"));
 						String category = resultSet.getString(resultSet.getColumnIndex("category"));
-						udesc.setText(TextUtils.concat(setHtml("009688", "Category: "), specialization, ", ", category));
+						udesc.setText(TextUtils.concat(getFontFormattedText(getHtml("009688", "Category: ")), specialization, ", ", category));
 						
 						String nationality = resultSet.getString(resultSet.getColumnIndex("nationality"));
 						String classn = resultSet.getString(resultSet.getColumnIndex("class"));
-						udesc.append(TextUtils.concat("\n", setHtml("009688", "Class: "), nationality, ", ", classn));
+						udesc.append(TextUtils.concat("\n", getFontFormattedText(getHtml("009688", "Class: ")), nationality, ", ", classn));
 						
 						int speed = resultSet.getInt(resultSet.getColumnIndex("speed"));
 						int initiative = resultSet.getInt(resultSet.getColumnIndex("initiative"));
@@ -186,42 +190,42 @@ public class DescriptionActivity extends AppCompatActivity {
 						if (category.equals("Support")) {
 							int cost = resultSet.getInt(resultSet.getColumnIndex("cost"));
 							String armylimit = resultSet.getString(resultSet.getColumnIndex("armylimit"));
-							
-							udesc.append(TextUtils.concat("\n", setHtml("009688", "Speed: "), String.valueOf(speed),
-									"\n", setHtml("009688", "Initiative: "), String.valueOf(initiative),
-									"\n", setHtml("009688", "Cost: "), String.valueOf(cost),
-									"\n", setHtml("009688", "Limit: "), armylimit));
+
+							udesc.append(TextUtils.concat("\n", getFontFormattedText(getHtml("009688", "Speed: ")), String.valueOf(speed),
+									"\n", getFontFormattedText(getHtml("009688", "Initiative: ")), String.valueOf(initiative),
+									"\n", getFontFormattedText(getHtml("009688", "Cost: ")), String.valueOf(cost),
+									"\n", getFontFormattedText(getHtml("009688", "Limit: ")), armylimit));
 						} else {
 							if (category.equals("Navy") || category.equals("Monster")) {
 								int hitpoints = resultSet.getInt(resultSet.getColumnIndex("hitpoints"));
-								udesc.append(TextUtils.concat("\n", setHtml("009688", "Hit Points: "), String.valueOf(hitpoints)));
+								udesc.append(TextUtils.concat("\n", getFontFormattedText(getHtml("009688", "Hit Points: ")), String.valueOf(hitpoints)));
 							}
 							
 							String strength = resultSet.getString(resultSet.getColumnIndex("strength"));
-							udesc.append(TextUtils.concat("\n", setHtml("009688", "Strength: "), strength));
+							udesc.append(TextUtils.concat("\n", getFontFormattedText(getHtml("009688", "Strength: ")), strength));
 							
 							if (category.equals("Mage")) {
 								int essence = resultSet.getInt(resultSet.getColumnIndex("essence"));
-								udesc.append(TextUtils.concat("\n", setHtml("009688", "Essence: "), String.valueOf(essence)));
+								udesc.append(TextUtils.concat("\n", getFontFormattedText(getHtml("009688", "Essence: ")), String.valueOf(essence)));
 							}
-							
-							udesc.append(TextUtils.concat("\n", setHtml("009688", "Speed: "), String.valueOf(speed),
-									"\n", setHtml("009688", "Initiative: "), String.valueOf(initiative)));
+
+							udesc.append(TextUtils.concat("\n", getFontFormattedText(getHtml("009688", "Speed: ")), String.valueOf(speed),
+									"\n", getFontFormattedText(getHtml("009688", "Initiative: ")), String.valueOf(initiative)));
 							
 							if (!category.equals("Melee")) {
 								int range = resultSet.getInt(resultSet.getColumnIndex("range"));
-								udesc.append(TextUtils.concat("\n", setHtml("009688", "Range: "), String.valueOf(range)));
+								udesc.append(TextUtils.concat("\n", getFontFormattedText(getHtml("009688", "Range: ")), String.valueOf(range)));
 							}
 							
 							if (!category.equals("Monster")) {
 								int cost = resultSet.getInt(resultSet.getColumnIndex("cost"));
 								String armylimit = resultSet.getString(resultSet.getColumnIndex("armylimit"));
-								udesc.append(TextUtils.concat("\n", setHtml("009688", "Cost: "), String.valueOf(cost),
-										"\n", setHtml("009688", "Limit: "), armylimit));
+								udesc.append(TextUtils.concat("\n", getFontFormattedText(getHtml("009688", "Cost: ")), String.valueOf(cost),
+										"\n", getFontFormattedText(getHtml("009688", "Limit: ")), armylimit));
 							}
 						}
 						String abilities = resultSet.getString(resultSet.getColumnIndex("abilities"));
-						udesc.append(TextUtils.concat("\n", setHtml("009688", "Abilities: "), setHtml("-1", abilities)));
+						udesc.append(TextUtils.concat("\n", getFontFormattedText(getHtml("009688", "Abilities: ")), getHtml("-1", abilities)));
 					}
 					
 				}
@@ -229,32 +233,33 @@ public class DescriptionActivity extends AppCompatActivity {
 				ImageView ticon = rootView.findViewById(R.id.ticon);
 				TextView ttitle = rootView.findViewById(R.id.ttitle);
 				TextView tdesc = rootView.findViewById(R.id.tdescription);
-				
+
 				String territoryn = name.replaceFirst("<font color='#3A3A3A'>[0-9]+ </font>", "");
 				try (Cursor resultSet = ((DescriptionActivity) getActivity()).getWitcherDB().getTerritory(territoryn)) {
 					for (resultSet.moveToFirst(); !resultSet.isAfterLast(); resultSet.moveToNext()) {
 						int num = resultSet.getInt(resultSet.getColumnIndex("num"));
 						//String territoryn = resultSet.getString(resultSet.getColumnIndex("territoryn"));
-						ttitle.setText(TextUtils.concat(setHtml("3A3A3A", String.valueOf(num)), " ", territoryn));
-						
+						ttitle.setText(TextUtils.concat(getHtml("3A3A3A", String.valueOf(num)), " ", territoryn));
+
 						String kingdom = resultSet.getString(resultSet.getColumnIndex("factionn"));
-						tdesc.setText(TextUtils.concat(setHtml("009688", "Kingdom: "), kingdom));
-						
+						//tdesc.setText(TextUtils.concat(getHtml("009688", "Kingdom: "), kingdom));
+						tdesc.setText(TextUtils.concat(getFontFormattedText(getHtml("009688", "Kingdom: ")), kingdom));
+
 						String category = resultSet.getString(resultSet.getColumnIndex("category"));
-						tdesc.append(TextUtils.concat("\n", setHtml("009688", "Category: "), category));
+						tdesc.append(TextUtils.concat("\n", getFontFormattedText(getHtml("009688", "Category: ")), category));
 						
 						String region = resultSet.getString(resultSet.getColumnIndex("region"));
-						tdesc.append(TextUtils.concat("\n", setHtml("009688", "Region: "), region));
+						tdesc.append(TextUtils.concat("\n", getFontFormattedText(getHtml("009688", "Region: ")), region));
 						
 						int income = resultSet.getInt(resultSet.getColumnIndex("income"));
-						tdesc.append(TextUtils.concat("\n", setHtml("009688", "Income: "), String.valueOf(income)));
+						tdesc.append(TextUtils.concat("\n", getFontFormattedText(getHtml("009688", "Income: ")), String.valueOf(income)));
 						
 						if (category.equals("Fortified")) {
 							String status = resultSet.getString(resultSet.getColumnIndex("status"));
 							String defences = resultSet.getString(resultSet.getColumnIndex("defences"));
-							
-							tdesc.append(TextUtils.concat("\n", setHtml("009688", "Status: "), status,
-									"\n", setHtml("009688", "Defences: "), setHtml("-1", defences)));
+
+							tdesc.append(TextUtils.concat("\n", getFontFormattedText(getHtml("009688", "Status: ")), status,
+									"\n", getFontFormattedText(getHtml("009688", "Defences: ")), getHtml("-1", defences)));
 							
 							
 							int resourceId = getActivity().getResources().getIdentifier("ic_fortified_territory", "drawable", getActivity().getPackageName());
@@ -265,29 +270,39 @@ public class DescriptionActivity extends AppCompatActivity {
 						}
 						
 						String characteristics = resultSet.getString(resultSet.getColumnIndex("characteristics"));
-						tdesc.append(TextUtils.concat("\n", setHtml("009688", "Characteristics: "), setHtml("-1", characteristics)));
+						tdesc.append(TextUtils.concat("\n", getFontFormattedText(getHtml("009688", "Characteristics: ")), getHtml("-1", characteristics)));
 					}
 					
 				}
 				setTerritoryTitleCentered(ttitle, ttitle.getText().toString(), ticon);
 			}
 		}
-		
-		private Spanned setHtml(String color, String stat) {
+
+		@NonNull
+		private SpannableStringBuilder getFontFormattedText(Spanned text) {
+			Typeface typeface = ResourcesCompat.getFont(getActivity().getApplicationContext(), R.font.hinted_gwent_extrabold);
+
+			SpannableStringBuilder stringBuilder = new SpannableStringBuilder(text);
+			stringBuilder.setSpan(new CustomTypefaceSpan(typeface), 0, stringBuilder.length(), Spannable.SPAN_INCLUSIVE_EXCLUSIVE);
+
+			return stringBuilder;
+		}
+
+		private Spanned getHtml(String color, String stat) {
 			String ifcolor;
-			if (color.equals("-1")) {
+			if (color == null || color.equals("-1")) {
 				ifcolor = "";
 			} else {
 				ifcolor = "color='#" + color + "'";
 			}
 			
 			Spanned html;
-			if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
-				html = Html.fromHtml("<font " + ifcolor + ">" + stat + "</font>", Html.FROM_HTML_MODE_COMPACT);
-			} else {
+			//if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+			html = HtmlCompat.fromHtml("<font " + ifcolor + ">" + stat + "</font>", HtmlCompat.FROM_HTML_MODE_COMPACT);
+			/*} else {
 				html = Html.fromHtml("<font " + ifcolor + ">" + stat + "</font>");
-			}
-			
+			}*/
+
 			return html;
 		}
 		

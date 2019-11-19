@@ -2,13 +2,12 @@ package com.example.drhappy.witcherpedia;
 
 
 import android.database.Cursor;
-import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v4.text.HtmlCompat;
 import android.support.v7.app.AppCompatActivity;
-import android.text.Html;
 import android.text.Spanned;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -83,7 +82,7 @@ public class OverviewFragment extends Fragment {
 				oicon.setImageResource(resourceId);
 
 				String overview = resultSet.getString(resultSet.getColumnIndex("overview"));
-				description.setText(setHtml("-1", overview));
+				description.setText(getHtml("-1", overview));
 			}
 		}
 
@@ -93,20 +92,20 @@ public class OverviewFragment extends Fragment {
 		((AppCompatActivity) getActivity()).getSupportActionBar().setTitle(((Witcherpedia) getActivity().getApplicationContext()).getCurrent_view());
 	}
 
-	private Spanned setHtml(String color, String stat) {
+	private Spanned getHtml(String color, String stat) {
 		String ifcolor;
-		if (color.equals("-1")) {
+		if (color == null || color.equals("-1")) {
 			ifcolor = "";
 		} else {
 			ifcolor = "color='#" + color + "'";
 		}
 
 		Spanned html;
-		if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
-			html = Html.fromHtml("<font " + ifcolor + ">" + stat + "</font>", Html.FROM_HTML_MODE_COMPACT);
-		} else {
+		//if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+		html = HtmlCompat.fromHtml("<font " + ifcolor + ">" + stat + "</font>", HtmlCompat.FROM_HTML_MODE_COMPACT);
+		/*} else {
 			html = Html.fromHtml("<font " + ifcolor + ">" + stat + "</font>");
-		}
+		}*/
 
 		return html;
 	}
