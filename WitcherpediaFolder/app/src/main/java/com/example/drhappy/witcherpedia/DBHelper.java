@@ -311,7 +311,8 @@ class DBHelper extends SQLiteOpenHelper {
 		db.execSQL("INSERT INTO Unit VALUES('Elven Deadeye', 'Scoia’tael', 'Melee', 'Silver', 'Scoia’tael', 8, 'elven_deadeye') ");
 		db.execSQL("INSERT INTO Unit VALUES('Vrihedd Sapper', 'Scoia’tael', 'Support', 'Silver', 'Scoia’tael', 9, 'vrihedd_sapper') ");
 
-		// fill the gap (brokilon)
+		db.execSQL("INSERT INTO Unit VALUES('Dryad Ranger', 'Brokilon', 'Ranged', 'Bronze', 'Brokilon', 1, 'dryad_ranger') ");
+		db.execSQL("INSERT INTO Unit VALUES('Dryad Grovekeeper', 'Brokilon', 'Mage', 'Bronze', 'Brokilon', 2, 'dryad_grovekeeper') ");
 
 		db.execSQL("INSERT INTO Unit VALUES('Mahakam Defender', 'Mahakam', 'Melee', 'Bronze', 'Mahakam', 1, 'mahakam_defender') ");
 		db.execSQL("INSERT INTO Unit VALUES('Mahakam Axeman', 'Mahakam', 'Melee', 'Bronze', 'Mahakam', 2, 'mahakam_axeman') ");
@@ -327,7 +328,12 @@ class DBHelper extends SQLiteOpenHelper {
 		db.execSQL("INSERT INTO Unit VALUES('Bruggian Crossbowman', 'Brugge', 'Ranged', 'Bronze', 'Bruggian', 3, 'bruggian_crossbowman') ");
 		db.execSQL("INSERT INTO Unit VALUES('Bruggian Slinger', 'Brugge', 'Ranged', 'Bronze', 'Bruggian', 4, 'bruggian_slinger') ");
 
-		// missing sodden
+		db.execSQL("INSERT INTO Unit VALUES('Soddener Man-at-Arms', 'Sodden', 'Melee', 'Bronze', 'Soddener', 1, 'soddener_man_at_arms') ");
+		db.execSQL("INSERT INTO Unit VALUES('Soddener Axeman', 'Sodden', 'Melee', 'Bronze', 'Soddener', 2, 'soddener_axeman') ");
+		db.execSQL("INSERT INTO Unit VALUES('Soddener Archer', 'Sodden', 'Ranged', 'Bronze', 'Soddener', 3, 'soddener_archer') ");
+		db.execSQL("INSERT INTO Unit VALUES('Free Slopes Lancer', 'Sodden', 'Melee', 'Bronze', 'Soddener', 4, 'free_slopes_lancer') ");
+		db.execSQL("INSERT INTO Unit VALUES('Free Slopes Crusher', 'Sodden', 'Melee', 'Bronze', 'Soddener', 5, 'free_slopes_crusher') ");
+		db.execSQL("INSERT INTO Unit VALUES('Free Slopes Skirmisher', 'Sodden', 'Ranged', 'Bronze', 'Soddener', 6, 'free_slopes_skirmisher') ");
 
 		db.execSQL("INSERT INTO Unit VALUES('Cidarian Companion', 'Cidaris', 'Melee', 'Bronze', 'Cidarian', 1, 'cidaris_companion') ");
 		db.execSQL("INSERT INTO Unit VALUES('Cidarian Hoplite', 'Cidaris', 'Melee', 'Bronze', 'Cidarian', 2, 'cidaris_hoplite') ");
@@ -353,6 +359,10 @@ class DBHelper extends SQLiteOpenHelper {
 		db.execSQL("INSERT INTO Unit VALUES('Angrenian Claimhdean', 'Angren', 'Melee', 'Bronze', 'Angrenian', 3, 'angrenian_claimhdean') ");
 		db.execSQL("INSERT INTO Unit VALUES('Angrenian Bowman', 'Angren', 'Ranged', 'Bronze', 'Angrenian', 4, 'angrenian_bowman') ");
 		db.execSQL("INSERT INTO Unit VALUES('Druid of the Black Grove', 'Angren', 'Mage', 'Silver', 'Angrenian', 5, 'druid_of_the_black_grove') ");
+
+		db.execSQL("INSERT INTO Unit VALUES('Beauclairoise Knight-Errant', 'Toussaint', 'Melee', 'Bronze', 'Toussaintoise', 1, 'beauclairoise_knight_errant') ");
+		db.execSQL("INSERT INTO Unit VALUES('Beauclairoise Ducal Guard', 'Toussaint', 'Melee', 'Bronze', 'Toussaintoise', 2, 'beauclairoise_ducal_guard') ");
+		db.execSQL("INSERT INTO Unit VALUES('Toussaintoise Crossbowman', 'Toussaint', 'Ranged', 'Bronze', 'Toussaintoise', 3, 'toussaintoise_crossbowman') ");
 
 		// missing a lot
 
@@ -535,10 +545,9 @@ class DBHelper extends SQLiteOpenHelper {
 				"+2 Strength against Humans<br>&#8226; " +
 				"+2 Strength when fighting in Forests<br>&#8226; " +
 				"May waste an action to Mark a unit or division. On subsequent turns, when the Deadeye attack their Marked target, they will attack twice. (stacks with Iorveth’s ability or any kind of bonus). Only one group of units can be Marked at a time. The Deadeye can spend an action or its whole movement to move their mark to another unit or group.') ");
-		// fill the gap
 		db.execSQL("INSERT INTO Melee VALUES('Mahakam Defender', 'Heavily Armoured Spearunit', '2', 2, 0, 11, '1-2 armies', '<br>&#8226; 3 Armour<br>&#8226; " +
 				"+1 Strength bonus against Cavalry') ");
-		db.execSQL("INSERT INTO Melee VALUES('Mahakam Axeman', 'Medium Armoured Infantry', '2', 2, 0, 8, '1-2 armies', '<br>&#8226; 1 armour<br>&#8226; " +
+		db.execSQL("INSERT INTO Melee VALUES('Mahakam Axeman', 'Medium Armoured Infantry', '2', 2, 0, 8, '1-2 armies', '<br>&#8226; 1 Armour<br>&#8226; " +
 				"+1 Strength against Infantry<br>&#8226; " +
 				"An additional +1 Strength when fighting in Mahakam or in territories two tiles away from it') ");
 		db.execSQL("INSERT INTO Melee VALUES('Mahakam Marauder', 'Heavily Armoured Infantry', '3', 2, 0, 15, '1-2 armies', '<br>&#8226; 2 Armour<br>&#8226; " +
@@ -548,7 +557,19 @@ class DBHelper extends SQLiteOpenHelper {
 		db.execSQL("INSERT INTO Melee VALUES('Bruggian Lancer', 'Medium Cavalry/Lancer', '1', 3, 0, 6, '2 armies', '<br>&#8226; +1 Strength against Cavalry<br>&#8226; " +
 				"May perform Charge with +1 Strength bonus') ");
 		db.execSQL("INSERT INTO Melee VALUES('Bruggian Landsknecht', 'Heavy Infantry', '3', 2, 0, 11, '2 armies', '<br>&#8226; 2 Armour') ");
-		// missing sodden
+		db.execSQL("INSERT INTO Melee VALUES('Soddener Man-at-Arms', 'Heavy Infantry', '2', 2, 0, 10, '2 armies', '<br>&#8226; 2 Armour') ");
+		db.execSQL("INSERT INTO Melee VALUES('Soddener Axeman', 'Medium Infantry', '2', 2, 0, 10, '2 armies', '<br>&#8226; +1 Strength against Heavy Units<br>&#8226; " +
+				"Deals double damage to Armoured Units.') ");
+		db.execSQL("INSERT INTO Melee VALUES('Free Slopes Lancer', 'Medium Cavalry', '1', 3, 0, 10, '2 armies', '<br>&#8226; Cannot be recruited by normal means, except from the specific event cards.<br>&#8226; " +
+				"May perform Charge with +1 Strength<br>&#8226; " +
+				"+1 Strength against Cavalry (stacks with Charge bonus)<br>&#8226; " +
+				"Can only be recruited<br>&#8226; " +
+				"When fighting inside the default Sodden territories, or when defending a Temerian or Cintrian City, this unit gains +1 Strength.') ");
+		db.execSQL("INSERT INTO Melee VALUES('Free Slopes Crusher', 'Heavy Infantry', '4 (2 Dice x 2 Strength)', 2, 0, 16, '1 army', '<br>&#8226; Cannot be recruited by normal means, except from the specific event cards.<br>&#8226; " +
+				"1 Armour<br>&#8226; " +
+				"Ignores the Armour of Armoured Units<br>&#8226; " +
+				"Deals triple damage to Armoured monsters<br>&#8226; " +
+				"When fighting inside the default Sodden territories, or when defending a Temerian or Cintrian City, this unit deals double damage to Infantry.') ");
 		db.execSQL("INSERT INTO Melee VALUES('Cidarian Companion', 'Light Cavalry/Lancer', '1', 4, 0, 8, '2 armies', '<br>&#8226; +1 Strength against Light Cavalry<br>&#8226; " +
 				"+0.5 Strength against other types of Cavalry<br>&#8226; " +
 				"+3 Initiative against Ranged units<br>&#8226; " +
@@ -595,6 +616,13 @@ class DBHelper extends SQLiteOpenHelper {
 				"+1 Strength against Cavalry') ");
 		db.execSQL("INSERT INTO Melee VALUES('Angrenian Claimhdean', 'Medium Infantry', '2', 2, 0, 6, '2 armies', '<br>&#8226; +1 Strength against Polearm Infantry<br>&#8226; " +
 				"When moving or fighting in the default Angren territories, gains +1 Speed and +1 Strength boni.') ");
+		db.execSQL("INSERT INTO Melee VALUES('Beauclairoise Knight-Errant', 'Heavy Cavalry', '3', 3, 0, 25, '2 armies', '<br>&#8226; 4 Armour<br>&#8226; " +
+				"May perform charge with +2 Strength<br>&#8226; " +
+				"+2 Strength when fighting in the default Toussaintoise territories<br>&#8226; " +
+				"+3 Strength against monsters and bandits<br>&#8226; " +
+				"Deals double damage to Armoured monsters') ");
+		db.execSQL("INSERT INTO Melee VALUES('Beauclairoise Ducal Guard', 'Heavy Polearm Infantry', '2', 2, 0, 12, '3 armies', '<br>&#8226; 2 Armour<br>&#8226; " +
+				"+2 Strength against Cavalry') ");
 		// missing a lot
 		db.execSQL("INSERT INTO Melee VALUES('Zerrikanian Swordsman', 'Light Infantry', '1', 2, 0, 4, '4 armies', '<br>&#8226; +1 Strength bonus against Light Infantry<br>&#8226; " +
 				"+1 Strength bonus in Desert biome') ");
@@ -676,7 +704,9 @@ class DBHelper extends SQLiteOpenHelper {
 				"On each successful attack, this unit gets a free attack, but this time with default Strength and no added boni') ");
 		db.execSQL("INSERT INTO Ranged VALUES('Dol Blathanna Archer', 'Archer', '2', 2, 2, 4, 7, '3 armies', '<br>&#8226; +1 Strength bonus when fighting in the default Dol Blathanna and Brokilon territories') ");
 		db.execSQL("INSERT INTO Ranged VALUES('Elven Marksman', 'Archer', '2', 2, 2, 4, 9, '5 armies', '<br>&#8226; May perform Precise Shot against Heavily Armoured Units, with -0.5 Strength penalty. This attack negates their armour') ");
-		// fill the gap
+		db.execSQL("INSERT INTO Ranged VALUES('Dryad Ranger', 'Archer', 'D4', 3, 2, 4, 0, '2 armies', '<br>&#8226; Cannot be recruited by normal means, except from the specific event cards.<br>&#8226; " +
+				"When inside the default territories of Brokilon, gains +D4 Strength and +1 Initiative boni, deals double damage to Armoured units, plus has the ability to perform Ambush and be immune to Ambush attempts.<br>&#8226; " +
+				"Deals double damage to Humans.') ");
 		db.execSQL("INSERT INTO Ranged VALUES('Mahakam Skirmisher', 'Light Spearunit/Ranged', '1.5', 2, 0, 2, 7, '1-2 armies', '<br>&#8226; +0.5 Strength against Cavalry<br>&#8226; " +
 				"+1.5 Strength and +1 Initiative against Crossbowmen') ");
 		db.execSQL("INSERT INTO Ranged VALUES('Mahakam Arbalist', 'Crossbowman', '3 (3 Dice x 1 Strength)', 2, 1, 2, 10, '1-2 armies', '<br>&#8226; Deals double damage on Armoured Units<br>&#8226; " +
@@ -685,11 +715,18 @@ class DBHelper extends SQLiteOpenHelper {
 				"Deals double damage to Armoured Units') ");
 		db.execSQL("INSERT INTO Ranged VALUES('Bruggian Slinger', 'Slinger', '1', 2, 1, 2, 5, '2 armies', '<br>&#8226; +2 Strength against Light Infantry<br>&#8226; " +
 				"+1 Strength against Medium Infantry and Light Ranged Units') ");
-		// missing sodden
+		db.execSQL("INSERT INTO Ranged VALUES('Soddener Archer', 'Light Archer', '1', 2, 2, 3, 6, '2 armies', '<br>&#8226; Each turn that this unit doesn’t move, it may perform Double-Shot, with Default Strength.') ");
+		db.execSQL("INSERT INTO Ranged VALUES('Free Slopes Skirmisher', 'Peasant Militia', '1', 2, 1, 2, 5, '2 armies', '<br>&#8226; Cannot be recruited by normal means, except from the specific event cards.<br>&#8226; " +
+				"Can either perform a melee or a ranged attack, all at 1 initiative, making it one of the few units that can attack in melee with a positive initiative.<br>&#8226; " +
+				"Deals double damage to cavalry when using melee attacks.<br>&#8226; " +
+				"Deals double damage to ranged units when using ranged attacks.<br>&#8226; " +
+				"When fighting inside the default Sodden territories, or when defending a Temerian or Cintrian City, this unit can attack twice each turn.') ");
 		db.execSQL("INSERT INTO Ranged VALUES('Cidarian Toxotai', 'Archer', '1', 2, 2, 4, 6, '2 armies', '<br>&#8226; +1 Strength against units at 2 tiles or less') ");
 		db.execSQL("INSERT INTO Ranged VALUES('Kerackian Archer', 'Light Archer', '1', 2, 2, 3, 5, '2 armies', 'None') ");
 		db.execSQL("INSERT INTO Ranged VALUES('Verdenian Longbowman', 'Light Archer', '1', 2, 2, 4, 5, '2 armies', 'None') ");
 		db.execSQL("INSERT INTO Ranged VALUES('Angrenian Bowman', 'Light Archer', '1', 2, 2, 3, 5, '2 armies', 'None') ");
+		db.execSQL("INSERT INTO Ranged VALUES('Toussaintoise Crossbowman', 'Crossbowman', '1', 2, 1, 2, 7, '3 armies', '<br>&#8226; +1 Strength against Heavy Infantry/Cavalry.<br>&#8226; " +
+				"Deals double damage to Armoured Units.') ");
 		// missing a lot
 		db.execSQL("INSERT INTO Ranged VALUES('Zerrikanian Archer', 'Archer', '0.5', 2, 2, 3, 6, '4 armies', '<br>&#8226; +1.5 Strength when Defending a Zerrikanian Town/Fort/etc<br>&#8226; " +
 				"+1 Initiative in Desert biome') ");
@@ -741,7 +778,12 @@ class DBHelper extends SQLiteOpenHelper {
 				"Does not restore Essence each turn<br>&#8226; " +
 				"May waste a Spell Action to restore (8n+8+D8) Essence, where n is the amount of Magisters in the army, minus their leader/commander, up to a maximum of 90 Essence<br>&#8226; " +
 				"Lan Exeter Spellbook')");
-		// missing brokilon
+		db.execSQL("INSERT INTO Mage VALUES('Dryad Grovekeeper', 'Healer', '14 (7 Dice x 2 Strength)', 15, 3, 2, 6, 0, '1 army', '<br>&#8226; Cannot be recruited by normal means, except from the specific event cards.<br>&#8226; " +
+				"Each turn, instead of attacking, she can heal D4 allied Dryads, but on -2 Initiative.<br>&#8226; " +
+				"Restores 3 Essence each turn up to a maximum of 45 Essence<br>&#8226; " +
+				"When inside the default territories of Brokilon, restores 6 Essence each turn instead.<br>&#8226; " +
+				"Contrary to other mage and/or support units, the Grovekeepers are Bronze units. Note however that while inside the sacred oaks of Brokilon, and as long as the forrest is protected, the Dryads receive only half damage.<br>&#8226; " +
+				"Duén Canell spellbook')");
 		db.execSQL("INSERT INTO Mage VALUES('Druid of the Black Grove', 'Druid', '9 (3 Dice x 3 Strength)', 15, 2, 2, 6, 50, '1 army', '<br>&#8226; Restores 3 Essence each turn up to a maximum of 45 Essence<br>&#8226; " +
 				"Caed Dhu spellbook')");
 		// missing a lot
@@ -868,7 +910,20 @@ class DBHelper extends SQLiteOpenHelper {
 		db.execSQL("INSERT INTO Overview VALUES('Kerack', 'kerack_overview', '') ");
 		db.execSQL("INSERT INTO Overview VALUES('Verden', 'verden_overview', '') ");
 		db.execSQL("INSERT INTO Overview VALUES('Angren', 'angren_oveview', '') ");
-		db.execSQL("INSERT INTO Overview VALUES('Toussaint', 'toussaint_overview', '') ");
+		db.execSQL("INSERT INTO Overview VALUES('Toussaint', 'toussaint_overview', '<i><br>Born from the molten ashes of the surrounding mountain range<br>" +
+				"The valley on which Toussaint has grown<br>" +
+				"As if a fallen phoenix in its fiery grave<br>" +
+				"The seeds of fairytales has sown" +
+				"<br><br>" +
+				"In sun-doused dawns and starry nights<br>" +
+				"The Duchy stays tipsy on wine<br>" +
+				"And in the vineyards of Dun Tynne<br>" +
+				"Fair maidens find their gallant knights" +
+				"<br><br>" +
+				"But deep down in the hollow mines<br>" +
+				"Trapped in this realm since ancient times<br>" +
+				"Eternal unseen beings reside<br>" +
+				"Hence fables and deceits collide<br></i>') ");
 		db.execSQL("INSERT INTO Overview VALUES('Nazair', 'ic_overview', '') ");
 		db.execSQL("INSERT INTO Overview VALUES('Mag Turga', 'ic_overview', '') ");
 		db.execSQL("INSERT INTO Overview VALUES('Ebbing', 'ic_overview', '') ");
