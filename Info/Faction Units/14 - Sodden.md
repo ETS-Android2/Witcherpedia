@@ -38,7 +38,7 @@ Deals double damage to Armoured Units.
 
 ### Name: Soddener Archer
 
-**Category**: Archer  
+**Category**: Light Archer  
 **Class**: Soddener, Bronze  
 **Strength**: 1  
 **Speed**: 2  
@@ -48,14 +48,14 @@ Deals double damage to Armoured Units.
 **Limit**: 2  
 **Specials**:  
 Each turn that this unit doesn’t move, it may perform Double-Shot, with Default
-Strength
+Strength.
 
 ### Name: Free Slopes Lancer
 
 **Category**: Medium Cavalry  
 **Class**: Soddener, Bronze  
 **Strength**: 1  
-**Speed**: 4  
+**Speed**: 3  
 **Initiative**: 0  
 **Cost**: 10  
 **Limit**: 2  
@@ -86,7 +86,7 @@ Temerian or Cintrian City, this unit deals double damage to Infantry.
 
 ### Name: Free Slopes Skirmisher
 
-**Category**: Peasant Infantry/Archer  
+**Category**: Peasant Militia  
 **Class**: Soddener, Bronze  
 **Strength**: 1  
 **Speed**: 2  
