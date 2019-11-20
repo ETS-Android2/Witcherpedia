@@ -100,12 +100,7 @@ public class OverviewFragment extends Fragment {
 			ifcolor = "color='#" + color + "'";
 		}
 
-		Spanned html;
-		//if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
-		html = HtmlCompat.fromHtml("<font " + ifcolor + ">" + stat + "</font>", HtmlCompat.FROM_HTML_MODE_COMPACT);
-		/*} else {
-			html = Html.fromHtml("<font " + ifcolor + ">" + stat + "</font>");
-		}*/
+		Spanned html = HtmlCompat.fromHtml("<font " + ifcolor + ">" + stat + "</font>", HtmlCompat.FROM_HTML_MODE_COMPACT);
 
 		return html;
 	}

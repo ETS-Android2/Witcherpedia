@@ -239,7 +239,8 @@ public class DescriptionActivity extends AppCompatActivity {
 					for (resultSet.moveToFirst(); !resultSet.isAfterLast(); resultSet.moveToNext()) {
 						int num = resultSet.getInt(resultSet.getColumnIndex("num"));
 						//String territoryn = resultSet.getString(resultSet.getColumnIndex("territoryn"));
-						ttitle.setText(TextUtils.concat(getHtml("3A3A3A", String.valueOf(num)), " ", territoryn));
+						//ttitle.setText(TextUtils.concat(getHtml("3A3A3A", String.valueOf(num)), " ", territoryn));
+						ttitle.setText(TextUtils.concat(getHtml("6A6A6A", String.valueOf(num)), " ", territoryn));
 
 						String kingdom = resultSet.getString(resultSet.getColumnIndex("factionn"));
 						//tdesc.setText(TextUtils.concat(getHtml("009688", "Kingdom: "), kingdom));
@@ -270,7 +271,7 @@ public class DescriptionActivity extends AppCompatActivity {
 						}
 						
 						String characteristics = resultSet.getString(resultSet.getColumnIndex("characteristics"));
-						tdesc.append(TextUtils.concat("\n", getFontFormattedText(getHtml("009688", "Characteristics: ")), getHtml("-1", characteristics)));
+						tdesc.append(TextUtils.concat("\n", getFontFormattedText(getHtml("009688", "Characteristics: ")), getHtml("-1", characteristics), "\n"));
 					}
 					
 				}
@@ -295,13 +296,8 @@ public class DescriptionActivity extends AppCompatActivity {
 			} else {
 				ifcolor = "color='#" + color + "'";
 			}
-			
-			Spanned html;
-			//if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
-			html = HtmlCompat.fromHtml("<font " + ifcolor + ">" + stat + "</font>", HtmlCompat.FROM_HTML_MODE_COMPACT);
-			/*} else {
-				html = Html.fromHtml("<font " + ifcolor + ">" + stat + "</font>");
-			}*/
+
+			Spanned html = HtmlCompat.fromHtml("<font " + ifcolor + ">" + stat + "</font>", HtmlCompat.FROM_HTML_MODE_COMPACT);
 
 			return html;
 		}

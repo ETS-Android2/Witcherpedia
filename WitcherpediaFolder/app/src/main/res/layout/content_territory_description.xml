@@ -45,7 +45,8 @@
                     android:textAlignment="gravity"
                     android:textColor="@color/colorBackground"
                     android:textSize="26.5sp"
-                    android:textIsSelectable="true" />
+                    android:textIsSelectable="true"
+                    android:fontFamily="@font/hinted_gwent_extrabold" />
             </LinearLayout>
 
             <TextView
@@ -58,7 +59,8 @@
                 android:layout_marginBottom="20dp"
                 android:text="@string/empty"
                 android:textSize="22.5sp"
-                android:textIsSelectable="true" />
+                android:textIsSelectable="true"
+                android:lineSpacingMultiplier="1.1" />
 
         </LinearLayout>
     </ScrollView>

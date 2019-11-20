@@ -323,7 +323,7 @@ class DBHelper extends SQLiteOpenHelper {
 		db.execSQL("INSERT INTO Unit VALUES('Mahakam Pyrotechnician', 'Mahakam', 'Support', 'Silver', 'Mahakam', 8, 'mahakam_pyrotechnician') ");
 
 		db.execSQL("INSERT INTO Unit VALUES('Bruggian Lancer', 'Brugge', 'Melee', 'Bronze', 'Bruggian', 1, 'bruggian_lancer') ");
-		db.execSQL("INSERT INTO Unit VALUES('Bruggian Gladiator', 'Brugge', 'Melee', 'Bronze', 'Bruggian', 2, 'bruggian_axeman') ");
+		db.execSQL("INSERT INTO Unit VALUES('Bruggian Landsknecht', 'Brugge', 'Melee', 'Bronze', 'Bruggian', 2, 'bruggian_axeman') ");
 		db.execSQL("INSERT INTO Unit VALUES('Bruggian Crossbowman', 'Brugge', 'Ranged', 'Bronze', 'Bruggian', 3, 'bruggian_crossbowman') ");
 		db.execSQL("INSERT INTO Unit VALUES('Bruggian Slinger', 'Brugge', 'Ranged', 'Bronze', 'Bruggian', 4, 'bruggian_slinger') ");
 
@@ -547,7 +547,7 @@ class DBHelper extends SQLiteOpenHelper {
 				"Negates the Armour of Heavy Infantry/Spearunits') ");
 		db.execSQL("INSERT INTO Melee VALUES('Bruggian Lancer', 'Medium Cavalry/Lancer', '1', 3, 0, 6, '2 armies', '<br>&#8226; +1 Strength against Cavalry<br>&#8226; " +
 				"May perform Charge with +1 Strength bonus') ");
-		db.execSQL("INSERT INTO Melee VALUES('Bruggian Gladiator', 'Heavy Infantry', '3', 2, 0, 11, '2 armies', '<br>&#8226; 2 Armour') ");
+		db.execSQL("INSERT INTO Melee VALUES('Bruggian Landsknecht', 'Heavy Infantry', '3', 2, 0, 11, '2 armies', '<br>&#8226; 2 Armour') ");
 		// missing sodden
 		db.execSQL("INSERT INTO Melee VALUES('Cidarian Companion', 'Light Cavalry/Lancer', '1', 4, 0, 8, '2 armies', '<br>&#8226; +1 Strength against Light Cavalry<br>&#8226; " +
 				"+0.5 Strength against other types of Cavalry<br>&#8226; " +
