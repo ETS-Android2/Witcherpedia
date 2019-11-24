@@ -394,7 +394,7 @@ class DBHelper extends SQLiteOpenHelper {
 		db.execSQL("INSERT INTO Melee VALUES('Lyrian Conscript', 'Light Infantry', '1.2 (1, plus 1 for every 5 units)', 2, 0, 4, '6 armies', '<br>&#8226; Up to 50 Conscripts have no need for Maintenance, and thus are excluded from any calculation of Unit Maintenance.')");
 		db.execSQL("INSERT INTO Melee VALUES('Rivian Billman', 'Medium Polearm Infantry', '1', 2, 0, 4, '4 armies', '<br>&#8226; +1 Strength against cavalry')");
 		db.execSQL("INSERT INTO Melee VALUES('Aedirnian Special Forces', 'Special Forces', '5', 3, 2, 16, '2 armies', '<br>&#8226; May perform Ambush<br>&#8226; " +
-				"Can only be recruited in Vengerberg<br>&#8226; " +
+				"Can only be recruited in @Territory@Vengerberg@<br>&#8226; " +
 				"Cannot be Focus-Fired or Ambushed<br>&#8226; " +
 				"+2 Strength bonus when fighting inside the default Aedirnian, Lyrian and Rivian borders<br>&#8226; " +
 				"+3 Strength bonus against Scoia’tael (both boni stack)')");
@@ -563,7 +563,6 @@ class DBHelper extends SQLiteOpenHelper {
 		db.execSQL("INSERT INTO Melee VALUES('Free Slopes Lancer', 'Medium Cavalry', '1', 3, 0, 10, '2 armies', '<br>&#8226; Cannot be recruited by normal means, except from the specific event cards.<br>&#8226; " +
 				"May perform Charge with +1 Strength<br>&#8226; " +
 				"+1 Strength against Cavalry (stacks with Charge bonus)<br>&#8226; " +
-				"Can only be recruited<br>&#8226; " +
 				"When fighting inside the default Sodden territories, or when defending a Temerian or Cintrian City, this unit gains +1 Strength.') ");
 		db.execSQL("INSERT INTO Melee VALUES('Free Slopes Crusher', 'Heavy Infantry', '4 (2 Dice x 2 Strength)', 2, 0, 16, '1 army', '<br>&#8226; Cannot be recruited by normal means, except from the specific event cards.<br>&#8226; " +
 				"1 Armour<br>&#8226; " +

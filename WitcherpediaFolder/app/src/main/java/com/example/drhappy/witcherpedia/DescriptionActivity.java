@@ -16,9 +16,12 @@ import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.text.Spannable;
+import android.text.SpannableString;
 import android.text.SpannableStringBuilder;
 import android.text.Spanned;
 import android.text.TextUtils;
+import android.text.method.LinkMovementMethod;
+import android.text.style.ClickableSpan;
 import android.util.DisplayMetrics;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -166,6 +169,7 @@ public class DescriptionActivity extends AppCompatActivity {
 				TextView utitle = rootView.findViewById(R.id.utitle);
 				ImageView uicon = rootView.findViewById(R.id.uicon);
 				TextView udesc = rootView.findViewById(R.id.udescription);
+				udesc.setMovementMethod(LinkMovementMethod.getInstance());
 				
 				try (Cursor resultSet = ((DescriptionActivity) getActivity()).getWitcherDB().getUnit(name)) {
 					for (resultSet.moveToFirst(); !resultSet.isAfterLast(); resultSet.moveToNext()) {
@@ -225,7 +229,10 @@ public class DescriptionActivity extends AppCompatActivity {
 							}
 						}
 						String abilities = resultSet.getString(resultSet.getColumnIndex("abilities"));
-						udesc.append(TextUtils.concat("\n", getFontFormattedText(getHtml("009688", "Abilities: ")), getHtml("-1", abilities)));
+						udesc.append(TextUtils.concat("\n", getFontFormattedText(getHtml("009688", "Abilities: "))/*, getHtml("-1", abilities)*/));
+						if (abilities.contains("@")) {
+							setupLinks(udesc, abilities);
+						}
 					}
 					
 				}
@@ -271,6 +278,9 @@ public class DescriptionActivity extends AppCompatActivity {
 						}
 						
 						String characteristics = resultSet.getString(resultSet.getColumnIndex("characteristics"));
+						/*if (characteristics.contains("@")) {
+							characteristics = setupLinks(characteristics);
+						}*/
 						tdesc.append(TextUtils.concat("\n", getFontFormattedText(getHtml("009688", "Characteristics: ")), getHtml("-1", characteristics), "\n"));
 					}
 					
@@ -301,7 +311,52 @@ public class DescriptionActivity extends AppCompatActivity {
 
 			return html;
 		}
-		
+
+		private String setupLinks(TextView textView, String text) {
+			//SpannableStringBuilder stringBuilder = new SpannableStringBuilder(text);
+			Spannable stringBuilder = null;
+			System.out.println(text);
+
+			while (text.contains("@")) {
+				int start = text.indexOf("@");
+				text = text.replaceFirst("@", "");
+				//stringBuilder.delete(start, start+1);
+				int middle = text.indexOf("@");
+				text = text.replaceFirst("@", "");
+				//stringBuilder.delete(middle, middle+1);
+				int end = text.indexOf("@");
+				text = text.replaceFirst("@", "");
+				//stringBuilder.delete(end, end+1);
+
+				String type = text.substring(start, middle);
+				String name = text.substring(middle, end);
+				System.out.println(type + ": " + name);
+
+				ClickableSpan clickSpan = new ClickableSpan() {
+					@Override
+					public void onClick(View widget) {
+						System.out.println("Clickable? " + name + " " + type);
+						//put whatever you like here, below is an example
+						//AlertDialog.Builder builder = new Builder(MainActivity.this);
+						//builder.setTitle("Location clicked");
+						//AlertDialog dialog = builder.create();
+						//dialog.show();
+					}
+				};
+
+				text = text.replaceFirst(type, "");
+				//stringBuilder.delete(start, middle);
+				Spanned html = getHtml("-1", text);
+				stringBuilder = new SpannableString(html);
+				stringBuilder.setSpan(clickSpan, html.toString().indexOf(name), html.toString().indexOf(name) + name.length(), Spannable.SPAN_INCLUSIVE_INCLUSIVE);
+				System.out.println(stringBuilder);
+			}
+
+			textView.setMovementMethod(LinkMovementMethod.getInstance());
+			textView.append(stringBuilder);
+			return stringBuilder.toString();
+		}
+
 		private void setTerritoryTitleCentered(TextView ttitle, String text, ImageView ticon) {
 			DisplayMetrics displayMetrics = getActivity().getResources().getDisplayMetrics();
 			float screenWidthInDp = 1.0f * displayMetrics.widthPixels / displayMetrics.density;
