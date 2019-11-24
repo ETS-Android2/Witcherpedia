@@ -47,14 +47,25 @@ public class DescriptionActivity extends AppCompatActivity {
 	 */
 	
 	private DBHelper witcherDB;
-	
 	protected DBHelper getWitcherDB() {
 		return witcherDB;
 	}
 	
 	private ArrayList<String> names_alist;
+
+	public ArrayList<String> getNames_alist() {
+		return names_alist;
+	}
+
+	public void setNames_alist(ArrayList<String> names_alist) {
+		this.names_alist = names_alist;
+	}
+
 	private String type;
-	
+
+	public void setType(String type) {
+		this.type = type;
+	}
 	protected String getType() {
 		return type;
 	}
@@ -75,22 +86,26 @@ public class DescriptionActivity extends AppCompatActivity {
 		witcherDB = DBHelper.getInstance(this);
 		
 		Intent intent = getIntent();
-		type = intent.getStringExtra("Type");
-		getSupportActionBar().setTitle(type);
-		
-		names_alist = intent.getStringArrayListExtra("Adapter");
+
+		initialiseActivity(intent);
+	}
+
+	private void initialiseActivity(Intent intent) {
+		setType(intent.getStringExtra("Type"));
+		getSupportActionBar().setTitle(getType());
+
+		setNames_alist(intent.getStringArrayListExtra("Adapter"));
 		String selected_name = intent.getStringExtra("Item_Selected");
-		
+
 		// Create the adapter that will return a fragment for each of the three
 		// primary sections of the activity.
 		SectionsPagerAdapter mSectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager());
 		// Set up the ViewPager with the sections adapter.
 		ViewPager mViewPager = findViewById(R.id.container);
 		mViewPager.setAdapter(mSectionsPagerAdapter);
-		mViewPager.setCurrentItem(names_alist.indexOf(selected_name));
-		
+		mViewPager.setCurrentItem(getNames_alist().indexOf(selected_name));
 	}
-	
+
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.
@@ -159,7 +174,6 @@ public class DescriptionActivity extends AppCompatActivity {
 			
 			return rootView;
 		}
-		
 		
 		void setDescription(View rootView, String type, String name) {
 			ScrollView desc_scroll = rootView.findViewById(R.id.dscroll);
@@ -231,7 +245,9 @@ public class DescriptionActivity extends AppCompatActivity {
 						String abilities = resultSet.getString(resultSet.getColumnIndex("abilities"));
 						udesc.append(TextUtils.concat("\n", getFontFormattedText(getHtml("009688", "Abilities: "))/*, getHtml("-1", abilities)*/));
 						if (abilities.contains("@")) {
-							setupLinks(udesc, abilities);
+							udesc.append(setupLinks(abilities));
+						} else {
+							udesc.append(getHtml("-1", abilities));
 						}
 					}
 					
@@ -240,6 +256,7 @@ public class DescriptionActivity extends AppCompatActivity {
 				ImageView ticon = rootView.findViewById(R.id.ticon);
 				TextView ttitle = rootView.findViewById(R.id.ttitle);
 				TextView tdesc = rootView.findViewById(R.id.tdescription);
+				tdesc.setMovementMethod(LinkMovementMethod.getInstance());
 
 				String territoryn = name.replaceFirst("<font color='#3A3A3A'>[0-9]+ </font>", "");
 				try (Cursor resultSet = ((DescriptionActivity) getActivity()).getWitcherDB().getTerritory(territoryn)) {
@@ -278,10 +295,12 @@ public class DescriptionActivity extends AppCompatActivity {
 						}
 						
 						String characteristics = resultSet.getString(resultSet.getColumnIndex("characteristics"));
-						/*if (characteristics.contains("@")) {
-							characteristics = setupLinks(characteristics);
-						}*/
 						tdesc.append(TextUtils.concat("\n", getFontFormattedText(getHtml("009688", "Characteristics: ")), getHtml("-1", characteristics), "\n"));
+						if (characteristics.contains("@")) {
+							tdesc.append(setupLinks(characteristics));
+						} else {
+							tdesc.append(TextUtils.concat(getHtml("-1", characteristics), "\n"));
+						}
 					}
 					
 				}
@@ -312,7 +331,7 @@ public class DescriptionActivity extends AppCompatActivity {
 			return html;
 		}
 
-		private String setupLinks(TextView textView, String text) {
+		private Spannable setupLinks(String text) {
 			//SpannableStringBuilder stringBuilder = new SpannableStringBuilder(text);
 			Spannable stringBuilder = null;
 			System.out.println(text);
@@ -336,11 +355,25 @@ public class DescriptionActivity extends AppCompatActivity {
 					@Override
 					public void onClick(View widget) {
 						System.out.println("Clickable? " + name + " " + type);
-						//put whatever you like here, below is an example
-						//AlertDialog.Builder builder = new Builder(MainActivity.this);
-						//builder.setTitle("Location clicked");
-						//AlertDialog dialog = builder.create();
-						//dialog.show();
+
+						Intent intent = new Intent();
+
+						intent.putExtra("Type", type);
+						intent.putExtra("Item_Selected", name);
+
+						ArrayList<String> names_list = new ArrayList<>(1);
+						names_list.add(name);
+						intent.putStringArrayListExtra("Adapter", names_list);
+
+						((DescriptionActivity) getActivity()).initialiseActivity(intent);
+
+						/*View rootView = null;
+						if (type.equals("Unit Description")) {
+							rootView = inflater.inflate(R.layout.content_unit_description, container, false);
+						} else if (type.equals("Territory Description")) {
+							rootView = inflater.inflate(R.layout.content_territory_description, container, false);
+						}
+						setDescription(rootView, type, name);*/
 					}
 				};
 
@@ -352,9 +385,7 @@ public class DescriptionActivity extends AppCompatActivity {
 				System.out.println(stringBuilder);
 			}
 
-			textView.setMovementMethod(LinkMovementMethod.getInstance());
-			textView.append(stringBuilder);
-			return stringBuilder.toString();
+			return stringBuilder;
 		}
 
 		private void setTerritoryTitleCentered(TextView ttitle, String text, ImageView ticon) {
