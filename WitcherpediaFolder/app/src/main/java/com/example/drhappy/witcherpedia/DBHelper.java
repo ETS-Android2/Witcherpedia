@@ -394,7 +394,7 @@ class DBHelper extends SQLiteOpenHelper {
 		db.execSQL("INSERT INTO Melee VALUES('Lyrian Conscript', 'Light Infantry', '1.2 (1, plus 1 for every 5 units)', 2, 0, 4, '6 armies', '<br>&#8226; Up to 50 Conscripts have no need for Maintenance, and thus are excluded from any calculation of Unit Maintenance.')");
 		db.execSQL("INSERT INTO Melee VALUES('Rivian Billman', 'Medium Polearm Infantry', '1', 2, 0, 4, '4 armies', '<br>&#8226; +1 Strength against cavalry')");
 		db.execSQL("INSERT INTO Melee VALUES('Aedirnian Special Forces', 'Special Forces', '5', 3, 2, 16, '2 armies', '<br>&#8226; May perform Ambush<br>&#8226; " +
-				"Can only be recruited in @Territory@Vengerberg@<br>&#8226; " +
+				"Can only be recruited in @Territory Description@Vengerberg@<br>&#8226; " +
 				"Cannot be Focus-Fired or Ambushed<br>&#8226; " +
 				"+2 Strength bonus when fighting inside the default Aedirnian, Lyrian and Rivian borders<br>&#8226; " +
 				"+3 Strength bonus against Scoia’tael (both boni stack)')");
@@ -423,7 +423,7 @@ class DBHelper extends SQLiteOpenHelper {
 		db.execSQL("INSERT INTO Melee VALUES('Poor Fucking Infantry', 'Peasant Militia', '0.5', 2, 0, 3, '4 armies', '<br>&#8226; +0.5 Strength against Cavalry<br>&#8226; " +
 				"Up to 50 PFI have no need for Maintenance, and thus are excluded from any calculation of Unit Maintenance.') ");
 		db.execSQL("INSERT INTO Melee VALUES('Blue Stripes', 'Special Forces', '4', 3, 2, 20, '2 armies', '<br>&#8226; Survivability<br>&#8226; " +
-				"Can only be recruited in Vizima<br>&#8226; " +
+				"Can only be recruited in @Territory Description@Vizima@<br>&#8226; " +
 				"May perform Ambush<br>&#8226; " +
 				"When Ambushing in the Default Temerian territories, it gains the Safe Retreat ability for 3 Combat Rounds.<br>&#8226; " +
 				"Cannot be Focus-Fired or Ambushed<br>&#8226; " +
@@ -440,14 +440,14 @@ class DBHelper extends SQLiteOpenHelper {
 		db.execSQL("INSERT INTO Melee VALUES('Witch Hunter', 'Heavily Armoured Infantry', '1', 2, 0, 6, '2 armies', '<br>&#8226; 1 Armour<br>&#8226; " +
 				"+3 Initiative bonus against Mages<br>&#8226; " +
 				"Can focus-fire on Mages<br>&#8226; " +
-				"May waste a turn to throw a Dimeritium Bomb, at either the allies’ or the enemies’ side, canceling any magic effects and preventing any new ones from taking place for n combat rounds, where n = number of units divided by 5. Cooldown is 2 turns after the effect finishes.')");
+				"May waste a turn to throw a Dimeritium Bomb, at either the allies’ or the enemies’ side, canceling any magic effects and preventing any new ones from taking place for <i>n</i> combat rounds, where <i>n</i> = number of units divided by 5. Cooldown is 2 turns after the effect finishes.')");
 		db.execSQL("INSERT INTO Melee VALUES('Redanian Free Company', 'Light Cavalry', '2', 4, 0, 12, '2 armies', '<br>&#8226; If Olgierd is in command, retain their positive cavalry attributes even when attacking Fortifications and Cities.<br>&#8226; " +
 				"May Perform Charge with +1.0 Strength bonus<br>&#8226; " +
 				"May Perform Maneuver<br>&#8226; " +
 				"+3 Initiative against ranged units<br>&#8226; " +
 				"If enemy forces outnumber allied ones in the battlefield, negate any cavalry-related penalty affecting them.') ");
 		db.execSQL("INSERT INTO Melee VALUES('Tretogor Elite Troll Unit', 'Ogroid', '12 (3 Dice x 4 Strength)', 2, 0, 60, '1 army', '<br>&#8226; 10 Armour<br>&#8226; " +
-				"Can only be recruited in Tretogor<br>&#8226; " +
+				"Can only be recruited in @Territory Description@Tretogor@<br>&#8226; " +
 				"5 Hit Points<br>&#8226; " +
 				"May perform \"Shield Ally\" for 4 allied units')");
 		db.execSQL("INSERT INTO Melee VALUES('Nausicaa Cavalry', 'Heavy Cavalry', '3', 3, 0, 18, '4 armies', '<br>&#8226; 3 armour<br>&#8226; " +
@@ -466,7 +466,7 @@ class DBHelper extends SQLiteOpenHelper {
 		db.execSQL("INSERT INTO Melee VALUES('Slave Infantry', 'Light Infantry', '0.5', 2, 0, 2, '8 armies', 'None')");
 		db.execSQL("INSERT INTO Melee VALUES('Imperial Golem', 'Construct', '12 (4 Dice x 3 Strength)', 2, 0, 60, '1 army', '<br>&#8226; 5 Hit Points<br>&#8226; " +
 				"8 Armour<br>&#8226; " +
-				"Can only be recruited in @Territory@Nilfgaard@, @Territory@Xarthisius’ Tower@, @Territory@Vicovaro Academy@ and @Territory@Academy of Magic@<br>&#8226; " +
+				"Can only be recruited in @Territory Description@Nilfgaard@, @Territory Description@Xarthisius’ Tower@, @Territory Description@Vicovaro Academy@ and @Territory Description@Academy of Magic@<br>&#8226; " +
 				"Immune to Magic -that includes allied and enemy spells, and mages’ ranged attacks-<br>&#8226; " +
 				"Absorbs D4 Magic damage each Combat Round')");
 		db.execSQL("INSERT INTO Melee VALUES('Cintrian Knight', 'Heavy Cavalry', '2.5 (2, plus 1 for every 2 units)', 3, 0, 12, '4 armies', '<br>&#8226; 2 Armour<br>&#8226; " +
@@ -478,7 +478,7 @@ class DBHelper extends SQLiteOpenHelper {
 				"Pillaging costs only 1 Speed<br>&#8226; " +
 				"Gains +50% gold when Pillaging') ");
 		db.execSQL("INSERT INTO Melee VALUES('An Craite Greatswordsman', 'Medium Infantry', '2', 2, 0, 6, '2 armies', '<br>&#8226; +1 Strength against Polearm Infantry') ");
-		db.execSQL("INSERT INTO Melee VALUES('An Craite Warcrier', 'Light Infantry/Bard', '0.5 (1 for every 2 units)', 2, 0, 11, '2 armies', '<br>&#8226; -1 Strength to 5 Enemy units') ");
+		db.execSQL("INSERT INTO Melee VALUES('An Craite Warcrier', 'Light Infantry/Bard', '0.5 (1 for every 2 units)', 2, 0, 11, '2 armies', '<br>&#8226; -1 Strength to 5 <i>Enemy</i> units') ");
 		db.execSQL("INSERT INTO Melee VALUES('Drummond Warmonger', 'Heavy Infantry', '2', 2, 0, 9, '2 armies', '<br>&#8226; 2 Armour') ");
 		db.execSQL("INSERT INTO Melee VALUES('Drummond Shieldmaiden', 'Medium Infantry/Shieldunit', '1', 2, 0, 6, '1 armies', '<br>&#8226; 2 Armour against Ranged attacks<br>&#8226; " +
 				"Negates any Ranged anti-armour bonus damage (like from enemy Crossbowmen) <br>&#8226; " +
@@ -497,7 +497,7 @@ class DBHelper extends SQLiteOpenHelper {
 		db.execSQL("INSERT INTO Melee VALUES('Vildkaarl', 'Light Infantry/Cursed', '2', 3, 0, 30, '2 armies', '<br>&#8226; 2 Armour against ranged attacks<br>&#8226; " +
 				"Negates any Ranged anti-armour bonus damage (like from enemy Crossbowmen)<br>&#8226; " +
 				"May perform Pillage and Desecrate, but not Plunder<br>&#8226; " +
-				"After 1 combat round, Transforms into Enraged Bear (5 Hit Points, 4 Strength, 3 Speed, 0 Initiative, 2 Armour, Immune to any form of negative effect concerning their attack, armour, movement or initiative).') ");
+				"After 1 combat round, transforms into Enraged Bear (5 Hit Points, 4 Strength, 3 Speed, 0 Initiative, 2 Armour, Immune to any form of negative effect concerning their attack, armour, movement or initiative).') ");
 		db.execSQL("INSERT INTO Melee VALUES('Koviri Paladino', 'Heavy Cavalry', '2.5 (2, plus 1 for every 2 units)', 3, 0, 13, '2 armies', '<br>&#8226; 2 Armour<br>&#8226; " +
 				"May perform Charge with +1 Strength bonus') ");
 		db.execSQL("INSERT INTO Melee VALUES('Koviri Picchierre', 'Medium Polearm Infantry', '1', 2, 0, 8, '4 armies', '<br>&#8226; 1 Armour<br>&#8226; " +
@@ -505,9 +505,9 @@ class DBHelper extends SQLiteOpenHelper {
 		db.execSQL("INSERT INTO Melee VALUES('Koviri Condottiero', 'Medium Infantry', '2', 2, 0, 9, '4 armies', '<br>&#8226; 1 Armour<br>&#8226; " +
 				"+1 Strength against Light Infantry<br>&#8226; " +
 				"+1 Initiative when Boarding<br>&#8226; " +
-				"After being Recruited, can be sold to factions Allied to Kovir & Poviss for 12 gold') ");
+				"After being Recruited, can be sold to factions <i>allied to Kovir & Poviss</i> for 12 gold') ");
 		db.execSQL("INSERT INTO Melee VALUES('Adieu’s Free Company', 'Heavily Armoured Infantry', '4', 2, 0, 22, '2 armies', '<br>&#8226; 4 Armour<br>&#8226; " +
-			   	"Can only be recruited in Tridam<br>&#8226; " +
+				"Can only be recruited in @Territory Description@Tridam@<br>&#8226; " +
 				"Negates the doubled anti-Armour damage of enemy units (like Crossbowmen), so they deal normal damage. Opposing units that would completely ignore Armour (like Maulers, Axemen or Siege) will instead deal double damage.') ");
 		db.execSQL("INSERT INTO Melee VALUES('Hengforsian Cataphract', 'Heavy Cavalry', '2', 3, 0, 20, '2 armies', '<br>&#8226; 2 armour<br>&#8226; " +
 				"May perform Charge with +1 Strength bonus. When Charging against foot soldiers, deals D10 Trample damage for every 8 Cataphracts performing the Charge (rounded down)<br>&#8226; " +
@@ -760,11 +760,11 @@ class DBHelper extends SQLiteOpenHelper {
 				"Teleportation<br>&#8226; " +
 				"Ban Ard Spellbook')");
 		db.execSQL("INSERT INTO Mage VALUES('Aretuza Adept', 'Mage', '6', 30, 2, 2, 6, 70, '1 army', '<br>&#8226; Restores 5 Essence each turn up to a maximum of 75 Essence<br>&#8226; " +
-				"Can only be recruited in Thanedd Isle<br>&#8226; " +
+				"Can only be recruited in @Territory Description@Thanedd Isle@<br>&#8226; " +
 				"Teleportation<br>&#8226; " +
 				"Aretuza Spellbook')");
 		db.execSQL("INSERT INTO Mage VALUES('Vicovaro Novice', 'Mage', '4', 15, 2, 2, 6, 40, '2 armies', '<br>&#8226; Restores 3 Essence each turn up to a maximum of 45 Essence<br>&#8226; " +
-				"Can only be recruited in Vicovaro Academy and Academy of Magic<br>&#8226; " +
+				"Can only be recruited in @Territory Description@Vicovaro Academy@ and @Territory Description@Academy of Magic@<br>&#8226; " +
 				"Teleportation<br>&#8226; " +
 				"Vicovaro Spellbook')");
 		db.execSQL("INSERT INTO Mage VALUES('Vaedermakar', 'Mage', '8 (2 Dice x 4 Strength)', 35, 2, 2, 6, 75, '2 armies', '<br>&#8226; Restores 4 Essence each turn up to a maximum of 60 Essence<br>&#8226; " +
@@ -773,9 +773,9 @@ class DBHelper extends SQLiteOpenHelper {
 		db.execSQL("INSERT INTO Mage VALUES('Druid', 'Druid', '9 (3 Dice x 3 Strength)', 15, 2, 2, 6, 50, '2 armies', '<br>&#8226; Restores 3 Essence each turn up to a maximum of 45 Essence<br>&#8226; " +
 				"Druid Spellbook')");
 		db.execSQL("INSERT INTO Mage VALUES('Koviri Magister', 'Mage', '4', 30, 2, 2, 6, 80, '2 armies', '<br>&#8226; Teleportation<br>&#8226; " +
-				"Can only be recruited in Lan Exeter and Pont Vanis<br>&#8226; " +
+				"Can only be recruited in @Territory Description@Lan Exeter@ and @Territory Description@Pont Vanis@<br>&#8226; " +
 				"Does not restore Essence each turn<br>&#8226; " +
-				"May waste a Spell Action to restore (8n+8+D8) Essence, where n is the amount of Magisters in the army, minus their leader/commander, up to a maximum of 90 Essence<br>&#8226; " +
+				"May waste a Spell Action to restore (8n+8+D8) Essence, where <i>n</i> is the amount of Magisters in the army, minus their leader/commander, up to a maximum of 90 Essence<br>&#8226; " +
 				"Lan Exeter Spellbook')");
 		db.execSQL("INSERT INTO Mage VALUES('Dryad Grovekeeper', 'Healer', '14 (7 Dice x 2 Strength)', 15, 3, 2, 6, 0, '1 army', '<br>&#8226; Cannot be recruited by normal means, except from the specific event cards.<br>&#8226; " +
 				"Each turn, instead of attacking, she can heal D4 allied Dryads, but on -2 Initiative.<br>&#8226; " +
@@ -811,9 +811,9 @@ class DBHelper extends SQLiteOpenHelper {
 				"Cannot be Focus-Fired')");
 		db.execSQL("INSERT INTO Support VALUES('Nilfgaardian Alchemist', 'Support', 2, 3, 22, '2 armies', '<br>&#8226; May brew Thunderbolt potion (+1 Strength to 8 allied melee units, for 1 turn)<br>&#8226; " +
 				"May brew Hanged Man’s Venom (+1 Strength to 8 allied ranged units, for 1 turn)<br>&#8226; " +
-				"May brew Dragon’s Dream (+3 Strength to 3 allied Onagers or Ballista, for 1 turn. Bonus is only applied when attacking enemy units, not siege or fortifications)<br>&#8226; " +
+				"May brew Dragon’s Dream (+3 Strength to 3 allied @Unit Description@Onager@s or @Unit Description@Ballista@, for 1 turn. Bonus is only applied when attacking enemy units, not siege or fortifications)<br>&#8226; " +
 				"Each of these actions waste a combat round')");
-		db.execSQL("INSERT INTO Support VALUES('Vicovaro Medic', 'Healer', 2, -2, 75, '2 armies', '<br>&#8226; Can only be recruited in Vicovaro Academy<br>&#8226; " +
+		db.execSQL("INSERT INTO Support VALUES('Vicovaro Medic', 'Healer', 2, -2, 75, '2 armies', '<br>&#8226; Can only be recruited in @Territory Description@Vicovaro Academy@<br>&#8226; " +
 				"Can resurrect (D4+2) bronze units every turn<br>&#8226; " +
 				"In non-siege battles, after the 1st combat round, this unit has a chance to get damaged in the crossfire by non-focused attacks. For each Vicovaro Medic, roll a D10. If it rolls 1, it dies.<br>&#8226; " +
 				"In Siege battles, the defender shall only roll D10 for the incoming non-focused ranged/siege attacks. For melee/spell/etc. attacks, roll a D20 instead. Again, if it rolls 1, a medic dies.<br>&#8226; " +
@@ -827,7 +827,7 @@ class DBHelper extends SQLiteOpenHelper {
 				"May Perform Armour Smithing (+1 Armour to 8 allied melee units) once per battle<br>&#8226; " +
 				"Can only specialize in one of these abilities in each battle')");
 		db.execSQL("INSERT INTO Support VALUES('Tordarroch Flaminica', 'Druid/Animal Rights Activist', 2, 3, 20, '1 army', '<br>&#8226; Can summon a Bear once per combat (Beast, 3 Hit Points, 2.5 Strength, 3 Speed, 0 Initiative, 2 Armour)<br>&#8226; " +
-				"Gives +1 Strength to 3 allied units (melee or ranged) for 1 combat round <i>or</i> Restores +5 Essence to an allied Druid or Vaedermakar for 1 combat round<br>&#8226; " +
+				"Gives +1 Strength to 3 allied units (melee or ranged) for 1 combat round <i>or</i> Restores +5 Essence to an allied @Unit Description@Druid@ or @Unit Description@Vaedermakar@ for 1 combat round<br>&#8226; " +
 				"This abilities have no cooldown, and can be changed each combat round.')");
 		db.execSQL("INSERT INTO Support VALUES('Priestess of Freya', 'Healer', 2, -2, 50, '1 army', '<br>&#8226; Can resurrect D6 bronze units or 1 silver unit, each turn<br>&#8226; " +
 				"In non-siege battles, after the 1st combat round, this unit has a chance to get damaged in the crossfire by non-focused attacks. For each Priestess of Freya, roll a D10. If it rolls 1, it dies.<br>&#8226; " +
@@ -842,7 +842,7 @@ class DBHelper extends SQLiteOpenHelper {
 		db.execSQL("INSERT INTO Support VALUES('Vrihedd Sapper', 'Siege Support', 2, 4, 40, '2 armies', '<br>&#8226; When fighting in enemy Fortified territory, the Sapper can undermine their defenses, dealing 1 damage to fortifications, and +1 damage for every subsequent undermining, up to a maximum of 5.<br>&#8226; " +
 				"When fighting in allied Fortified territory, the Sapper can repair damaged fortifications, repairing D4 damage each turn.<br>&#8226; " +
 				"When fighting in Open territories, the Sapper can attempt to build temporary defensive structures and trenches in any combat row. For each Sapper, roll a D6. For each 1-3, the sapper builds one level of their intended structure. In extreme weather conditions, each 6 will instead reduce the level of the structure by 1.<br>&#8226; " +
-				"The Defensive Structure can house up to 12 non-mounted units per level, halving the damage they receive from ranged attacks and AOE spells, while enemy melee units have to waste an extra movement to attack them. It also has 3 hit points per level, and it can only be damaged by anti-building attacks. Siege attacks (like balista’s) will hit normally. Fire damage might set it on fire (roll D6 per Fire attack, 6 lights it up) and will deal 2 damage to the building, while also dealing D4 Fire damage to the units inside.\n" +
+				"The Defensive Structure can house up to 12 non-mounted units per level, halving the damage they receive from ranged attacks and AOE spells, while enemy melee units have to waste an extra movement to attack them. It also has 3 hit points per level, and it can only be damaged by anti-building attacks. Siege attacks (like ballista’s) will hit normally. Fire damage might set it on fire (roll D6 per Fire attack, 6 lights it up) and will deal 2 damage to the building, while also dealing D4 Fire damage to the units inside.\n" +
 				"The Trench can be dug in a row, reducing the Speed of 12 (per level) enemy units that try to march through this row by 1. Enemy units that end their turn in the Trench will receive +50% damage from allied Ranged and Siege attacks.')");
 		// fill the gap
 		db.execSQL("INSERT INTO Support VALUES('Mahakam Shield-Bearer', 'Shieldman', 2, 3, 18, '1-2 armies', '<br>&#8226; 6 Armour<br>&#8226; " +

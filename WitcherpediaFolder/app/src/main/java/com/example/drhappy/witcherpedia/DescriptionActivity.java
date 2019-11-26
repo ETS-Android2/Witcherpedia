@@ -34,6 +34,7 @@ import android.widget.ScrollView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 public class DescriptionActivity extends AppCompatActivity {
@@ -325,33 +326,43 @@ public class DescriptionActivity extends AppCompatActivity {
 		}
 
 		private Spannable setupLinks(String text) {
-			//SpannableStringBuilder stringBuilder = new SpannableStringBuilder(text);
-			Spannable stringBuilder = null;
-			System.out.println(text);
+			ArrayList<List<String>> links = new ArrayList<>(1);
 
 			while (text.contains("@")) {
+				List<String> type_and_name = new ArrayList<>(2);
+
 				int start = text.indexOf("@");
 				text = text.replaceFirst("@", "");
-				//stringBuilder.delete(start, start+1);
+
 				int middle = text.indexOf("@");
 				text = text.replaceFirst("@", "");
-				//stringBuilder.delete(middle, middle+1);
+
 				int end = text.indexOf("@");
 				text = text.replaceFirst("@", "");
-				//stringBuilder.delete(end, end+1);
 
 				String type = text.substring(start, middle);
 				String name = text.substring(middle, end);
-				System.out.println(type + ": " + name);
+
+				type_and_name.add(type);
+				type_and_name.add(name);
+				links.add(type_and_name);
+
+				text = text.replaceFirst(type, "");
+			}
+
+			Spanned html = getHtml("-1", text);
+			Spannable stringBuilder = new SpannableString(html);
+
+			for (List<String> link : links) {
+				String type = link.get(0);
+				String name = link.get(1);
 
 				ClickableSpan clickSpan = new ClickableSpan() {
 					@Override
 					public void onClick(View widget) {
-						System.out.println("Clickable? " + name + " " + type);
-
 						Intent intent = new Intent(getActivity(), DescriptionActivity.class);
 
-						intent.putExtra("Type", type + " Description");
+						intent.putExtra("Type", type);
 						intent.putExtra("Item_Selected", name);
 
 						ArrayList<String> names_list = new ArrayList<>(1);
@@ -360,16 +371,10 @@ public class DescriptionActivity extends AppCompatActivity {
 
 						startActivity(intent, ActivityOptions
 								.makeSceneTransitionAnimation(getActivity()).toBundle());
-
 					}
 				};
 
-				text = text.replaceFirst(type, "");
-				//stringBuilder.delete(start, middle);
-				Spanned html = getHtml("-1", text);
-				stringBuilder = new SpannableString(html);
 				stringBuilder.setSpan(clickSpan, html.toString().indexOf(name), html.toString().indexOf(name) + name.length(), Spannable.SPAN_INCLUSIVE_INCLUSIVE);
-				System.out.println(stringBuilder);
 			}
 
 			return stringBuilder;
