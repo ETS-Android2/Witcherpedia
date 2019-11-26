@@ -1,5 +1,6 @@
 package com.example.drhappy.witcherpedia;
 
+import android.app.ActivityOptions;
 import android.content.Intent;
 import android.database.Cursor;
 import android.graphics.Paint;
@@ -52,17 +53,14 @@ public class DescriptionActivity extends AppCompatActivity {
 	}
 	
 	private ArrayList<String> names_alist;
-
 	public ArrayList<String> getNames_alist() {
 		return names_alist;
 	}
-
 	public void setNames_alist(ArrayList<String> names_alist) {
 		this.names_alist = names_alist;
 	}
 
 	private String type;
-
 	public void setType(String type) {
 		this.type = type;
 	}
@@ -86,11 +84,6 @@ public class DescriptionActivity extends AppCompatActivity {
 		witcherDB = DBHelper.getInstance(this);
 		
 		Intent intent = getIntent();
-
-		initialiseActivity(intent);
-	}
-
-	private void initialiseActivity(Intent intent) {
 		setType(intent.getStringExtra("Type"));
 		getSupportActionBar().setTitle(getType());
 
@@ -169,7 +162,7 @@ public class DescriptionActivity extends AppCompatActivity {
 			} else if (type.equals("Territory Description")) {
 				rootView = inflater.inflate(R.layout.content_territory_description, container, false);
 			}
-			
+
 			setDescription(rootView, type, getArguments().getString(ARG_LIST_ITEM_NAME));
 			
 			return rootView;
@@ -184,7 +177,7 @@ public class DescriptionActivity extends AppCompatActivity {
 				ImageView uicon = rootView.findViewById(R.id.uicon);
 				TextView udesc = rootView.findViewById(R.id.udescription);
 				udesc.setMovementMethod(LinkMovementMethod.getInstance());
-				
+
 				try (Cursor resultSet = ((DescriptionActivity) getActivity()).getWitcherDB().getUnit(name)) {
 					for (resultSet.moveToFirst(); !resultSet.isAfterLast(); resultSet.moveToNext()) {
 						//String unitn = resultSet.getString(resultSet.getColumnIndex(DBHelper.COLUMN_UNITN));
@@ -250,7 +243,7 @@ public class DescriptionActivity extends AppCompatActivity {
 							udesc.append(getHtml("-1", abilities));
 						}
 					}
-					
+
 				}
 			} else if (type.equals("Territory Description")) {
 				ImageView ticon = rootView.findViewById(R.id.ticon);
@@ -295,14 +288,14 @@ public class DescriptionActivity extends AppCompatActivity {
 						}
 						
 						String characteristics = resultSet.getString(resultSet.getColumnIndex("characteristics"));
-						tdesc.append(TextUtils.concat("\n", getFontFormattedText(getHtml("009688", "Characteristics: ")), getHtml("-1", characteristics), "\n"));
+						tdesc.append(TextUtils.concat("\n", getFontFormattedText(getHtml("009688", "Characteristics: "))/*, getHtml("-1", characteristics), "\n"*/));
 						if (characteristics.contains("@")) {
-							tdesc.append(setupLinks(characteristics));
+							tdesc.append(TextUtils.concat(setupLinks(characteristics), "\n"));
 						} else {
 							tdesc.append(TextUtils.concat(getHtml("-1", characteristics), "\n"));
 						}
 					}
-					
+
 				}
 				setTerritoryTitleCentered(ttitle, ttitle.getText().toString(), ticon);
 			}
@@ -356,24 +349,18 @@ public class DescriptionActivity extends AppCompatActivity {
 					public void onClick(View widget) {
 						System.out.println("Clickable? " + name + " " + type);
 
-						Intent intent = new Intent();
+						Intent intent = new Intent(getActivity(), DescriptionActivity.class);
 
-						intent.putExtra("Type", type);
+						intent.putExtra("Type", type + " Description");
 						intent.putExtra("Item_Selected", name);
 
 						ArrayList<String> names_list = new ArrayList<>(1);
 						names_list.add(name);
 						intent.putStringArrayListExtra("Adapter", names_list);
 
-						((DescriptionActivity) getActivity()).initialiseActivity(intent);
+						startActivity(intent, ActivityOptions
+								.makeSceneTransitionAnimation(getActivity()).toBundle());
 
-						/*View rootView = null;
-						if (type.equals("Unit Description")) {
-							rootView = inflater.inflate(R.layout.content_unit_description, container, false);
-						} else if (type.equals("Territory Description")) {
-							rootView = inflater.inflate(R.layout.content_territory_description, container, false);
-						}
-						setDescription(rootView, type, name);*/
 					}
 				};
 
@@ -426,14 +413,14 @@ public class DescriptionActivity extends AppCompatActivity {
 			// Return a PlaceholderFragment (defined as a static inner class below).
 			//System.out.println("Pos: "+position);
 			//System.out.println("Unit in that pos: "+names_alist.get(position));
-			
-			return PlaceholderFragment.newInstance(names_alist.get(position));
+
+			return PlaceholderFragment.newInstance(getNames_alist().get(position));
 		}
 		
 		@Override
 		public int getCount() {
 			// Show 3 total pages.
-			return names_alist.size();
+			return getNames_alist().size();
 		}
 	}
 	
