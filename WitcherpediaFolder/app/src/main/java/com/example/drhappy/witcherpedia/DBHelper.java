@@ -756,7 +756,7 @@ class DBHelper extends SQLiteOpenHelper {
 				"Teleportation<br>&#8226; " +
 				"Generic Mage Spellbook')");
 		db.execSQL("INSERT INTO Mage VALUES('Ban Ard Tutor', 'Mage', '5', 30, 2, 2, 6, 60, '1 army', '<br>&#8226; Restores 4 Essence each turn up to a maximum of 60 Essence<br>&#8226; " +
-				"Can only be recruited in Ban Ard<br>&#8226; " +
+				"Can only be recruited in @Territory Description@Ban Ard@<br>&#8226; " +
 				"Teleportation<br>&#8226; " +
 				"Ban Ard Spellbook')");
 		db.execSQL("INSERT INTO Mage VALUES('Aretuza Adept', 'Mage', '6', 30, 2, 2, 6, 70, '1 army', '<br>&#8226; Restores 5 Essence each turn up to a maximum of 75 Essence<br>&#8226; " +
@@ -819,7 +819,7 @@ class DBHelper extends SQLiteOpenHelper {
 				"In Siege battles, the defender shall only roll D10 for the incoming non-focused ranged/siege attacks. For melee/spell/etc. attacks, roll a D20 instead. Again, if it rolls 1, a medic dies.<br>&#8226; " +
 				"After the battle is over, the player controlling the battle site can resurrect (D6+1) bronze units for each medic.')");
 		db.execSQL("INSERT INTO Support VALUES('Combat Engineer', 'Siege Support', 2, -2, 50, '2 armies', '<br>&#8226; Can Resurrect 1 allied Siege Unit each turn<br>&#8226; " +
-				"After the 1st Combat Round, if the allied siege line is attacked by enemy siege, this unit has a chance to get damaged in the crossfire. For each Siege Master, roll a D8. If it rolls 1, it dies.')");
+				"After the 1st Combat Round, if the allied siege line is attacked by enemy siege, this unit has a chance to get damaged in the crossfire. For each Combat Engineer, roll a D8. If it rolls 1, it dies.')");
 		db.execSQL("INSERT INTO Support VALUES('Heymaey Skjald', 'Bard', 2, 6, 14, '2 armies', '<br>&#8226; Before the combat round even starts, roll a D8<br>&#8226; " +
 				"Give +1 Strength -just for this round- to (D8+2) bronze units<br>&#8226; " +
 				"Repeat on the next round')");
