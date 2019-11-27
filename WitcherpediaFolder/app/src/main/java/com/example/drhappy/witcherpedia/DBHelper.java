@@ -979,7 +979,7 @@ class DBHelper extends SQLiteOpenHelper {
 		db.execSQL("INSERT INTO Territory VALUES(30, 'Hagge', 'Aedirn', 'Fortified', 'Aedirn', 0, '') ");
 		db.execSQL("INSERT INTO Territory VALUES(31, 'Gulet', 'Aedirn', 'Fortified', 'Aedirn', 0, '') ");
 		db.execSQL("INSERT INTO Territory VALUES(32, 'Hoshberg', 'Aedirn', 'Fortified', 'Aedirn', 0, '') ");
-		db.execSQL("INSERT INTO Territory VALUES(33, 'Vengerberg', 'Aedirn', 'Fortified', 'Aedirn', 0, '') ");
+		db.execSQL("INSERT INTO Territory VALUES(33, 'Vengerberg', 'Aedirn', 'Fortified', 'Aedirn', 0, '<br>@Unit Description@Imperial Golem@') ");
 		db.execSQL("INSERT INTO Territory VALUES(34, 'Asheberg', 'Aedirn', 'Fortified', 'Aedirn', 0, '') ");
 		db.execSQL("INSERT INTO Territory VALUES(35, 'Eysenlaan', 'Aedirn', 'Fortified', 'Aedirn', 0, '') ");
 		db.execSQL("INSERT INTO Territory VALUES(36, 'Aldersberg', 'Aedirn', 'Fortified', 'Aedirn', 0, '') ");

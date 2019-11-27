@@ -54,18 +54,10 @@ public class DescriptionActivity extends AppCompatActivity {
 	}
 	
 	private ArrayList<String> names_alist;
-	public ArrayList<String> getNames_alist() {
-		return names_alist;
-	}
-	public void setNames_alist(ArrayList<String> names_alist) {
-		this.names_alist = names_alist;
-	}
 
 	private String type;
-	public void setType(String type) {
-		this.type = type;
-	}
-	protected String getType() {
+
+	private String getType() {
 		return type;
 	}
 	
@@ -85,10 +77,10 @@ public class DescriptionActivity extends AppCompatActivity {
 		witcherDB = DBHelper.getInstance(this);
 		
 		Intent intent = getIntent();
-		setType(intent.getStringExtra("Type"));
-		getSupportActionBar().setTitle(getType());
+		type = intent.getStringExtra("Type");
+		getSupportActionBar().setTitle(type);
 
-		setNames_alist(intent.getStringArrayListExtra("Adapter"));
+		names_alist = intent.getStringArrayListExtra("Adapter");
 		String selected_name = intent.getStringExtra("Item_Selected");
 
 		// Create the adapter that will return a fragment for each of the three
@@ -97,7 +89,7 @@ public class DescriptionActivity extends AppCompatActivity {
 		// Set up the ViewPager with the sections adapter.
 		ViewPager mViewPager = findViewById(R.id.container);
 		mViewPager.setAdapter(mSectionsPagerAdapter);
-		mViewPager.setCurrentItem(getNames_alist().indexOf(selected_name));
+		mViewPager.setCurrentItem(names_alist.indexOf(selected_name));
 	}
 
 	@Override
@@ -419,13 +411,13 @@ public class DescriptionActivity extends AppCompatActivity {
 			//System.out.println("Pos: "+position);
 			//System.out.println("Unit in that pos: "+names_alist.get(position));
 
-			return PlaceholderFragment.newInstance(getNames_alist().get(position));
+			return PlaceholderFragment.newInstance(names_alist.get(position));
 		}
 		
 		@Override
 		public int getCount() {
 			// Show 3 total pages.
-			return getNames_alist().size();
+			return names_alist.size();
 		}
 	}
 	
