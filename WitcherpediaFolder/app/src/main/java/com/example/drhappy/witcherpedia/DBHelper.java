@@ -461,8 +461,8 @@ class DBHelper extends SQLiteOpenHelper {
 		db.execSQL("INSERT INTO Melee VALUES('Impera Brigade', 'Heavy Polearm Infantry', '2', 2, 0, 15, '3 armies', '<br>&#8226; 3 Armour<br>&#8226; " +
 				"+1 Strength against cavalry<br>&#8226; " +
 				"Can perform Shield Ally, for 3 allied units')");
-		db.execSQL("INSERT INTO Melee VALUES('Daerlan Foot Soldier', 'Heavily Armoured Infantry', '2', 2, 0, 10, '2 armies', '<br>&#8226; 2 Armour')");
-		db.execSQL("INSERT INTO Melee VALUES('Magne Division', 'Light Infantry', '1', 3, 0, 6, '6 armies', '<br>&#8226; +1 Strength in Desert territories')");
+		db.execSQL("INSERT INTO Melee VALUES('Daerlan Foot Soldier', 'Heavily Armoured Infantry', '2', 2, 0, 10, '6 armies', '<br>&#8226; 2 Armour')");
+		db.execSQL("INSERT INTO Melee VALUES('Magne Division', 'Light Infantry', '1', 3, 0, 6, '2 armies', '<br>&#8226; +1 Strength in Desert territories')");
 		db.execSQL("INSERT INTO Melee VALUES('Slave Infantry', 'Light Infantry', '0.5', 2, 0, 2, '8 armies', 'None')");
 		db.execSQL("INSERT INTO Melee VALUES('Imperial Golem', 'Construct', '12 (4 Dice x 3 Strength)', 2, 0, 60, '1 army', '<br>&#8226; 5 Hit Points<br>&#8226; " +
 				"8 Armour<br>&#8226; " +
