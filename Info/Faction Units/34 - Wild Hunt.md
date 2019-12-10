@@ -27,7 +27,7 @@ May perform Charge with +2 Strength bonus
 
 ### Name: Wild Hunt Warrior
 
-**Category**: Heavy Infantry  
+**Category**: Mage  
 **Class**: Wild Hunt, Bronze  
 **Strength**: 2  
 **Speed**: 2  
