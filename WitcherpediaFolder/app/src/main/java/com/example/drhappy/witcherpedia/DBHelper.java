@@ -160,6 +160,10 @@ class DBHelper extends SQLiteOpenHelper {
 		db.execSQL("INSERT INTO Faction VALUES('Ofier','Minor','ofier_coa') ");
 		db.execSQL("INSERT INTO Faction VALUES('Zerrikania','Minor','zerrikania_coa') ");
 		db.execSQL("INSERT INTO Faction VALUES('Haakland','Minor','haakland_coa') ");
+		db.execSQL("INSERT INTO Faction VALUES('Wild Hunt','Minor','wild_hunt_coa') ");
+		db.execSQL("INSERT INTO Faction VALUES('Strays of Spalla','Minor','strays_of_spalla_coa') ");
+		db.execSQL("INSERT INTO Faction VALUES('Salamandra','Minor','salamandra_coa') ");
+		db.execSQL("INSERT INTO Faction VALUES('Neutral','Minor','neutral_coa') ");
 	}
 
 	private void insertUnits(SQLiteDatabase db) {
