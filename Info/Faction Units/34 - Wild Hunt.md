@@ -44,8 +44,7 @@ Deals double damage to Armoured units
 **Class**: Wild Hunt, Bronze  
 **Strength**: 1  
 **Speed**: 3  
-**Initiative**: 0  
-**Range**: 0  
+**Initiative**: 0   
 **Cost**: 0  
 **Limit**: 3  
 **Specials**:  
