@@ -381,6 +381,21 @@ class DBHelper extends SQLiteOpenHelper {
 		db.execSQL("INSERT INTO Unit VALUES('Zerrikanian Fire Scorpion', 'Zerrikania', 'Ranged', 'Silver', 'Zerrikanian', 8, 'zerrikanian_fire_skorpion') ");
 		db.execSQL("INSERT INTO Unit VALUES('War Elephant', 'Zerrikania', 'Ranged', 'Bronze', 'Zerrikanian', 9, 'war_elephant') ");
 
+		// missing Haakland
+
+		db.execSQL("INSERT INTO Unit VALUES('Red Rider', 'Wild Hunt', 'Melee', 'Bronze', 'Wild Hunt', 1, 'ic_default_unit') ");
+		db.execSQL("INSERT INTO Unit VALUES('Wild Hunt Warrior', 'Wild Hunt', 'Melee', 'Bronze', 'Wild Hunt', 2, 'ic_default_unit') ");
+		db.execSQL("INSERT INTO Unit VALUES('Wild Hunt Hound', 'Wild Hunt', 'Melee', 'Bronze', 'Wild Hunt', 3, 'ic_default_unit') ");
+		db.execSQL("INSERT INTO Unit VALUES('Wild Hunt Navigator', 'Wild Hunt', 'Mage', 'Silver', 'Wild Hunt', 4, 'ic_default_unit') ");
+
+		db.execSQL("INSERT INTO Unit VALUES('Stray Cavalry', 'Strays of Spalla', 'Melee', 'Bronze', 'Strays', 1, 'ic_default_unit') ");
+		db.execSQL("INSERT INTO Unit VALUES('Stray Marauder', 'Strays of Spalla', 'Melee', 'Bronze', 'Strays', 2, 'ic_default_unit') ");
+		db.execSQL("INSERT INTO Unit VALUES('Stray Slinger', 'Strays of Spalla', 'Ranged', 'Bronze', 'Strays', 3, 'ic_default_unit') ");
+
+		db.execSQL("INSERT INTO Unit VALUES('Salamandra Henchman', 'Salamandra', 'Melee', 'Bronze', 'Salamandra', 1, 'ic_default_unit') ");
+		db.execSQL("INSERT INTO Unit VALUES('Salamandra Mutant', 'Salamandra', 'Melee', 'Bronze', 'Salamandra', 2, 'ic_default_unit') ");
+		db.execSQL("INSERT INTO Unit VALUES('Salamandra Rabid Hound', 'Salamandra', 'Melee', 'Bronze', 'Salamandra', 3, 'ic_default_unit') ");
+
 
 		//Create Melee table
 		db.execSQL("CREATE TABLE Melee " +
@@ -643,6 +658,25 @@ class DBHelper extends SQLiteOpenHelper {
 				"+2 Strength bonus against Infantry<br>&#8226; " +
 				"Negates enemy anti-cavalry and anti-armour Strength boni (enemy units that Double their damage, like Crossbowmen, will still do, just without receiving the bonus strength, while units that completely Ignore Armour, like Siege, will instead deal double damage, like Crossbowmen).<br>&#8226; " +
 				"+3 Strength in Desert biome, unaffected by Tundra biome penalties') ");
+		// missing Haakland
+		db.execSQL("INSERT INTO Melee VALUES('Red Rider', 'Heavy Cavalry', '3', 3, 0, 0, '3 armies', '<br>&#8226; May perform Charge with +2 Strength bonus<br>&#8226; " +
+				"3 Armour<br>&#8226; " +
+				"+2 Strength against Humans') ");
+		db.execSQL("INSERT INTO Melee VALUES('Wild Hunt Warrior', 'Heavy Infantry', '2', 2, 0, 0, '3 armies', '<br>&#8226; 2 Armour<br>&#8226; " +
+				"Deals double damage to Armoured units') ");
+		db.execSQL("INSERT INTO Melee VALUES('Wild Hunt Hound', 'Elementa', '1', 3, 0, 0, '3 armies', '<br>&#8226; 2 Hit Points<br>&#8226; " +
+				"Once per battle it can summon Frost Spikes around it, with 4 initiative, dealing Ice damage to every unit stack that is engaged in combat with it. The damage is (2D8+8) +2 for each Hound, and it is dealt to each engaged division. Damaged units are frozen for 1 turn, being unable to act and receiving double damage from melee attacks. During Hailstorm or Blizzard this ability has a cooldown of 2 turns.') ");
+		db.execSQL("INSERT INTO Melee VALUES('Stray Cavalry', 'Light Cavalry', '1', 4, 0, 5, '2 armies', '<br>&#8226; May perform Maneuver<br>&#8226; " +
+				"+3 Initiative against Ranged units<br>&#8226; " +
+				"Gains +50% gold when Pillaging') ");
+		db.execSQL("INSERT INTO Melee VALUES('Stray Marauder', 'Medium Infantry', '2', 2, 0, 7, '2 armies', '<br>&#8226; 1 Armour<br>&#8226; " +
+				"Gains +50% gold when Pillaging') ");
+		db.execSQL("INSERT INTO Melee VALUES('Salamandra Henchman', 'Heavy Infantry', '2', 2, 0, 9, '4 armies', '<br>&#8226; 2 Armour') ");
+		db.execSQL("INSERT INTO Melee VALUES('Salamandra Mutant', 'Mutant', '16 (4 Dice x 4 Strength)', 2, 0, 50, '2 armies', '<br>&#8226; 6 Hit Points<br>&#8226; " +
+				"Agility<br>&#8226; " +
+				"May perform Dancing Whirlwind, (gaining D8+2) Strength.') ");
+		db.execSQL("INSERT INTO Melee VALUES('Salamandra Rabid Hound', 'Beast', '2', 3, 0, 12, '4 armies', '<br>&#8226; 2 Hit Points<br>&#8226; " +
+				"Pack Tactics: If 10 or more allied Rabid Hounds are present on the battlefield, they all gain +1 Strength.') ");
 		// endregion
 
 		//Create Ranged table
@@ -749,6 +783,8 @@ class DBHelper extends SQLiteOpenHelper {
 				"Receives half-damage from enemy Ranged attacks.<br>&#8226; " +
 				"When left with less than 10 Hit Points, the elephant may go berserk. Roll a D8 each turn (until the Elephant dies). If it rolls 5-8, the unit goes berserk, attacking anything close by, with double Strength (2D8+8).On the next turn, and each , the Rider may attempt to kill the elephant , rolling his usual D6 to attack it. If the damage is enough to kill it, the unit dies.<br>&#8226; " +
 				"When out of combat, the War Elephant may pull an allied siege unit along, increasing its movement by 1.') ");
+		// missing Haakland
+		db.execSQL("INSERT INTO Ranged VALUES('Stray Slinger', 'Slinger', '1', 2, 1, 2, 5, '2 armies', '<br>&#8226; +2 Strength against Light and Medium Infantry') ");
 		// endregion
 
 		//Create Mage table
@@ -793,6 +829,10 @@ class DBHelper extends SQLiteOpenHelper {
 		db.execSQL("INSERT INTO Mage VALUES('Zerrikanian Fire Warlock', 'Mage', '5', 20, 2, 2, 6, 50, '3 armies', '<br>&#8226; Teleportation<br>&#8226; " +
 				"Restores 10 Essence each turn that doesn’t cast a spell up to a maximum of 90 Essence.<br>&#8226; " +
 				"Zerrikanian Spellbook')");
+		// missing Haakland
+		db.execSQL("INSERT INTO Mage VALUES('Wild Hunt Navigator', 'Mage', '5', 20, 2, 2, 6, 0, '2 armies', '<br>&#8226; Teleportation<br>&#8226; " +
+				"Restores 4 Essence each turn up to a maximum of 60 Essence.<br>&#8226; " +
+				"Dearg Ruadhri Spellbook')");
 		// endregion
 
 		//Create Support table
@@ -941,6 +981,10 @@ class DBHelper extends SQLiteOpenHelper {
 		db.execSQL("INSERT INTO Overview VALUES('Ofier', 'ic_overview', '') ");
 		db.execSQL("INSERT INTO Overview VALUES('Zerrikania', 'zerrikania_overview', '') ");
 		db.execSQL("INSERT INTO Overview VALUES('Haakland', 'ic_overview', '') ");
+		db.execSQL("INSERT INTO Overview VALUES('Wild Hunt', 'ic_overview', '') ");
+		db.execSQL("INSERT INTO Overview VALUES('Strays of Spalla', 'ic_overview', '') ");
+		db.execSQL("INSERT INTO Overview VALUES('Salamandra', 'ic_overview', '') ");
+		db.execSQL("INSERT INTO Overview VALUES('Neutral', 'ic_overview', '') ");
 	}
 
 	private void insertTerritories(SQLiteDatabase db) {
