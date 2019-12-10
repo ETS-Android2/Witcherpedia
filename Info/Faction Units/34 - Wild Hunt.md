@@ -19,7 +19,7 @@ The Northern Wars - Board Game
 **Speed**: 3  
 **Initiative**: 0  
 **Cost**: 0  
-**Limit**: 0  
+**Limit**: 3  
 **Specials**:  
 May perform Charge with +2 Strength bonus  
 3 Armour  
@@ -27,13 +27,13 @@ May perform Charge with +2 Strength bonus
 
 ### Name: Wild Hunt Warrior
 
-**Category**: Heavy Infantry  
+**Category**: Mage  
 **Class**: Wild Hunt, Bronze  
 **Strength**: 2  
 **Speed**: 2  
 **Initiative**: 0  
 **Cost**: 0  
-**Limit**: 0  
+**Limit**: 3  
 **Specials**:  
 2 Armour  
 Deals double damage to Armoured units
@@ -44,10 +44,9 @@ Deals double damage to Armoured units
 **Class**: Wild Hunt, Bronze  
 **Strength**: 1  
 **Speed**: 3  
-**Initiative**: 0  
-**Range**: 0  
+**Initiative**: 0   
 **Cost**: 0  
-**Limit**: 0  
+**Limit**: 3  
 **Specials**:  
 2 Hit Points  
 Once per battle it can summon Frost Spikes around it, with 4 initiative, dealing
@@ -67,7 +66,7 @@ During Hailstorm or Blizzard this ability has a cooldown of 2 turns.
 **Initiative**: 2  
 **Range**: 6  
 **Cost**: 0  
-**Limit**: 0  
+**Limit**: 2  
 **Specials**:  
 Teleportation  
 Restores 4 Essence each turn up to a maximum of 60 Essence  
