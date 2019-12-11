@@ -383,18 +383,18 @@ class DBHelper extends SQLiteOpenHelper {
 
 		// missing Haakland
 
-		db.execSQL("INSERT INTO Unit VALUES('Red Rider', 'Wild Hunt', 'Melee', 'Bronze', 'Wild Hunt', 1, 'ic_default_unit') ");
-		db.execSQL("INSERT INTO Unit VALUES('Wild Hunt Warrior', 'Wild Hunt', 'Melee', 'Bronze', 'Wild Hunt', 2, 'ic_default_unit') ");
-		db.execSQL("INSERT INTO Unit VALUES('Wild Hunt Hound', 'Wild Hunt', 'Melee', 'Bronze', 'Wild Hunt', 3, 'ic_default_unit') ");
-		db.execSQL("INSERT INTO Unit VALUES('Wild Hunt Navigator', 'Wild Hunt', 'Mage', 'Silver', 'Wild Hunt', 4, 'ic_default_unit') ");
+		db.execSQL("INSERT INTO Unit VALUES('Red Rider', 'Wild Hunt', 'Melee', 'Bronze', 'Wild Hunt', 1, 'red_rider') ");
+		db.execSQL("INSERT INTO Unit VALUES('Wild Hunt Warrior', 'Wild Hunt', 'Melee', 'Bronze', 'Wild Hunt', 2, 'wild_hunt_warrior') ");
+		db.execSQL("INSERT INTO Unit VALUES('Wild Hunt Hound', 'Wild Hunt', 'Melee', 'Bronze', 'Wild Hunt', 3, 'wild_hunt_hound') ");
+		db.execSQL("INSERT INTO Unit VALUES('Wild Hunt Navigator', 'Wild Hunt', 'Mage', 'Silver', 'Wild Hunt', 4, 'wild_hunt_navigator') ");
 
-		db.execSQL("INSERT INTO Unit VALUES('Stray Cavalry', 'Strays of Spalla', 'Melee', 'Bronze', 'Strays', 1, 'ic_default_unit') ");
-		db.execSQL("INSERT INTO Unit VALUES('Stray Marauder', 'Strays of Spalla', 'Melee', 'Bronze', 'Strays', 2, 'ic_default_unit') ");
-		db.execSQL("INSERT INTO Unit VALUES('Stray Slinger', 'Strays of Spalla', 'Ranged', 'Bronze', 'Strays', 3, 'ic_default_unit') ");
+		db.execSQL("INSERT INTO Unit VALUES('Stray Cavalry', 'Strays of Spalla', 'Melee', 'Bronze', 'Strays', 1, 'stray_cavalry') ");
+		db.execSQL("INSERT INTO Unit VALUES('Stray Marauder', 'Strays of Spalla', 'Melee', 'Bronze', 'Strays', 2, 'stray_marauder') ");
+		db.execSQL("INSERT INTO Unit VALUES('Stray Slinger', 'Strays of Spalla', 'Ranged', 'Bronze', 'Strays', 3, 'stray_slinger') ");
 
-		db.execSQL("INSERT INTO Unit VALUES('Salamandra Henchman', 'Salamandra', 'Melee', 'Bronze', 'Salamandra', 1, 'ic_default_unit') ");
-		db.execSQL("INSERT INTO Unit VALUES('Salamandra Mutant', 'Salamandra', 'Melee', 'Bronze', 'Salamandra', 2, 'ic_default_unit') ");
-		db.execSQL("INSERT INTO Unit VALUES('Salamandra Rabid Hound', 'Salamandra', 'Melee', 'Bronze', 'Salamandra', 3, 'ic_default_unit') ");
+		db.execSQL("INSERT INTO Unit VALUES('Salamandra Henchman', 'Salamandra', 'Melee', 'Bronze', 'Salamandra', 1, 'salamandra_henchman') ");
+		db.execSQL("INSERT INTO Unit VALUES('Salamandra Mutant', 'Salamandra', 'Melee', 'Bronze', 'Salamandra', 2, 'salamandra_mutant') ");
+		db.execSQL("INSERT INTO Unit VALUES('Salamandra Rabid Hound', 'Salamandra', 'Melee', 'Bronze', 'Salamandra', 3, 'salamandra_rabid_hound') ");
 
 
 		//Create Melee table
