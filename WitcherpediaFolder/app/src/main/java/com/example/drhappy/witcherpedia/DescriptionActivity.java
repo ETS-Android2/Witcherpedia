@@ -7,15 +7,6 @@ import android.graphics.Paint;
 import android.graphics.Rect;
 import android.graphics.Typeface;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentStatePagerAdapter;
-import android.support.v4.content.res.ResourcesCompat;
-import android.support.v4.text.HtmlCompat;
-import android.support.v4.view.ViewPager;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
 import android.text.Spannable;
 import android.text.SpannableString;
 import android.text.SpannableStringBuilder;
@@ -33,6 +24,16 @@ import android.widget.ImageView;
 import android.widget.ScrollView;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import androidx.core.content.res.ResourcesCompat;
+import androidx.core.text.HtmlCompat;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentStatePagerAdapter;
+import androidx.viewpager.widget.ViewPager;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -40,14 +41,14 @@ import java.util.Objects;
 public class DescriptionActivity extends AppCompatActivity {
 	
 	/**
-	 * The {@link android.support.v4.view.PagerAdapter} that will provide
+	 * The {@link androidx.viewpager.widget.PagerAdapter} that will provide
 	 * fragments for each of the sections. We use a
 	 * {@link /FragmentPagerAdapter} derivative, which will keep every
 	 * loaded fragment in memory. If this becomes too memory intensive, it
 	 * may be best to switch to a
-	 * {@link android.support.v4.app.FragmentStatePagerAdapter}.
+	 * {@link androidx.fragment.app.FragmentStatePagerAdapter}.
 	 */
-	
+
 	private DBHelper witcherDB;
 	protected DBHelper getWitcherDB() {
 		return witcherDB;
@@ -395,7 +396,7 @@ public class DescriptionActivity extends AppCompatActivity {
 	}
 	
 	/**
-	 * A {@link android.support.v4.app.FragmentStatePagerAdapter} that returns a fragment corresponding to
+	 * A {@link androidx.fragment.app.FragmentStatePagerAdapter} that returns a fragment corresponding to
 	 * one of the sections/tabs/pages.
 	 */
 	public class SectionsPagerAdapter extends FragmentStatePagerAdapter {

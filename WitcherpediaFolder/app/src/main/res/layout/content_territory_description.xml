@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context=".MainActivity" >
+    tools:context=".DescriptionActivity">
 
     <ScrollView
         android:id="@+id/dscroll"
@@ -43,10 +43,11 @@
                     android:gravity="start|center_vertical"
                     android:text="@string/empty"
                     android:textAlignment="gravity"
-                    android:textColor="@color/colorBackground"
+                    android:textColor="@color/colorTitleText"
                     android:textSize="26.5sp"
                     android:textIsSelectable="true"
                     android:fontFamily="@font/hinted_gwent_extrabold" />
+
             </LinearLayout>
 
             <TextView
@@ -65,4 +66,4 @@
         </LinearLayout>
     </ScrollView>
 
-</android.support.constraint.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
