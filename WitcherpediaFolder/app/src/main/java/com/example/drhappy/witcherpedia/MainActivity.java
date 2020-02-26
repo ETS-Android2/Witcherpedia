@@ -218,13 +218,23 @@ public class MainActivity extends AppCompatActivity
 
 		switch (id) {
 			case R.id.factions:
-				ListFragment listFragment = ListFragment.newInstance("Factions");
+				ListFragment flistFragment = ListFragment.newInstance("Factions");
 
-				FragmentTransaction ft = manager.beginTransaction();
-				ft.setCustomAnimations(android.R.anim.fade_in, android.R.anim.fade_out);
+				FragmentTransaction fft = manager.beginTransaction();
+				fft.setCustomAnimations(android.R.anim.fade_in, android.R.anim.fade_out);
 
-				ft.replace(R.id.frame_container, listFragment, "ListFragment");
-				ft.commit();
+				fft.replace(R.id.frame_container, flistFragment, "ListFragment");
+				fft.commit();
+
+				break;
+			case R.id.monsters:
+				ListFragment blistFragment = ListFragment.newInstance("Bestiary File");
+
+				FragmentTransaction bft = manager.beginTransaction();
+				bft.setCustomAnimations(android.R.anim.fade_in, android.R.anim.fade_out);
+
+				bft.replace(R.id.frame_container, blistFragment, "ListFragment");
+				bft.commit();
 
 				break;
 			case R.id.nav_gallery:

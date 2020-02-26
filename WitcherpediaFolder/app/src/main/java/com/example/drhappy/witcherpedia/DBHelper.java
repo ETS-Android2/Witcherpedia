@@ -93,16 +93,16 @@ class DBHelper extends SQLiteOpenHelper {
 		return db.rawQuery("SELECT factionn, drawablen FROM Faction ORDER BY playability", null);
 	}
 
-	Cursor getUnits(String factionn) {
-		SQLiteDatabase db = instance.getReadableDatabase();
-
-		return db.rawQuery("SELECT unitn, drawablen FROM Unit WHERE factionn = ? ORDER BY priority", new String[]{factionn});
-	}
-
 	Cursor getOverview(String factionn) {
 		SQLiteDatabase db = instance.getReadableDatabase();
 
 		return db.rawQuery("SELECT drawablen, overview FROM Overview WHERE factionn = ?", new String[]{factionn});
+	}
+
+	Cursor getUnits(String factionn) {
+		SQLiteDatabase db = instance.getReadableDatabase();
+
+		return db.rawQuery("SELECT unitn, drawablen FROM Unit WHERE factionn = ? ORDER BY priority", new String[]{factionn});
 	}
 
 	Cursor getUnit(String unitn) {
@@ -137,6 +137,18 @@ class DBHelper extends SQLiteOpenHelper {
 		} else {
 			return db.rawQuery("SELECT * FROM Territory WHERE Territory.territoryn = ?", new String[]{territoryn});
 		}
+	}
+
+	Cursor getBestiaries() {
+		SQLiteDatabase db = instance.getReadableDatabase();
+
+		return db.rawQuery("SELECT bestiaryn, drawablen FROM Bestiary", null);
+	}
+
+	Cursor getBestiaryMonsters(String bestiaryn) {
+		SQLiteDatabase db = instance.getReadableDatabase();
+
+		return db.rawQuery("SELECT monstern, drawablen FROM Monster WHERE bestiaryn = ? ORDER BY priority", new String[]{bestiaryn});
 	}
 
 	private void insertFactions(SQLiteDatabase db) {

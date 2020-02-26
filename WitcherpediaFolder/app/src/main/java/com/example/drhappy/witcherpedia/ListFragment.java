@@ -136,6 +136,10 @@ public class ListFragment extends Fragment {
 				setDescription("Territory Description", item);
 
 				break;
+			case "Bestiary File":
+				setListAdapter(item + " Bestiary");
+
+				break;
 		}
 
 	}
@@ -205,6 +209,35 @@ public class ListFragment extends Fragment {
 						}
 					}
 
+				}
+				break;
+			}
+			case "Bestiary File": {
+				try (Cursor resultSet = witcherDB.getBestiaries()) {
+					for (resultSet.moveToFirst(); !resultSet.isAfterLast(); resultSet.moveToNext()) {
+						String bestiaryn = resultSet.getString(resultSet.getColumnIndex("bestiaryn"));
+						label_alist.add(bestiaryn);
+						String drawablen = resultSet.getString(resultSet.getColumnIndex("drawablen"));
+						icon_alist.add(drawablen);
+					}
+				}
+
+				subtitleOn = false;
+				break;
+			}
+			default: {
+				if (type.contains(" Bestiary")) {
+					type = type.replaceFirst(" Bestiary", "");
+
+					try (Cursor resultSet = witcherDB.getBestiaryMonsters(type)) {
+						for (resultSet.moveToFirst(); !resultSet.isAfterLast(); resultSet.moveToNext()) {
+							String monstern = resultSet.getString(resultSet.getColumnIndex("monstern"));
+							label_alist.add(monstern);
+							String drawablen = resultSet.getString(resultSet.getColumnIndex("drawablen"));
+							icon_alist.add(drawablen);
+							System.out.println(monstern);
+						}
+					}
 				}
 				break;
 			}
