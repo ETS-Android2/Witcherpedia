@@ -10,12 +10,16 @@
             android:title="@string/factions" />
 
         <item
-            android:icon="@drawable/ic_menu_saver"
-            android:title="@string/state_saver" />
-
-        <item
             android:icon="@drawable/ic_menu_monsters"
             android:title="Bestiary File" />
+
+        <item
+            android:icon="@drawable/ic_menu_spellbook"
+            android:title="Spellbook" />
+
+        <item
+            android:icon="@drawable/ic_menu_saver"
+            android:title="@string/state_saver" />
 
         <item
             android:id="@+id/nav_gallery"

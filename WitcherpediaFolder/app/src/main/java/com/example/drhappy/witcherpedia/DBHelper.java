@@ -51,7 +51,17 @@ class DBHelper extends SQLiteOpenHelper {
 		//Insert Territory entries
 		insertTerritories(db);
 
+		//Create Bestiary file table
+		db.execSQL("CREATE TABLE Bestiary " +
+				"( bestiaryn TEXT PRIMARY KEY, drawablen TEXT)");
+		//Insert Bestiary entries
+		insertBestiaries(db);
 
+		//Create Monster table
+		db.execSQL("CREATE TABLE Monster " +
+				"( monstern TEXT PRIMARY KEY, bestiaryn TEXT, category TEXT, hitpoints INTEGER, strength TEXT, speed INTEGER, initiative INTEGER, range INTEGER, abilities TEXT, priority INTEGER, drawablen TEXT, FOREIGN KEY(bestiaryn) REFERENCES Bestiary(bestiaryn))");
+		//Insert Monster entries
+		insertMonsters(db);
 	}
 
 	@Override
@@ -70,6 +80,9 @@ class DBHelper extends SQLiteOpenHelper {
 
 		db.execSQL("DROP TABLE IF EXISTS Territory");
 		db.execSQL("DROP TABLE IF EXISTS Fortified");
+
+		db.execSQL("DROP TABLE IF EXISTS Bestiary");
+		db.execSQL("DROP TABLE IF EXISTS Monster");
 
 		onCreate(db);
 	}
@@ -903,10 +916,6 @@ class DBHelper extends SQLiteOpenHelper {
 		//Create Navy table
 		db.execSQL("CREATE TABLE Navy " +
 				"( unitn TEXT PRIMARY KEY, specialization TEXT, hitpoints INTEGER, strength TEXT, speed INTEGER, initiative INTEGER, range INTEGER, cost INTEGER, armylimit TEXT, abilities TEXT, FOREIGN KEY(unitn) REFERENCES Unit(unitn))");
-
-		//Create Monster table
-		db.execSQL("CREATE TABLE Monster " +
-				"( unitn TEXT PRIMARY KEY, specialization TEXT, hitpoints INTEGER, strength TEXT, speed INTEGER, initiative INTEGER, range INTEGER, abilities TEXT, FOREIGN KEY(unitn) REFERENCES Unit(unitn))");
 	}
 
 	private void insertOverviews(SQLiteDatabase db) {
@@ -1439,5 +1448,24 @@ class DBHelper extends SQLiteOpenHelper {
 		db.execSQL("INSERT INTO Fortified VALUES('Winneburg Castle', 'Castle', '') ");
 		db.execSQL("INSERT INTO Fortified VALUES('Nilfgaard', 'Capital', '') ");
 		// endregion
+	}
+
+	private void insertBestiaries(SQLiteDatabase db) {
+		db.execSQL("INSERT INTO Bestiary VALUES('Beasts', 'ic_menu_monsters') ");
+		db.execSQL("INSERT INTO Bestiary VALUES('Cursed', 'ic_menu_monsters') ");
+		db.execSQL("INSERT INTO Bestiary VALUES('Draconids', 'ic_menu_monsters') ");
+		db.execSQL("INSERT INTO Bestiary VALUES('Elementae & Constructs', 'ic_menu_monsters') ");
+		db.execSQL("INSERT INTO Bestiary VALUES('Hybrids', 'ic_menu_monsters') ");
+		db.execSQL("INSERT INTO Bestiary VALUES('Insectoids', 'ic_menu_monsters') ");
+		db.execSQL("INSERT INTO Bestiary VALUES('Necrophages', 'ic_menu_monsters') ");
+		db.execSQL("INSERT INTO Bestiary VALUES('Ogroids', 'ic_menu_monsters') ");
+		db.execSQL("INSERT INTO Bestiary VALUES('Relicts', 'ic_menu_monsters') ");
+		db.execSQL("INSERT INTO Bestiary VALUES('Specters', 'ic_menu_monsters') ");
+		db.execSQL("INSERT INTO Bestiary VALUES('Vampires', 'ic_menu_monsters') ");
+	}
+
+	private void insertMonsters(SQLiteDatabase db) {
+		db.execSQL("INSERT INTO Monster VALUES('Alghoul', 'Necrophages', 'Melee', 10, '4', 3, 0, 0, '<br>&#8226; 1 Armour', 1, 'ic_menu_monsters')");
+
 	}
 }
