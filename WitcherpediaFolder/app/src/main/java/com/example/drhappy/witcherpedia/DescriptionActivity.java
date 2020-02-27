@@ -151,7 +151,7 @@ public class DescriptionActivity extends AppCompatActivity {
 			View rootView = null;
 			
 			String type = ((DescriptionActivity) getActivity()).getType();
-			if (type.equals("Unit Description")) {
+			if (type.equals("Unit Description") || type.equals("Monster Description")) {
 				rootView = inflater.inflate(R.layout.content_unit_description, container, false);
 			} else if (type.equals("Territory Description")) {
 				rootView = inflater.inflate(R.layout.content_territory_description, container, false);
@@ -188,7 +188,7 @@ public class DescriptionActivity extends AppCompatActivity {
 						String nationality = resultSet.getString(resultSet.getColumnIndex("nationality"));
 						String classn = resultSet.getString(resultSet.getColumnIndex("class"));
 						udesc.append(TextUtils.concat("\n", getFontFormattedText(getHtml("009688", "Class: ")), nationality, ", ", classn));
-						
+
 						int speed = resultSet.getInt(resultSet.getColumnIndex("speed"));
 						int initiative = resultSet.getInt(resultSet.getColumnIndex("initiative"));
 						
@@ -259,28 +259,28 @@ public class DescriptionActivity extends AppCompatActivity {
 
 						String category = resultSet.getString(resultSet.getColumnIndex("category"));
 						tdesc.append(TextUtils.concat("\n", getFontFormattedText(getHtml("009688", "Category: ")), category));
-						
+
 						String region = resultSet.getString(resultSet.getColumnIndex("region"));
 						tdesc.append(TextUtils.concat("\n", getFontFormattedText(getHtml("009688", "Region: ")), region));
-						
+
 						int income = resultSet.getInt(resultSet.getColumnIndex("income"));
 						tdesc.append(TextUtils.concat("\n", getFontFormattedText(getHtml("009688", "Income: ")), String.valueOf(income)));
-						
+
 						if (category.equals("Fortified")) {
 							String status = resultSet.getString(resultSet.getColumnIndex("status"));
 							String defences = resultSet.getString(resultSet.getColumnIndex("defences"));
 
 							tdesc.append(TextUtils.concat("\n", getFontFormattedText(getHtml("009688", "Status: ")), status,
 									"\n", getFontFormattedText(getHtml("009688", "Defences: ")), getHtml("-1", defences)));
-							
-							
+
+
 							int resourceId = getActivity().getResources().getIdentifier("ic_fortified_territory", "drawable", getActivity().getPackageName());
 							ticon.setImageResource(resourceId);
 						} else {
 							int resourceId = getActivity().getResources().getIdentifier("ic_open_territory", "drawable", getActivity().getPackageName());
 							ticon.setImageResource(resourceId);
 						}
-						
+
 						String characteristics = resultSet.getString(resultSet.getColumnIndex("characteristics"));
 						tdesc.append(TextUtils.concat("\n", getFontFormattedText(getHtml("009688", "Characteristics: "))/*, getHtml("-1", characteristics), "\n"*/));
 						if (characteristics.contains("@")) {
@@ -292,6 +292,46 @@ public class DescriptionActivity extends AppCompatActivity {
 
 				}
 				setTerritoryTitleCentered(ttitle, ttitle.getText().toString(), ticon);
+			} else if (type.equals("Monster Description")) {
+				TextView utitle = rootView.findViewById(R.id.utitle);
+				ImageView uicon = rootView.findViewById(R.id.uicon);
+				TextView udesc = rootView.findViewById(R.id.udescription);
+				udesc.setMovementMethod(LinkMovementMethod.getInstance());
+
+				try (Cursor resultSet = ((DescriptionActivity) getActivity()).getWitcherDB().getMonster(name)) {
+					for (resultSet.moveToFirst(); !resultSet.isAfterLast(); resultSet.moveToNext()) {
+						utitle.setText(name);
+
+						String drawablen = resultSet.getString(resultSet.getColumnIndex("drawablen"));
+						int resourceId = this.getResources().getIdentifier(drawablen, "drawable", getActivity().getPackageName());
+						uicon.setImageResource(resourceId);
+
+						String category = resultSet.getString(resultSet.getColumnIndex("category"));
+						udesc.setText(TextUtils.concat(getFontFormattedText(getHtml("009688", "Category: ")), category));
+
+						int hitpoints = resultSet.getInt(resultSet.getColumnIndex("hitpoints"));
+						udesc.append(TextUtils.concat("\n", getFontFormattedText(getHtml("009688", "Hit Points: ")), String.valueOf(hitpoints)));
+
+						String strength = resultSet.getString(resultSet.getColumnIndex("strength"));
+						udesc.append(TextUtils.concat("\n", getFontFormattedText(getHtml("009688", "Strength: ")), strength));
+
+						int speed = resultSet.getInt(resultSet.getColumnIndex("speed"));
+						int initiative = resultSet.getInt(resultSet.getColumnIndex("initiative"));
+						int range = resultSet.getInt(resultSet.getColumnIndex("range"));
+						udesc.append(TextUtils.concat("\n", getFontFormattedText(getHtml("009688", "Speed: ")), String.valueOf(speed),
+								"\n", getFontFormattedText(getHtml("009688", "Initiative: ")), String.valueOf(initiative),
+								"\n", getFontFormattedText(getHtml("009688", "Range: ")), String.valueOf(range)));
+
+						String abilities = resultSet.getString(resultSet.getColumnIndex("abilities"));
+						udesc.append(TextUtils.concat("\n", getFontFormattedText(getHtml("009688", "Abilities: "))/*, getHtml("-1", abilities)*/));
+						if (abilities.contains("@")) {
+							udesc.append(setupLinks(abilities));
+						} else {
+							udesc.append(getHtml("-1", abilities));
+						}
+					}
+
+				}
 			}
 		}
 

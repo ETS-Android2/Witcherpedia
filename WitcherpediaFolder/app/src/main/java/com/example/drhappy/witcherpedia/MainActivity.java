@@ -123,7 +123,7 @@ public class MainActivity extends AppCompatActivity
 			if (current_view.equals("Witcherpedia")) {
 				drawer.openDrawer(GravityCompat.START);
 
-			} else if (current_view.equals("Factions")) {
+			} else if (current_view.equals("Factions") || current_view.equals("Bestiary File")) {
 				//setAdapter("Witcherpedia");
 				FragmentTransaction ft = manager.beginTransaction();
 				ft.setCustomAnimations(android.R.anim.fade_in, android.R.anim.fade_out);
@@ -134,6 +134,7 @@ public class MainActivity extends AppCompatActivity
 
 				NavigationView navigationView = findViewById(R.id.nav_view);
 				navigationView.getMenu().findItem(R.id.factions).setChecked(false);
+				navigationView.getMenu().findItem(R.id.monsters).setChecked(false);
 
 			} else if (current_view.equals("Contents")) {
 				//setAdapter("Factions");
@@ -163,6 +164,12 @@ public class MainActivity extends AppCompatActivity
 					}
 				}
 
+			} else if (current_view.equals("Beasts") || current_view.equals("Cursed") || current_view.equals("Draconids") || current_view.equals("Elementae & Constructs") || current_view.equals("Hybrids")
+					|| current_view.equals("Insectoids") || current_view.equals("Necrophages") || current_view.equals("Ogroids") || current_view.equals("Relicts") || current_view.equals("Specters") || current_view.equals("Vampires")) {
+				ListFragment listFragment = (ListFragment) manager.findFragmentByTag("ListFragment");
+				if (listFragment != null && listFragment.isVisible()) {
+					listFragment.setListAdapter("Bestiary File");
+				}
 			}
             /*else if (current_view.contains("Description")) {
                 ListFragment listFragment = null;

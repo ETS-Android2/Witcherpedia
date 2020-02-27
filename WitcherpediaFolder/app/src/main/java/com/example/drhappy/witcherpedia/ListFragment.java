@@ -140,6 +140,20 @@ public class ListFragment extends Fragment {
 				setListAdapter(item + " Bestiary");
 
 				break;
+			case "Beasts":
+			case "Cursed":
+			case "Draconids":
+			case "Elementae & Constructs":
+			case "Hybrids":
+			case "Insectoids":
+			case "Necrophages":
+			case "Ogroids":
+			case "Relicts":
+			case "Specters":
+			case "Vampires":
+				setDescription("Monster Description", item);
+
+				break;
 		}
 
 	}

@@ -151,6 +151,12 @@ class DBHelper extends SQLiteOpenHelper {
 		return db.rawQuery("SELECT monstern, drawablen FROM Monster WHERE bestiaryn = ? ORDER BY priority", new String[]{bestiaryn});
 	}
 
+	Cursor getMonster(String monstern) {
+		SQLiteDatabase db = instance.getReadableDatabase();
+
+		return db.rawQuery("SELECT * FROM Monster WHERE Monster.monstern = ?", new String[]{monstern});
+	}
+
 	private void insertFactions(SQLiteDatabase db) {
 		db.execSQL("INSERT INTO Faction VALUES('Aedirn, Lyria & Rivia','Major','lyriarivia_coa') ");
 		db.execSQL("INSERT INTO Faction VALUES('Kaedwen','Major','kaedwen_coa') ");
