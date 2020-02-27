@@ -1464,16 +1464,16 @@ class DBHelper extends SQLiteOpenHelper {
 
 	private void insertBestiaries(SQLiteDatabase db) {
 		db.execSQL("INSERT INTO Bestiary VALUES('Beasts', 'ic_menu_monsters') ");
-		db.execSQL("INSERT INTO Bestiary VALUES('Cursed', 'ic_menu_monsters') ");
-		db.execSQL("INSERT INTO Bestiary VALUES('Draconids', 'ic_menu_monsters') ");
-		db.execSQL("INSERT INTO Bestiary VALUES('Elementae & Constructs', 'ic_menu_monsters') ");
-		db.execSQL("INSERT INTO Bestiary VALUES('Hybrids', 'ic_menu_monsters') ");
+		db.execSQL("INSERT INTO Bestiary VALUES('Cursed', 'ic_cursed') ");
+		db.execSQL("INSERT INTO Bestiary VALUES('Draconids', 'ic_draconids') ");
+		db.execSQL("INSERT INTO Bestiary VALUES('Elementae & Constructs', 'ic_elementae_constructs') ");
+		db.execSQL("INSERT INTO Bestiary VALUES('Hybrids', 'ic_hybrids') ");
 		db.execSQL("INSERT INTO Bestiary VALUES('Insectoids', 'ic_menu_monsters') ");
 		db.execSQL("INSERT INTO Bestiary VALUES('Necrophages', 'ic_menu_monsters') ");
-		db.execSQL("INSERT INTO Bestiary VALUES('Ogroids', 'ic_menu_monsters') ");
+		db.execSQL("INSERT INTO Bestiary VALUES('Ogroids', 'ic_ogroids') ");
 		db.execSQL("INSERT INTO Bestiary VALUES('Relicts', 'ic_menu_monsters') ");
-		db.execSQL("INSERT INTO Bestiary VALUES('Specters', 'ic_menu_monsters') ");
-		db.execSQL("INSERT INTO Bestiary VALUES('Vampires', 'ic_menu_monsters') ");
+		db.execSQL("INSERT INTO Bestiary VALUES('Specters', 'ic_specters') ");
+		db.execSQL("INSERT INTO Bestiary VALUES('Vampires', 'ic_vampires') ");
 	}
 
 	private void insertMonsters(SQLiteDatabase db) {
