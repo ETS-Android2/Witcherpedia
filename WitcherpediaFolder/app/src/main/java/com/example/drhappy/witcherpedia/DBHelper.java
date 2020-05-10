@@ -1475,7 +1475,7 @@ class DBHelper extends SQLiteOpenHelper {
 		db.execSQL("INSERT INTO Bestiary VALUES('Elementae & Constructs', 'ic_elementae_constructs') ");
 		db.execSQL("INSERT INTO Bestiary VALUES('Hybrids', 'ic_hybrids') ");
 		db.execSQL("INSERT INTO Bestiary VALUES('Insectoids', 'ic_menu_monsters') ");
-		db.execSQL("INSERT INTO Bestiary VALUES('Necrophages', 'ic_menu_monsters') ");
+		db.execSQL("INSERT INTO Bestiary VALUES('Necrophages', 'ic_necrophages') ");
 		db.execSQL("INSERT INTO Bestiary VALUES('Ogroids', 'ic_ogroids') ");
 		db.execSQL("INSERT INTO Bestiary VALUES('Relicts', 'ic_menu_monsters') ");
 		db.execSQL("INSERT INTO Bestiary VALUES('Specters', 'ic_specters') ");
