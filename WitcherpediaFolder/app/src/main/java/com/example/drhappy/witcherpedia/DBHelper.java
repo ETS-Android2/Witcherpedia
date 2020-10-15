@@ -1483,6 +1483,50 @@ class DBHelper extends SQLiteOpenHelper {
 	}
 
 	private void insertMonsters(SQLiteDatabase db) {
+		// insert Beasts
+		db.execSQL("INSERT INTO Monster VALUES('Wolf', 'Beasts', 'Melee', 1, '1', 3, 0, 0, '<br>&#8226; Pack Tactics - If more than 10 allied wolves are present on the battlefield, they all gain +0.5 Strength.', 1, 'ic_menu_monsters')");
+		db.execSQL("INSERT INTO Monster VALUES('Bear', 'Beasts', 'Melee', 3, '2.5', 3, 0, 0, '<br>&#8226; 2 Armour<br>&#8226; " +
+				"Immune to Ice and Wind damage', 2, 'ic_menu_monsters')");
+
+		// insert Cursed
+		db.execSQL("INSERT INTO Monster VALUES('Archespore', 'Cursed', 'Ranged', 6, '8 (2 Dice x 4 Strength)', 2, 2, 2, '<br>&#8226; Deals Poison damage<br>&#8226; " +
+				"Receives Double damage from Fire and Wind attacks<br>&#8226; " +
+				"Upon dying, deals (D4 - 1) damage to each tile around it', 1, 'ic_menu_monsters')");
+		db.execSQL("INSERT INTO Monster VALUES('Werewolf', 'Cursed', 'Melee', 20, 'D6+4', 4, 2, 0, '<br>&#8226; Regenerates 10 Hit Points each combat round<br>&#8226; " +
+				"Receives double damage from Poison attacks<br>&#8226; " +
+				"Regeneration is halted when Poisoned, or under the effect of Moon Dust<br>&#8226; " +
+				"Summon Wolf Pack: Summons a (D8+2) number of wolves each turn. These wolves will always protect their Conjurer, and must be dealt with before he can be hurt.', 2, 'ic_menu_monsters')");
+		db.execSQL("INSERT INTO Monster VALUES('Ulfhedinn', 'Cursed', 'Melee', 30, 'D8+7', 5, 2, 0, '<br>&#8226; Regenerates 20 Hit Points each combat round<br>&#8226; " +
+				"Receives double damage from Poison attacks<br>&#8226; " +
+				"Regeneration is halved (10 Hit Points each combat round) when Poisoned, or under the effect of Moon Dust<br>&#8226; " +
+				"Summon Wolf Pack: Summons a (D8+2) number of wolves each turn. These wolves will always protect their Conjurer, and must be dealt with before he can be hurt.', 3, 'ic_menu_monsters')");
+
+		//insert Draconids
+		db.execSQL("INSERT INTO Monster VALUES('Wyvern', 'Draconids', 'Melee', 40, 'D6+3', 5, 0, 0, '<br>&#8226; Deals Poison damage.<br>&#8226; " +
+				"Can fly, but still need to be in melee to attack.<br>&#8226; " +
+				"May perform Hit and Run.<br>&#8226; " +
+				"Receives only half damage from Fire attacks.', 1, 'ic_menu_monsters')");
+		db.execSQL("INSERT INTO Monster VALUES('Cockatrice', 'Draconids', 'Melee', 30, '2D8', 6, 1, 0, '<br>&#8226; Can fly, but still need to be in melee to attack. However, its positive initiative allows to stay safe from most melee retaliations.<br>&#8226; " +
+				"May perform Hit and Run.<br>&#8226; " +
+				"Receives double damage from Piercing attacks (arrows, spears, etc.)', 2, 'ic_menu_monsters')");
+		db.execSQL("INSERT INTO Monster VALUES('Forktail', 'Draconids', 'Melee', 35, '2D6+1', 5, 0, 0, '<br>&#8226; Deals Poison damage.<br>&#8226; " +
+				"Can fly, but still need to be in melee to attack.<br>&#8226; " +
+				"May perform Hit and Run.', 3, 'ic_menu_monsters')");
+		db.execSQL("INSERT INTO Monster VALUES('Slyzard', 'Draconids', 'Melee/Ranged', 40, 'D6+3', 5, 0, 0, '<br>&#8226; Can attack with a Ranged attack, with 1 range and initiative. This attack deals D8 Fire damage.<br>&#8226; " +
+				"Immune to Fire damage.<br>&#8226; " +
+				"Can fly.<br>&#8226; " +
+				"May perform Hit and Run.', 4, 'ic_menu_monsters')");
+		db.execSQL("INSERT INTO Monster VALUES('Phoenix', 'Draconids', 'Melee', 40, '2D10', 5, 1, 0, '<br>&#8226; Deals Fire damage.<br>&#8226; " +
+				"Immune to Fire damage.<br>&#8226; " +
+				"Can fly, but still need to be in melee to attack. However, its positive initiative allows to stay safe from most melee retaliations.<br>&#8226; " +
+				"May perform Hit and Run.<br>&#8226; " +
+				"Receives half damage from Ranged and Magic attacks.<br>&#8226; " +
+				"When killed by a melee attack, the Phoenix deals 3D10 Fire damage to its attacker. It then arises again with 40-3D10 Hit Points (the same number used in the aforementioned attack). If killed by a non-melee attack, the Phoenix rebirths as usual, and its first attack deals an additional 3D10 Fire damage. Once per battle.', 5, 'ic_menu_monsters')");
+		db.execSQL("INSERT INTO Monster VALUES('Chelondrake', 'Draconids', 'Melee', 70, '', 5, 0, 0, '<br>&#8226; May attack ships<br>&#8226; " +
+				"Immune to all damage from non-magical, non-siege or non-ship attacks.', 6, 'ic_menu_monsters')");
+
+
+
 		db.execSQL("INSERT INTO Monster VALUES('Alghoul', 'Necrophages', 'Melee', 10, '4', 3, 0, 0, '<br>&#8226; 1 Armour', 1, 'ic_menu_monsters')");
 
 	}
