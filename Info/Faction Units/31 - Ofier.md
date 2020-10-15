@@ -90,6 +90,7 @@ Runeword of :
 **Category:** Mage  
 **Class:** Ofieri, Silver  
 **Strength:** 5  
+**Essence:** 20  
 **Speed:** 20  
 **Initiative:** 2  
 **Range:** 6  
