@@ -6,7 +6,7 @@ The Northern Wars - Board Game
 
 #### Witcher’s Bestiary File
 
-#### Beasts
+### Beasts
 
 ### Name: Wolf  
 Category: Melee beast  
@@ -28,7 +28,7 @@ Range: 0
 Specials: 2 Armour  
 Immune to Ice and Wind damage
 
-#### Cursed Ones
+### Cursed
 
 ### Name: Archespore  
 Category: Ranged Cursed  
@@ -68,7 +68,7 @@ the effect of Moon Dust
 Summon Wolf Pack: Summons a (D8+2) number of wolves each turn. These wolves will
 always protect their Conjurer, and must be dealt with before he can be hurt.
 
-#### Draconids
+### Draconids
 
 ### Name: Wyvern  
 Category: Melee Draconid  
@@ -147,7 +147,7 @@ Range: 0
 Specials: May attack ships  
 Immune to all damage from non-magical, non-siege or non-ship attacks.
 
-#### Insectoids
+### Insectoids
 
 ### Name: Arachas  
 Category: Melee Armoured Insectoid  
@@ -311,7 +311,7 @@ Can only be conjured by a powerful mage, and will try to break free each turn.
 At the end of its turn, roll a D12 and add the number of turns that have passed
 since the creature was conjured
 
-#### Ogroids
+### Ogroids
 
 ### Name: Cyclops  
 
@@ -353,7 +353,7 @@ since the creature was conjured
 **Range:**    
 **Specials:**  
 
-#### Elementa & Constructs
+### Elementa & Constructs
 
 ### Name: Fire Elemental  
 Category: Ranged Elemental  
@@ -490,7 +490,7 @@ one attack, so before or after casting it, it can use its regular attack.
 After being hit by 3 Elemental Attacks, Spells or Signs, it may cast Implosion
 once, dealing 10 damage to itself and ( 4D20 + 20 ) damage to its enemies.
 
-#### Necrophages
+### Necrophages
 
 ### Name: Ghoul    
 
@@ -541,7 +541,7 @@ clear away the mist for 1 turn-.
 Moon Dust and Dimeritium will prevent it from using its Illusionary Mist -but
 Dimeritium will prevent the use of any spells in the battlefield-
 
-#### Relicts
+### Relicts
 
 ### Name: Chort  
 Category: Small Fiend  
