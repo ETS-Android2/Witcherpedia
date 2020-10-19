@@ -306,8 +306,9 @@ public class DescriptionActivity extends AppCompatActivity {
 						int resourceId = this.getResources().getIdentifier(drawablen, "drawable", getActivity().getPackageName());
 						uicon.setImageResource(resourceId);
 
+						String bestiary = resultSet.getString(resultSet.getColumnIndex("bestiaryn"));
 						String category = resultSet.getString(resultSet.getColumnIndex("category"));
-						udesc.setText(TextUtils.concat(getFontFormattedText(getHtml("009688", "Category: ")), category));
+						udesc.setText(TextUtils.concat(getFontFormattedText(getHtml("009688", "Category: ")), category, ", ", bestiary));
 
 						int hitpoints = resultSet.getInt(resultSet.getColumnIndex("hitpoints"));
 						udesc.append(TextUtils.concat("\n", getFontFormattedText(getHtml("009688", "Hit Points: ")), String.valueOf(hitpoints)));
@@ -353,9 +354,7 @@ public class DescriptionActivity extends AppCompatActivity {
 				ifcolor = "color='#" + color + "'";
 			}
 
-			Spanned html = HtmlCompat.fromHtml("<font " + ifcolor + ">" + stat + "</font>", HtmlCompat.FROM_HTML_MODE_COMPACT);
-
-			return html;
+			return HtmlCompat.fromHtml("<font " + ifcolor + ">" + stat + "</font>", HtmlCompat.FROM_HTML_MODE_COMPACT);
 		}
 
 		private Spannable setupLinks(String text) {

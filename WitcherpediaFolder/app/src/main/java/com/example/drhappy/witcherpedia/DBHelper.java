@@ -1483,12 +1483,13 @@ class DBHelper extends SQLiteOpenHelper {
 	}
 
 	private void insertMonsters(SQLiteDatabase db) {
-		// insert Beasts
+		// region insert Beasts
 		db.execSQL("INSERT INTO Monster VALUES('Wolf', 'Beasts', 'Melee', 1, '1', 3, 0, 0, '<br>&#8226; Pack Tactics - If more than 10 allied wolves are present on the battlefield, they all gain +0.5 Strength.', 1, 'ic_menu_monsters')");
 		db.execSQL("INSERT INTO Monster VALUES('Bear', 'Beasts', 'Melee', 3, '2.5', 3, 0, 0, '<br>&#8226; 2 Armour<br>&#8226; " +
 				"Immune to Ice and Wind damage', 2, 'ic_menu_monsters')");
+		// endregion
 
-		// insert Cursed
+		// region insert Cursed
 		db.execSQL("INSERT INTO Monster VALUES('Archespore', 'Cursed', 'Ranged', 6, '8 (2 Dice x 4 Strength)', 2, 2, 2, '<br>&#8226; Deals Poison damage<br>&#8226; " +
 				"Receives Double damage from Fire and Wind attacks<br>&#8226; " +
 				"Upon dying, deals (D4 - 1) damage to each tile around it', 1, 'ic_menu_monsters')");
@@ -1500,8 +1501,9 @@ class DBHelper extends SQLiteOpenHelper {
 				"Receives double damage from Poison attacks<br>&#8226; " +
 				"Regeneration is halved (10 Hit Points each combat round) when Poisoned, or under the effect of Moon Dust<br>&#8226; " +
 				"Summon Wolf Pack: Summons a (D8+2) number of wolves each turn. These wolves will always protect their Conjurer, and must be dealt with before he can be hurt.', 3, 'ic_menu_monsters')");
+		// endregion
 
-		//insert Draconids
+		// region insert Draconids
 		db.execSQL("INSERT INTO Monster VALUES('Wyvern', 'Draconids', 'Melee', 40, 'D6+3', 5, 0, 0, '<br>&#8226; Deals Poison damage.<br>&#8226; " +
 				"Can fly, but still need to be in melee to attack.<br>&#8226; " +
 				"May perform Hit and Run.<br>&#8226; " +
@@ -1524,10 +1526,132 @@ class DBHelper extends SQLiteOpenHelper {
 				"When killed by a melee attack, the Phoenix deals 3D10 Fire damage to its attacker. It then arises again with 40-3D10 Hit Points (the same number used in the aforementioned attack). If killed by a non-melee attack, the Phoenix rebirths as usual, and its first attack deals an additional 3D10 Fire damage. Once per battle.', 5, 'ic_menu_monsters')");
 		db.execSQL("INSERT INTO Monster VALUES('Chelondrake', 'Draconids', 'Melee', 70, '', 5, 0, 0, '<br>&#8226; May attack ships<br>&#8226; " +
 				"Immune to all damage from non-magical, non-siege or non-ship attacks.', 6, 'ic_menu_monsters')");
+		// endregion
 
+		// region insert Elementae & Constructs
+		db.execSQL("INSERT INTO Monster VALUES('Fire Elemental', 'Elementae & Constructs', 'Ranged Elemental', 20, '18 (6 Dice x 3 Strength)', 2, 2, 4, '<br>&#8226; Attacks deal Fire damage<br>&#8226; " +
+				"Wind attacks against it increase its Strength by 6 (2 x 3), but deal normal damage to it.<br>&#8226; " +
+				"Draws in any Fire type attacks and abilities to raise its Strength by 6 (2 x 3) each time.<br>&#8226; " +
+				"Receives double damage from Water and Earth attacks.<br>&#8226; " +
+				"If hit by Ice attacks, transmutes them into Water, who in turn deal double damage.<br>&#8226; " +
+				"Successful hits Ignite adjacent enemy units, attempting to engulf them in their flames with 2 Strength (2 Dice x 1 Strength).', 1, 'ic_menu_monsters')");
+		db.execSQL("INSERT INTO Monster VALUES('Water Elemental', 'Elementae & Constructs', 'Ranged Elemental', 25, '12 (3 Dice x 4 Strength)', 2, 2, 6, '<br>&#8226; Attacks deal Water Damage<br>&#8226; " +
+				"Under the presence of significant effects of its Element (like floods, storms, etc.) its Strength is increased by 4.<br>&#8226; " +
+				"Liquid Armour – all non-magic attacks and Fire attacks deal half damage. Lightning attacks deal double damage.<br>&#8226; " +
+				"Wind attacks lower its initiative by 1 for 1 turn.', 2, 'ic_menu_monsters')");
+		db.execSQL("INSERT INTO Monster VALUES('Earth Elemental', 'Elementae & Constructs', 'Armoured Melee Elemental', 25, '10 (2 Dice x 5 Strength)', 2, 0, 0, '<br>&#8226; 30 Armour<br>&#8226; " +
+				"Attacks deal Earth damage.<br>&#8226; " +
+				"Receives half damage from all magical and ranged attacks.<br>&#8226; " +
+				"Completely immune to Lightning attacks.<br>&#8226; " +
+				"Water attacks deal normal damage and ignore its Armour.<br>&#8226; " +
+				"Wind attacks deal double damage and reduce its movement and initiative by 2, for 1 turn.', 3, 'ic_menu_monsters')");
+		db.execSQL("INSERT INTO Monster VALUES('Wind Elemental', 'Elementae & Constructs', 'Mobile Ranged Elemental', 15, '12 (6 Dice x 2 Strength)', 6, 4, 2, '<br>&#8226; May perform Hit and Run.<br>&#8226; " +
+				"Attacks deal Wind damage.<br>&#8226; " +
+				"Receives half damage from Water attacks.<br>&#8226; " +
+				"Receives double damage from Ice attacks and movement is reduced by 2 for 1 turn.<br>&#8226; " +
+				"Lightning attacks reduce its Movement and Initiative by 2 for 2 turns (but deal normal damage, effect may stack).', 4, 'ic_menu_monsters')");
+		db.execSQL("INSERT INTO Monster VALUES('Lightning Elemental', 'Elementae & Constructs', 'Caster/Ranged Elemental', 20, '15 (5 Dice x 3 Strength)', 3, 2, 4, '<br>&#8226; Attacks deal Lightning damage.<br>&#8226; " +
+				"May cast Lightning Bolt, dealing (D8+2) damage to a gathering of units. Once every 4 Combat Rounds.<br>&#8226; " +
+				"Draws in all Lightning attacks and abilities to increase its Strength by 3, and Ligthning Bolt’s damage by 2, each time.<br>&#8226; " +
+				"Receives double damage from Earth Attacks and from Trebuchet and Onager attacks (and their variants).', 5, 'ic_menu_monsters')");
+		db.execSQL("INSERT INTO Monster VALUES('Ice Elemental', 'Elementae & Constructs', 'Ranged Elemental (?) TODO', 0, '', 0, 0, 0, '<br>&#8226; TODO', 6, 'ic_menu_monsters')");
+		db.execSQL("INSERT INTO Monster VALUES('Golem', 'Elementae & Constructs', 'Melee Armoured Construct', 20, '12 (4 Dice x 3 Strength)', 2, 0, 0, '<br>&#8226; 20 Armour<br>&#8226; " +
+				"Immune to Magic -that includes allied and enemy spells, and mages’ ranged attacks-<br>&#8226; " +
+				"Wind attacks and abilities may stagger it for 1 turn (roll a D6, if it rolls a 5-6, it’s staggered). They will still deal no damage.<br>&#8226; " +
+				"May perform Stone Cage, that isolates itself and up to 10 other units adjacent to it -ally or enemy-, and makes all 11 of them invulnerable to attacks from outside. Lasts for 2 turns.', 7, 'ic_menu_monsters')");
+		db.execSQL("INSERT INTO Monster VALUES('Gargoyle', 'Elementae & Constructs', 'Melee & Ranged Armoured Construct', 20, '\nMelee Strength: 15 (5 Dice x 3 Strength)\nRanged Strength: 9 (3 Dice x 3 Strength)', 2, -1, 4, '<br>&#8226; <b>Initiative</b>: -1 (has 2 Initiative when performing Ranged attack).<br>&#8226; " +
+				"15 Armour<br>&#8226; " +
+				"May attack Siege Engines with its Ranged Attack with 4 Strength (2 Dice x 2 Strength).<br>&#8226; " +
+				"May perform Poisonous Vomit, inflicting 2 Poison damage to D10 units, in its melee range. These units additionally suffer 2 Poison damage per turn, for 3 Combat rounds. 4 turns Cooldown.', 8, 'ic_menu_monsters')");
+		db.execSQL("INSERT INTO Monster VALUES('Djinn', 'Elementae & Constructs', 'Elementa Caster', 25, 'Don’t Fuck With It', 000, 6, 000, '<br>&#8226; <b>Speed</b>: In-battle teleportation<br>&#8226; " +
+				"<b>Range</b>: Practically unlimited<br>&#8226; " +
+				"Receives half damage from non-magical attacks.<br>&#8226; " +
+				"Receives no damage from Poison attacks.<br>&#8226; " +
+				"Elemental attacks heal it instead of damaging it.<br>&#8226; " +
+				"Attacks twice per combat round, with Fire/Thunder or Ice Bolt (D8+2 damage).<br>&#8226; " +
+				"Dimeritium bombs block its movement and prevent it from taking two actions per turn -whether that is attacks or spells, etc-.<br>&#8226; " +
+				"When its Health Points reach 10 or below, it can Cast Firestorm, Thunderstorm or Hailstorm once per combat round, dealing (D12+8) damage. This action counts as one attack, so before or after casting it, it can use its regular attack.<br>&#8226; " +
+				"After being hit by 3 Elemental Attacks, Spells or Signs, it may cast Implosion once, dealing 10 damage to itself and (4D20 + 20) damage to its enemies.', 9, 'ic_menu_monsters')");
+		// endregion
 
+		// region insert Insectoids
+		db.execSQL("INSERT INTO Monster VALUES('Arachas', 'Insectoids', 'Melee Armoured', 2, '1', 2, 0, 0, '<br>&#8226; 1 Armour<br>&#8226; " +
+				"Deals 1 Poison damage, per combat round, to any enemy it has previously hit. The Poison damage ignores armour, and this effect lasts until the victim is killed -or the battle is over-<br>&#8226; " +
+				"Receives +50% Fire damage (round down)', 1, 'ic_menu_monsters')");
+		db.execSQL("INSERT INTO Monster VALUES('Armoured Arachas', 'Insectoids', 'Melee Armoured', 20, '10 (2 Dice x 5 Strength)', 2, 0, 0, '<br>&#8226; 15 Armour<br>&#8226; " +
+				"Immune to Ranged attacks<br>&#8226; " +
+				"Armour cannot be pierced/negated by any ability -with the exception of Ogroid attacks or Earth damage-<br>&#8226; " +
+				"Deals 1 Poison damage, per combat round, to any enemy it has previously hit. The Poison damage ignores armour, and this effect lasts until the victim is killed -or the battle is over-<br>&#8226; " +
+				"Receives +50% Fire damage (round down)', 2, 'ic_menu_monsters')");
+		db.execSQL("INSERT INTO Monster VALUES('Venomous Arachas', 'Insectoids', 'Melee/Ranged', 20, '10 (5 Dice x 2 Strength)', 2, 0, 1, '<br>&#8226; 5 Armour<br>&#8226; " +
+				"On round end, deals (D8+2) Poison damage to an adjacent tile that affects every stack of units on that tile<br>&#8226; " +
+				"Deals 1 Poison damage, per combat round, to any enemy it has previously hit. The Poison damage ignores armour, and this effect lasts until the victim is killed -or the battle is over-<br>&#8226; " +
+				"Receives +50% Fire damage (round down)', 3, 'ic_menu_monsters')");
+		db.execSQL("INSERT INTO Monster VALUES('Giant Centipede', 'Insectoids', 'Harassing', 6, '6 (3 Dice x 2 Strength)', 3, 2, 0, '<br>&#8226; May perform Hit and Run, with the special perk of digging itself a tunnel when it runs away.<br>&#8226; " +
+				"Completely immune to all attacks when it burrows underground.<br>&#8226; " +
+				"Some Earth spells will kill it instantly during that phase.<br>&#8226; " +
+				"Water and Ice attacks will paralyze it for 1 turn and Yrden sign for 3 turns.', 4, 'ic_menu_monsters')");
+		db.execSQL("INSERT INTO Monster VALUES('Pale Widow', 'Insectoids', 'Disgusting', 10, '9 (3 Dice x 3 Strength)', 4, 2, 0, '<br>&#8226; Can spit Venom with 1 Range, dealing 6 (2 x 3) Damage. This attack ignores Armour.<br>&#8226; " +
+				"May perform Hit and Run, with the special perk of digging itself a tunnel when it runs away.<br>&#8226; " +
+				"Completely immune to all attacks when it burrows underground.<br>&#8226; " +
+				"Some Earth spells will kill it instantly during that phase.<br>&#8226; " +
+				"Water and Ice attacks will paralyze it for 1 turn and Yrden sign for 3 turns.', 5, 'ic_menu_monsters')");
+		db.execSQL("INSERT INTO Monster VALUES('Endrega Worker', 'Insectoids', 'Melee', 2, '1', 2, 0, 0, '<br>&#8226; Receives +50% Fire damage (rounded down)', 6, 'ic_menu_monsters')");
+		db.execSQL("INSERT INTO Monster VALUES('Endrega Drone', 'Insectoids', 'Ranged', 3, '2', 2, 1, 1, '<br>&#8226; Deals Poison damage<br>&#8226; " +
+				"Deals 1 Poison damage to any enemy it has previously hit. The Poison damage ignores armour, and this effect lasts until the victim is killed -or the battle is over-<br>&#8226; " +
+				"Receives +50% Fire damage (round down)', 7, 'ic_menu_monsters')");
+		db.execSQL("INSERT INTO Monster VALUES('Endrega Warrior', 'Insectoids', 'Melee', 10, '10 (5 Dice x 2 Strength)', 2, 1, 0, '<br>&#8226; Its long Barbed Tail has great reach and a lethal venom. Its attacks ignore Armour and deal an additional 1 Poison damage to the target per combat round.<br>&#8226; " +
+				"Receives +50% Fire damage (round down)', 8, 'ic_menu_monsters')");
+		db.execSQL("INSERT INTO Monster VALUES('Kikimore Worker', 'Insectoids', 'Melee', 2, '1', 2, 0, 0, '<br>&#8226; Immune to Poison and Earth damage, and to Mind-related spells and abilities.<br>&#8226; " +
+				"Deals 1 Poison damage, per combat round, to any enemy it has previously hit. The Poison damage ignores armour, and this effect lasts until the victim is killed -or the battle is over-<br>&#8226; " +
+				"Receives triple damage from Fire attacks.', 9, 'ic_menu_monsters')");
+		db.execSQL("INSERT INTO Monster VALUES('Kikimore Warrior', 'Insectoids', 'Melee', 14, '6 (3 Dice x 2 Strength)', 2, 0, 0, '<br>&#8226; Immune to Poison and Earth damage, and to Mind-related spells and abilities.<br>&#8226; " +
+				"Deals 1 Poison damage, per combat round, to any enemy it has previously hit. The Poison damage ignores armour, and this effect lasts until the victim is killed -or the battle is over-<br>&#8226; " +
+				"Receives triple damage from Fire attacks.', 10, 'ic_menu_monsters')");
+		db.execSQL("INSERT INTO Monster VALUES('Kikimore Queen', 'Insectoids', 'Melee Boss', 40, '22 (4 Dice x 4 Strength + 1 Dice x 6 Strength)', 1, 0, 0, '<br>&#8226; 80 Armour<br>&#8226; " +
+				"Immune to Elemental damage (fire, water, etc.)', 11, 'ic_menu_monsters')");
+		db.execSQL("INSERT INTO Monster VALUES('Koschey', 'Insectoids', 'Melee Constructs', 50, '40 (10 Dice X 4 Strength)', 3, 0, 0, '<br>&#8226; 50 Armour<br>&#8226; " +
+				"May attack Fortifications with 15 Strength (5 Dice X 3 Strength).<br>&#8226; " +
+				"Immune to Mind-related effects.<br>&#8226; " +
+				"Receives double damage from Fire and Water attacks.<br>&#8226; " +
+				"Can only be conjured by a powerful mage, and will try to break free each turn. At the end of its turn, roll a D12 and add the number of turns that have passed since the creature was conjured.', 12, 'ic_menu_monsters')");
+		// endregion
 
-		db.execSQL("INSERT INTO Monster VALUES('Alghoul', 'Necrophages', 'Melee', 10, '4', 3, 0, 0, '<br>&#8226; 1 Armour', 1, 'ic_menu_monsters')");
+		// region insert Necrophages
+		db.execSQL("INSERT INTO Monster VALUES('Ghoul', 'Necrophages', 'Melee', 3, '2', 3, 0, 0, '<br>&#8226; Heals 1 Hit Point for every living enemy killed -max 1 Hit Point healed for every Necrophage-', 1, 'ic_menu_monsters')");
+		db.execSQL("INSERT INTO Monster VALUES('Alghoul', 'Necrophages', 'Pack Leader/Melee', 10, '4', 3, 0, 0, '<br>&#8226; Heals 5 Hit Points per turn<br>&#8226; " +
+				"Deals 2 damage for every point of melee damage received -unless under the influence of Mind-related spells or signs-', 2, 'ic_menu_monsters')");
+		db.execSQL("INSERT INTO Monster VALUES('Drowner', 'Necrophages', 'Melee', 1, '1', 2, 0, 0, '<br>&#8226; Gains 1 Strength and 2 Initiative if fighting in a territory adjacent to Water<br>&#8226; " +
+				"Receives double damage from Fire and Wind spells', 3, 'ic_menu_monsters')");
+		db.execSQL("INSERT INTO Monster VALUES('Foglet', 'Necrophages', 'Caster/Ambusher/Melee', 10, '12 (4 Dice x 3 Strength)', 2, 1, 0, '<br>&#8226; May perform Ambush<br>&#8226; " +
+				"Can attack through the Illusionary Mist using its Incorporeal forms. When doing so, it cannot get attacked, unless hit by Wind or Earth attacks -which also clear away the mist for 1 turn-.<br>&#8226; " +
+				"Moon Dust and Dimeritium will prevent it from using its Illusionary Mist -but Dimeritium will prevent the use of any spells in the battlefield-.', 4, 'ic_menu_monsters')");
+		// endregion
+
+		// region insert Ogroids
+		db.execSQL("INSERT INTO Monster VALUES('Cyclops', 'Ogroids', 'TODO', 0, '', 0, 0, 0, '<br>&#8226; 1 Armour', 1, 'ic_menu_monsters')");
+		db.execSQL("INSERT INTO Monster VALUES('Jotunn', 'Ogroids', 'TODO', 0, '', 0, 0, 0, '<br>&#8226; 1 Armour', 2, 'ic_menu_monsters')");
+		db.execSQL("INSERT INTO Monster VALUES('Nekker', 'Ogroids', 'TODO', 0, '', 0, 0, 0, '<br>&#8226; 1 Armour', 3, 'ic_menu_monsters')");
+		db.execSQL("INSERT INTO Monster VALUES('Troll', 'Ogroids', 'TODO', 0, '', 0, 0, 0, '<br>&#8226; 1 Armour', 4, 'ic_menu_monsters')");
+		// endregion
+
+		// region insert Relicts
+		db.execSQL("INSERT INTO Monster VALUES('Chort', 'Relicts', 'Small Fiend', 0, '', 0, 0, 0, '<br>&#8226; 1 Armour', 1, 'ic_menu_monsters')");
+		db.execSQL("INSERT INTO Monster VALUES('Fiend', 'Relicts', 'Large Chort', 0, '', 0, 0, 0, '<br>&#8226; 1 Armour', 2, 'ic_menu_monsters')");
+		db.execSQL("INSERT INTO Monster VALUES('Leshen', 'Relicts', 'Neither Chort nor Fiend', 20, '10 (5 Dice x 2 Strength)', 2, 0, 0, '<br>&#8226; While in battle, it can teleport to any row to attack. It can only teleport once per turn.<br>&#8226; " +
+				"After the first combat round, the Leshen summons a pack of D12+4 wolves to fight alongside it. If at the end of the next turn there are less than 10 allied wolves on the field, it will repeat the process, and so on.<br>&#8226; " +
+				"It can cast Entangling Roots, preventing the movement and any movement-related abilities of D6+4 units for 2 turns. The cooldown is 5 turns.<br>&#8226; " +
+				"When fighting in Forests, it gains +10 HP, +4 Strength and summons D12+8 Wolves per turn.', 3, 'ic_menu_monsters')");
+		db.execSQL("INSERT INTO Monster VALUES('Troll Relict', 'Relicts', 'TODO', 0, '', 0, 0, 0, '<br>&#8226; 1 Armour', 4, 'ic_menu_monsters')");
+		// endregion
+
+		// region insert Vampires
+		db.execSQL("INSERT INTO Monster VALUES('Ekkimara', 'Vampires', 'Lower Vamp', 0, '', 0, 0, 0, '<br>&#8226; 1 Armour', 1, 'ic_menu_monsters')");
+		db.execSQL("INSERT INTO Monster VALUES('Fleder', 'Vampires', 'Lower Vamp', 0, '', 0, 0, 0, '<br>&#8226; 1 Armour', 2, 'ic_menu_monsters')");
+		db.execSQL("INSERT INTO Monster VALUES('Garkain', 'Vampires', 'Lower Vamp', 0, '', 0, 0, 0, '<br>&#8226; 1 Armour', 3, 'ic_menu_monsters')");
+		db.execSQL("INSERT INTO Monster VALUES('Katakan', 'Vampires', 'Higher Vamp', 0, '', 0, 0, 0, '<br>&#8226; 1 Armour', 4, 'ic_menu_monsters')");
+		db.execSQL("INSERT INTO Monster VALUES('Bruxa', 'Vampires', 'Higher Vamp', 0, '', 0, 0, 0, '<br>&#8226; 1 Armour', 4, 'ic_menu_monsters')");
+		// endregion
 
 	}
 }
