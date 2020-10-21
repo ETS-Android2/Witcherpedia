@@ -353,9 +353,7 @@ public class DescriptionActivity extends AppCompatActivity {
 				ifcolor = "color='#" + color + "'";
 			}
 
-			Spanned html = HtmlCompat.fromHtml("<font " + ifcolor + ">" + stat + "</font>", HtmlCompat.FROM_HTML_MODE_COMPACT);
-
-			return html;
+			return HtmlCompat.fromHtml("<font " + ifcolor + ">" + stat + "</font>", HtmlCompat.FROM_HTML_MODE_COMPACT);
 		}
 
 		private Spannable setupLinks(String text) {
