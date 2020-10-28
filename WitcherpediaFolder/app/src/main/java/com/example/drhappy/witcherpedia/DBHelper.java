@@ -402,6 +402,12 @@ class DBHelper extends SQLiteOpenHelper {
 
 		// missing a lot
 
+		db.execSQL("INSERT INTO Unit VALUES('Immortal', 'Ofier', 'Melee', 'Bronze', 'Ofieri', 1, 'ic_default_unit') ");
+		db.execSQL("INSERT INTO Unit VALUES('Immortal Camelier', 'Ofier', 'Melee', 'Bronze', 'Ofieri', 2, 'ic_default_unit') ");
+		db.execSQL("INSERT INTO Unit VALUES('Ofieri Charioteer', 'Ofier', 'Melee', 'Bronze', 'Ofieri', 3, 'ic_default_unit') ");
+		db.execSQL("INSERT INTO Unit VALUES('Ofieri Runewright', 'Ofier', 'Support', 'Silver', 'Ofieri', 4, 'ic_default_unit') ");
+		db.execSQL("INSERT INTO Unit VALUES('Ofieri Sorcerer', 'Ofier', 'Mage', 'Silver', 'Ofieri', 5, 'ic_default_unit') ");
+
 		db.execSQL("INSERT INTO Unit VALUES('Zerrikanian Swordsman', 'Zerrikania', 'Melee', 'Bronze', 'Zerrikanian', 1, 'zerrikanian_swordsman') ");
 		db.execSQL("INSERT INTO Unit VALUES('Zerrikanian Archer', 'Zerrikania', 'Ranged', 'Bronze', 'Zerrikanian', 2, 'zerrikanian_archer') ");
 		db.execSQL("INSERT INTO Unit VALUES('Zerrikanian Crossbowman', 'Zerrikania', 'Ranged', 'Bronze', 'Zerrikanian', 2, 'zerrikanian_crossbowman') ");
