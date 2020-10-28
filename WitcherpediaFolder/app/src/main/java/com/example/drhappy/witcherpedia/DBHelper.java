@@ -1012,7 +1012,8 @@ class DBHelper extends SQLiteOpenHelper {
 		db.execSQL("INSERT INTO Overview VALUES('Ymlac', 'ymlac_overview', '') ");
 		db.execSQL("INSERT INTO Overview VALUES('Etolia', 'etolia_overview', '') ");
 		db.execSQL("INSERT INTO Overview VALUES('Vicovaro', 'ic_overview', '') ");
-		db.execSQL("INSERT INTO Overview VALUES('Ofier', 'ofier_overview', '') ");
+		db.execSQL("INSERT INTO Overview VALUES('Ofier', 'ofier_overview', '<br>Beyond the seas lies a land of wonder and mystery, a land of vast steppes, forbidding mountains, untouched wilderness and crystal-clear lakes. Beyond the seas lies Ofier." +
+				"<br><br>Ofier is a place most exotic for the people of the Continent.<br>') ");
 		db.execSQL("INSERT INTO Overview VALUES('Zerrikania', 'zerrikania_overview', '') ");
 		db.execSQL("INSERT INTO Overview VALUES('Haakland', 'ic_overview', '') ");
 		db.execSQL("INSERT INTO Overview VALUES('Wild Hunt', 'ic_overview', '') ");
