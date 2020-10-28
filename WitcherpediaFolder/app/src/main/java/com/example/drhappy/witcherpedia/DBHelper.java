@@ -1001,18 +1001,18 @@ class DBHelper extends SQLiteOpenHelper {
 				"Trapped in this realm since ancient times<br>" +
 				"Eternal unseen beings reside<br>" +
 				"Hence fables and deceits collide<br></i>') ");
-		db.execSQL("INSERT INTO Overview VALUES('Nazair', 'ic_overview', '') ");
-		db.execSQL("INSERT INTO Overview VALUES('Mag Turga', 'ic_overview', '') ");
-		db.execSQL("INSERT INTO Overview VALUES('Ebbing', 'ic_overview', '') ");
-		db.execSQL("INSERT INTO Overview VALUES('Metinna', 'ic_overview', '') ");
+		db.execSQL("INSERT INTO Overview VALUES('Nazair', 'nazair_overview', '') ");
+		db.execSQL("INSERT INTO Overview VALUES('Mag Turga', 'mag_turga_overview', '') ");
+		db.execSQL("INSERT INTO Overview VALUES('Ebbing', 'ebbing_overview', '') ");
+		db.execSQL("INSERT INTO Overview VALUES('Metinna', 'metinna_overview', '') ");
 		db.execSQL("INSERT INTO Overview VALUES('Geso', 'ic_overview', '') ");
-		db.execSQL("INSERT INTO Overview VALUES('Maecht', 'ic_overview', '') ");
-		db.execSQL("INSERT INTO Overview VALUES('Gemmera', 'ic_overview', '') ");
-		db.execSQL("INSERT INTO Overview VALUES('Rowan', 'ic_overview', '') ");
-		db.execSQL("INSERT INTO Overview VALUES('Ymlac', 'ic_overview', '') ");
-		db.execSQL("INSERT INTO Overview VALUES('Etolia', 'ic_overview', '') ");
+		db.execSQL("INSERT INTO Overview VALUES('Maecht', 'maecht_overview', '') ");
+		db.execSQL("INSERT INTO Overview VALUES('Gemmera', 'gemmera_overview', '') ");
+		db.execSQL("INSERT INTO Overview VALUES('Rowan', 'rowan_overview', '') ");
+		db.execSQL("INSERT INTO Overview VALUES('Ymlac', 'ymlac_overview', '') ");
+		db.execSQL("INSERT INTO Overview VALUES('Etolia', 'etolia_overview', '') ");
 		db.execSQL("INSERT INTO Overview VALUES('Vicovaro', 'ic_overview', '') ");
-		db.execSQL("INSERT INTO Overview VALUES('Ofier', 'ic_overview', '') ");
+		db.execSQL("INSERT INTO Overview VALUES('Ofier', 'ofier_overview', '') ");
 		db.execSQL("INSERT INTO Overview VALUES('Zerrikania', 'zerrikania_overview', '') ");
 		db.execSQL("INSERT INTO Overview VALUES('Haakland', 'ic_overview', '') ");
 		db.execSQL("INSERT INTO Overview VALUES('Wild Hunt', 'ic_overview', '') ");
