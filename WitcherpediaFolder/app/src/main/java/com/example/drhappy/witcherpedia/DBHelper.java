@@ -402,6 +402,12 @@ class DBHelper extends SQLiteOpenHelper {
 
 		// missing a lot
 
+		db.execSQL("INSERT INTO Unit VALUES('Immortal', 'Ofier', 'Melee', 'Bronze', 'Ofieri', 1, 'ic_default_unit') ");
+		db.execSQL("INSERT INTO Unit VALUES('Immortal Camelier', 'Ofier', 'Melee', 'Bronze', 'Ofieri', 2, 'ic_default_unit') ");
+		db.execSQL("INSERT INTO Unit VALUES('Ofieri Charioteer', 'Ofier', 'Melee', 'Bronze', 'Ofieri', 3, 'ic_default_unit') ");
+		db.execSQL("INSERT INTO Unit VALUES('Ofieri Runewright', 'Ofier', 'Support', 'Silver', 'Ofieri', 4, 'ic_default_unit') ");
+		db.execSQL("INSERT INTO Unit VALUES('Ofieri Sorcerer', 'Ofier', 'Mage', 'Silver', 'Ofieri', 5, 'ic_default_unit') ");
+
 		db.execSQL("INSERT INTO Unit VALUES('Zerrikanian Swordsman', 'Zerrikania', 'Melee', 'Bronze', 'Zerrikanian', 1, 'zerrikanian_swordsman') ");
 		db.execSQL("INSERT INTO Unit VALUES('Zerrikanian Archer', 'Zerrikania', 'Ranged', 'Bronze', 'Zerrikanian', 2, 'zerrikanian_archer') ");
 		db.execSQL("INSERT INTO Unit VALUES('Zerrikanian Crossbowman', 'Zerrikania', 'Ranged', 'Bronze', 'Zerrikanian', 2, 'zerrikanian_crossbowman') ");
@@ -674,6 +680,15 @@ class DBHelper extends SQLiteOpenHelper {
 		db.execSQL("INSERT INTO Melee VALUES('Beauclairoise Ducal Guard', 'Heavy Polearm Infantry', '2', 2, 0, 12, '3 armies', '<br>&#8226; 2 Armour<br>&#8226; " +
 				"+2 Strength against Cavalry') ");
 		// missing a lot
+		db.execSQL("INSERT INTO Melee VALUES('Immortal', 'Heavily Armoured Infantry', '3', 2, 0, 20, '2 armies', '<br>&#8226; 4 Armour<br>&#8226; " +
+				"+1 Strength bonus against Cavalry<br>&#8226; " +
+				"Negates the doubled anti-Armour damage of enemy units (like Crossbowmen), so they deal normal damage. Opposing units that would completely ignore Armour (like Maulers, Axemen or Siege) will instead deal double damage.') ");
+		db.execSQL("INSERT INTO Melee VALUES('Immortal Camelier', 'Heavy Camelry', '2', 3, 0, 15, '4 armies', '<br>&#8226; 2 Armour<br>&#8226; " +
+				"+2 Strength bonus against Cavalry<br>&#8226; " +
+				"+2 Strength bonus when fighting in Desert biome.') ");
+		db.execSQL("INSERT INTO Melee VALUES('Ofieri Charioteer', 'Chariot Cavalry', '2', 4, 1, 14, '2 armies', '<br>&#8226; May perform Charge with +1 Strength bonus.<br>&#8226; " +
+				"While Charging, deals double damage to Melee and Ranged Infantry units.<br>&#8226; " +
+				"Wastes all of its remaining movement points to cross rough terrain and rivers.') ");
 		db.execSQL("INSERT INTO Melee VALUES('Zerrikanian Swordsman', 'Light Infantry', '1', 2, 0, 4, '4 armies', '<br>&#8226; +1 Strength bonus against Light Infantry<br>&#8226; " +
 				"+1 Strength bonus in Desert biome') ");
 		db.execSQL("INSERT INTO Melee VALUES('Zerrikanian Cavalry', 'Light Cavalry', '0.5', 5, 0, 9, '4 armies', '<br>&#8226; May perform Charge with +1 Strength bonus<br>&#8226; " +
@@ -858,6 +873,9 @@ class DBHelper extends SQLiteOpenHelper {
 		db.execSQL("INSERT INTO Mage VALUES('Druid of the Black Grove', 'Druid', '9 (3 Dice x 3 Strength)', 15, 2, 2, 6, 50, '1 army', '<br>&#8226; Restores 3 Essence each turn up to a maximum of 45 Essence<br>&#8226; " +
 				"Caed Dhu spellbook')");
 		// missing a lot
+		db.execSQL("INSERT INTO Mage VALUES('Ofieri Sorcerer', 'Mage', '5', 20, 20, 2, 6, 50, '3 armies', '<br>&#8226; Teleportation<br>&#8226; " +
+				"Restores 10 Essence each turn that doesn’t cast a spell up to a maximum of 90 Essence.<br>&#8226; " +
+				"Ofieri Spellbook')");
 		db.execSQL("INSERT INTO Mage VALUES('Zerrikanian Fire Warlock', 'Mage', '5', 20, 2, 2, 6, 50, '3 armies', '<br>&#8226; Teleportation<br>&#8226; " +
 				"Restores 10 Essence each turn that doesn’t cast a spell up to a maximum of 90 Essence.<br>&#8226; " +
 				"Zerrikanian Spellbook')");
@@ -930,6 +948,14 @@ class DBHelper extends SQLiteOpenHelper {
 		db.execSQL("INSERT INTO Support VALUES('Mahakam Pyrotechnician', 'Dwarven Style Siege', 2, 2, 40, '1 army', '<br>&#8226; Cannot attack on the first round<br>&#8226; " +
 				"Can either attack enemy fortifications, dealing 3 damage to gates per combat round.<br>&#8226; " +
 				"<i>Or</i> can spend two turns moving towards the enemy siege line and attack enemy Siege, with 12 Strength (4 Dice x 3 Strength).')");
+		// fill the gap
+		db.execSQL("INSERT INTO Support VALUES('Ofieri Runewright', 'Enchanter', 2, 3, 7, '2 armies', '<br>&#8226; The Runewright can provide special enchantments to a specific amount of soldiers, giving them special abilities. These runes will last until the end of the battle, or until the Runewright gives another enchantment to other units.<br>&#8226; " +
+				"<b>Glyphword of Absorption</b>: 1 Bronze unit gets 12 magical Armour and may absorb up to 10 magical damage, each turn. The Armour is renewed each turn.<br>&#8226; " +
+				"<b>Glyphword of Protection</b>: 12 Allied bronze units get 1 magical Armour, for 1 turn. The Armour is renewed each turn.<br>&#8226; " +
+				"<b>Glyphword of </b>:<br>&#8226; " +
+				"<b>Runeword of Annihilation</b>: Up to 10 Allied bronze units deal double damage once per turn, for 1 turn.<br>&#8226; " +
+				"<b>Runeword of </b>: 1 Bronze unit gets +3 Strength and deals 3D6 Elemental damage to the group of units it attacks, once per turn. The type of damage is determined by the player, and can be changed each turn.<br>&#8226; " +
+				"<b>Runeword of </b>:')");
 		// endregion
 
 		//Create Navy table
@@ -1006,7 +1032,8 @@ class DBHelper extends SQLiteOpenHelper {
 		db.execSQL("INSERT INTO Overview VALUES('Ymlac', 'ymlac_overview', '') ");
 		db.execSQL("INSERT INTO Overview VALUES('Etolia', 'etolia_overview', '') ");
 		db.execSQL("INSERT INTO Overview VALUES('Vicovaro', 'ic_overview', '') ");
-		db.execSQL("INSERT INTO Overview VALUES('Ofier', 'ofier_overview', '') ");
+		db.execSQL("INSERT INTO Overview VALUES('Ofier', 'ofier_overview', '<br>Beyond the seas lies a land of wonder and mystery, a land of vast steppes, forbidding mountains, untouched wilderness and crystal-clear lakes. Beyond the seas lies Ofier." +
+				"<br><br>Ofier is a place most exotic for the people of the Continent.<br>') ");
 		db.execSQL("INSERT INTO Overview VALUES('Zerrikania', 'zerrikania_overview', '') ");
 		db.execSQL("INSERT INTO Overview VALUES('Haakland', 'ic_overview', '') ");
 		db.execSQL("INSERT INTO Overview VALUES('Wild Hunt', 'ic_overview', '') ");
