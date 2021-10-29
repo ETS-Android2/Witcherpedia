@@ -63,6 +63,10 @@ class DBHelper extends SQLiteOpenHelper {
 				"( monstern TEXT PRIMARY KEY, bestiaryn TEXT, category TEXT, hitpoints INTEGER, strength TEXT, speed INTEGER, initiative INTEGER, range INTEGER, abilities TEXT, priority INTEGER, drawablen TEXT, FOREIGN KEY(bestiaryn) REFERENCES Bestiary(bestiaryn))");
 		//Insert Monster entries
 		insertMonsters(db);
+
+		//Create Hero table
+		db.execSQL("CREATE TABLE Hero " +
+				"( heron TEXT, factionn TEXT, category TEXT, class TEXT, nationality TEXT, hitpoints INTEGER, strength TEXT, speed INTEGER, initiative INTEGER, range INTEGER, abilities TEXT, priority INTEGER, drawablen TEXT, PRIMARY KEY (heron, factionn))");
 	}
 
 	@Override
