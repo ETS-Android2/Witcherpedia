@@ -46,6 +46,12 @@ class DBHelper extends SQLiteOpenHelper {
 		//Insert Unit entries
 		insertUnits(db);
 
+		//Create Hero table
+		db.execSQL("CREATE TABLE Hero " +
+				"( heron TEXT, factionn TEXT, category TEXT, class TEXT, nationality TEXT, hitpoints INTEGER, strength TEXT, speed INTEGER, initiative INTEGER, range INTEGER, abilities TEXT, priority INTEGER, drawablen TEXT, PRIMARY KEY (heron, factionn))");
+		//Insert Hero entries
+		//insertHeroes(db);
+
 		//Create Territory table
 		db.execSQL("CREATE TABLE Territory " +
 				"( num INTEGER, territoryn TEXT PRIMARY KEY, factionn TEXT, category TEXT, region TEXT, income INTEGER, characteristics TEXT)");
@@ -64,9 +70,6 @@ class DBHelper extends SQLiteOpenHelper {
 		//Insert Monster entries
 		insertMonsters(db);
 
-		//Create Hero table
-		db.execSQL("CREATE TABLE Hero " +
-				"( heron TEXT, factionn TEXT, category TEXT, class TEXT, nationality TEXT, hitpoints INTEGER, strength TEXT, speed INTEGER, initiative INTEGER, range INTEGER, abilities TEXT, priority INTEGER, drawablen TEXT, PRIMARY KEY (heron, factionn))");
 	}
 
 	@Override
@@ -120,6 +123,12 @@ class DBHelper extends SQLiteOpenHelper {
 		}
 
 		return db.rawQuery("SELECT * FROM Unit NATURAL JOIN " + category + " WHERE Unit.unitn = ?", new String[]{unitn});
+	}
+
+	Cursor getHeroes(String factionn) {
+		SQLiteDatabase db = instance.getReadableDatabase();
+
+		return db.rawQuery("SELECT heron, drawablen FROM Hero WHERE factionn = ? ORDER BY priority", new String[]{factionn});
 	}
 
 	Cursor getTerritories(String factionn) {

@@ -112,6 +112,10 @@ public class ListFragment extends Fragment {
 						setListAdapter("Units");
 
 						break;
+					case "Heroes":
+						setListAdapter("Heroes");
+
+						break;
 					case "Territories":
 						setListAdapter("Territories");
 
@@ -201,6 +205,17 @@ public class ListFragment extends Fragment {
 					for (resultSet.moveToFirst(); !resultSet.isAfterLast(); resultSet.moveToNext()) {
 						String unitn = resultSet.getString(resultSet.getColumnIndex("unitn"));
 						label_alist.add(unitn);
+						String drawablen = resultSet.getString(resultSet.getColumnIndex("drawablen"));
+						icon_alist.add(drawablen);
+					}
+				}
+				break;
+			}
+			case "Heroes": {
+				try (Cursor resultSet = witcherDB.getHeroes(faction_selected)) {
+					for (resultSet.moveToFirst(); !resultSet.isAfterLast(); resultSet.moveToNext()) {
+						String heron = resultSet.getString(resultSet.getColumnIndex("heron"));
+						label_alist.add(heron);
 						String drawablen = resultSet.getString(resultSet.getColumnIndex("drawablen"));
 						icon_alist.add(drawablen);
 					}
