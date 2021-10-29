@@ -46,6 +46,12 @@ class DBHelper extends SQLiteOpenHelper {
 		//Insert Unit entries
 		insertUnits(db);
 
+		//Create Hero table
+		db.execSQL("CREATE TABLE Hero " +
+				"( heron TEXT, factionn TEXT, category TEXT, class TEXT, nationality TEXT, hitpoints INTEGER, strength TEXT, speed INTEGER, initiative INTEGER, range INTEGER, abilities TEXT, priority INTEGER, drawablen TEXT, PRIMARY KEY (heron, factionn))");
+		//Insert Hero entries
+		insertHeroes(db);
+
 		//Create Territory table
 		db.execSQL("CREATE TABLE Territory " +
 				"( num INTEGER, territoryn TEXT PRIMARY KEY, factionn TEXT, category TEXT, region TEXT, income INTEGER, characteristics TEXT)");
@@ -63,6 +69,7 @@ class DBHelper extends SQLiteOpenHelper {
 				"( monstern TEXT PRIMARY KEY, bestiaryn TEXT, category TEXT, hitpoints INTEGER, strength TEXT, speed INTEGER, initiative INTEGER, range INTEGER, abilities TEXT, priority INTEGER, drawablen TEXT, FOREIGN KEY(bestiaryn) REFERENCES Bestiary(bestiaryn))");
 		//Insert Monster entries
 		insertMonsters(db);
+
 	}
 
 	@Override
@@ -78,6 +85,8 @@ class DBHelper extends SQLiteOpenHelper {
 		db.execSQL("DROP TABLE IF EXISTS Support");
 		db.execSQL("DROP TABLE IF EXISTS Navy");
 		db.execSQL("DROP TABLE IF EXISTS Monster");
+
+		db.execSQL("DROP TABLE IF EXISTS Hero");
 
 		db.execSQL("DROP TABLE IF EXISTS Territory");
 		db.execSQL("DROP TABLE IF EXISTS Fortified");
@@ -116,6 +125,12 @@ class DBHelper extends SQLiteOpenHelper {
 		}
 
 		return db.rawQuery("SELECT * FROM Unit NATURAL JOIN " + category + " WHERE Unit.unitn = ?", new String[]{unitn});
+	}
+
+	Cursor getHeroes(String factionn) {
+		SQLiteDatabase db = instance.getReadableDatabase();
+
+		return db.rawQuery("SELECT heron, drawablen FROM Hero WHERE factionn = ? ORDER BY priority", new String[]{factionn});
 	}
 
 	Cursor getTerritories(String factionn) {
@@ -961,6 +976,13 @@ class DBHelper extends SQLiteOpenHelper {
 		//Create Navy table
 		db.execSQL("CREATE TABLE Navy " +
 				"( unitn TEXT PRIMARY KEY, specialization TEXT, hitpoints INTEGER, strength TEXT, speed INTEGER, initiative INTEGER, range INTEGER, cost INTEGER, armylimit TEXT, abilities TEXT, FOREIGN KEY(unitn) REFERENCES Unit(unitn))");
+	}
+
+	private void insertHeroes(SQLiteDatabase db) {
+		db.execSQL("INSERT INTO Hero VALUES('Emiel Regis Rohellec Terzieff Godefroy', 'Neutral', 'Higher Vampire, Melee', 'Gold', 'NA', 0, '0', 0, 0, 0, '<br>&#8226; 1 Armour<br>&#8226; " +
+				"May perform Charge with +1 Strength bonus', 1, 'ic_menu_monsters') ");
+
+
 	}
 
 	private void insertOverviews(SQLiteDatabase db) {
