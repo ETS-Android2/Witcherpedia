@@ -1620,34 +1620,35 @@ class DBHelper extends SQLiteOpenHelper {
 				"On round end, deals (D8+2) Poison damage to an adjacent tile that affects every stack of units on that tile<br>&#8226; " +
 				"Deals 1 Poison damage, per combat round, to any enemy it has previously hit. The Poison damage ignores armour, and this effect lasts until the victim is killed -or the battle is over-<br>&#8226; " +
 				"Receives +50% Fire damage (round down)', 3, 'arachas_venomous')");
+		db.execSQL("INSERT INTO Monster VALUES('Barbegazi', 'Insectoids', 'Melee Insectoid', 6, '6 (2 Dice x 3 Strength)', 3, 2, 0, '<br>&#8226; 4 Armour', 4, 'barbegazi')");
 		db.execSQL("INSERT INTO Monster VALUES('Giant Centipede', 'Insectoids', 'Harassing Insectoid', 6, '6 (3 Dice x 2 Strength)', 3, 2, 0, '<br>&#8226; May perform Hit and Run, with the special perk of digging itself a tunnel when it runs away.<br>&#8226; " +
 				"Completely immune to all attacks when it burrows underground.<br>&#8226; " +
 				"Some Earth spells will kill it instantly during that phase.<br>&#8226; " +
-				"Water and Ice attacks will paralyze it for 1 turn and Yrden sign for 3 turns.', 4, 'ic_menu_monsters')");
+				"Water and Ice attacks will paralyze it for 1 turn and Yrden sign for 3 turns.', 5, 'giant_centipede')");
 		db.execSQL("INSERT INTO Monster VALUES('Pale Widow', 'Insectoids', 'Disgusting Insectoid', 10, '9 (3 Dice x 3 Strength)', 4, 2, 0, '<br>&#8226; Can spit Venom with 1 Range, dealing 6 (2 x 3) Damage. This attack ignores Armour.<br>&#8226; " +
 				"May perform Hit and Run, with the special perk of digging itself a tunnel when it runs away.<br>&#8226; " +
 				"Completely immune to all attacks when it burrows underground.<br>&#8226; " +
 				"Some Earth spells will kill it instantly during that phase.<br>&#8226; " +
-				"Water and Ice attacks will paralyze it for 1 turn and Yrden sign for 3 turns.', 5, 'pale_widow')");
-		db.execSQL("INSERT INTO Monster VALUES('Endrega Worker', 'Insectoids', 'Melee Insectoid', 2, '1', 2, 0, 0, '<br>&#8226; Receives +50% Fire damage (rounded down)', 6, 'ic_menu_monsters')");
+				"Water and Ice attacks will paralyze it for 1 turn and Yrden sign for 3 turns.', 6, 'pale_widow')");
+		db.execSQL("INSERT INTO Monster VALUES('Endrega Worker', 'Insectoids', 'Melee Insectoid', 2, '1', 2, 0, 0, '<br>&#8226; Receives +50% Fire damage (rounded down)', 7, 'ic_menu_monsters')");
 		db.execSQL("INSERT INTO Monster VALUES('Endrega Drone', 'Insectoids', 'Ranged Insectoid', 3, '2', 2, 1, 1, '<br>&#8226; Deals Poison damage<br>&#8226; " +
 				"Deals 1 Poison damage to any enemy it has previously hit. The Poison damage ignores armour, and this effect lasts until the victim is killed -or the battle is over-<br>&#8226; " +
-				"Receives +50% Fire damage (round down)', 7, 'endrega_drone')");
+				"Receives +50% Fire damage (round down)', 8, 'endrega_drone')");
 		db.execSQL("INSERT INTO Monster VALUES('Endrega Warrior', 'Insectoids', 'Melee Insectoid', 10, '10 (5 Dice x 2 Strength)', 2, 1, 0, '<br>&#8226; Its long Barbed Tail has great reach and a lethal venom. Its attacks ignore Armour and deal an additional 1 Poison damage to the target per combat round.<br>&#8226; " +
-				"Receives +50% Fire damage (round down)', 8, 'endrega_warrior')");
+				"Receives +50% Fire damage (round down)', 9, 'endrega_warrior')");
 		db.execSQL("INSERT INTO Monster VALUES('Kikimore Worker', 'Insectoids', 'Melee Insectoid', 2, '1', 2, 0, 0, '<br>&#8226; Immune to Poison and Earth damage, and to Mind-related spells and abilities.<br>&#8226; " +
 				"Deals 1 Poison damage, per combat round, to any enemy it has previously hit. The Poison damage ignores armour, and this effect lasts until the victim is killed -or the battle is over-<br>&#8226; " +
-				"Receives triple damage from Fire attacks.', 9, 'ic_menu_monsters')");
+				"Receives triple damage from Fire attacks.', 10, 'kikimore_worker')");
 		db.execSQL("INSERT INTO Monster VALUES('Kikimore Warrior', 'Insectoids', 'Melee Insectoid', 14, '6 (3 Dice x 2 Strength)', 2, 0, 0, '<br>&#8226; Immune to Poison and Earth damage, and to Mind-related spells and abilities.<br>&#8226; " +
 				"Deals 1 Poison damage, per combat round, to any enemy it has previously hit. The Poison damage ignores armour, and this effect lasts until the victim is killed -or the battle is over-<br>&#8226; " +
-				"Receives triple damage from Fire attacks.', 10, 'kikimore_warrior')");
+				"Receives triple damage from Fire attacks.', 11, 'kikimore_warrior')");
 		db.execSQL("INSERT INTO Monster VALUES('Kikimore Queen', 'Insectoids', 'Melee Boss Insectoid', 40, '22 (4 Dice x 4 Strength + 1 Dice x 6 Strength)', 1, 0, 0, '<br>&#8226; 80 Armour<br>&#8226; " +
-				"Immune to Elemental damage (fire, water, etc.)', 11, 'kikimore_queen')");
+				"Immune to Elemental damage (fire, water, etc.)', 12, 'kikimore_queen')");
 		db.execSQL("INSERT INTO Monster VALUES('Koschey', 'Insectoids', 'Melee Construct/Insectoid', 50, '40 (10 Dice X 4 Strength)', 3, 0, 0, '<br>&#8226; 50 Armour<br>&#8226; " +
 				"May attack Fortifications with 15 Strength (5 Dice X 3 Strength).<br>&#8226; " +
 				"Immune to Mind-related effects.<br>&#8226; " +
 				"Receives double damage from Fire and Water attacks.<br>&#8226; " +
-				"Can only be conjured by a powerful mage, and will try to break free each turn. At the end of its turn, roll a D12 and add the number of turns that have passed since the creature was conjured.', 12, 'koschey')");
+				"Can only be conjured by a powerful mage, and will try to break free each turn. At the end of its turn, roll a D12 and add the number of turns that have passed since the creature was conjured.', 13, 'koschey')");
 		// endregion
 
 		// region insert Necrophages
