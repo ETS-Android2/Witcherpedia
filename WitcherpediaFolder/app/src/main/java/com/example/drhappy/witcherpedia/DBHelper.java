@@ -133,6 +133,12 @@ class DBHelper extends SQLiteOpenHelper {
 		return db.rawQuery("SELECT heron, drawablen FROM Hero WHERE factionn = ? ORDER BY priority", new String[]{factionn});
 	}
 
+	Cursor getHero(String heron) {
+		SQLiteDatabase db = instance.getReadableDatabase();
+
+		return db.rawQuery("SELECT * FROM Hero WHERE Hero.heron = ?", new String[]{heron});
+	}
+
 	Cursor getTerritories(String factionn) {
 		SQLiteDatabase db = instance.getReadableDatabase();
 
@@ -980,8 +986,38 @@ class DBHelper extends SQLiteOpenHelper {
 
 	private void insertHeroes(SQLiteDatabase db) {
 		db.execSQL("INSERT INTO Hero VALUES('Emiel Regis Rohellec Terzieff Godefroy', 'Neutral', 'Higher Vampire, Melee', 'Gold', 'NA', 0, '0', 0, 0, 0, '<br>&#8226; 1 Armour<br>&#8226; " +
-				"May perform Charge with +1 Strength bonus', 1, 'ic_menu_monsters') ");
+				"May perform Charge with +1 Strength bonus', 1, 'emiel_regis_rohellec_terzieff_godefroy') ");
 
+		db.execSQL("INSERT INTO Hero VALUES('Arnaghad', 'Neutral', 'Witcher', 'Gold', 'NA', 0, '0', 0, 0, 0, '<br>&#8226; 1 Armour<br>&#8226; " +
+				"May perform Charge with +1 Strength bonus', 1, 'arnaghad') ");
+		db.execSQL("INSERT INTO Hero VALUES('Auckes', 'Neutral', 'Witcher', 'Gold', 'NA', 0, '0', 0, 0, 0, '<br>&#8226; 1 Armour<br>&#8226; " +
+				"May perform Charge with +1 Strength bonus', 2, 'auckes') ");
+		db.execSQL("INSERT INTO Hero VALUES('Brehen the Cat of Lello', 'Neutral', 'Witcher', 'Gold', 'NA', 0, '0', 0, 0, 0, '<br>&#8226; 1 Armour<br>&#8226; " +
+				"May perform Charge with +1 Strength bonus', 3, 'brehen_the_cat_of_lello') ");
+		db.execSQL("INSERT INTO Hero VALUES('Coën of Poviss', 'Neutral', 'Witcher', 'Gold', 'NA', 0, '0', 0, 0, 0, '<br>&#8226; 1 Armour<br>&#8226; " +
+				"May perform Charge with +1 Strength bonus', 4, 'coen_of_poviss') ");
+		db.execSQL("INSERT INTO Hero VALUES('Erland of Larvik', 'Neutral', 'Witcher', 'Gold', 'NA', 0, '0', 0, 0, 0, '<br>&#8226; 1 Armour<br>&#8226; " +
+				"May perform Charge with +1 Strength bonus', 5, 'erland_of_larvik') ");
+		db.execSQL("INSERT INTO Hero VALUES('Eskel', 'Neutral', 'Witcher', 'Gold', 'NA', 0, '0', 0, 0, 0, '<br>&#8226; 1 Armour<br>&#8226; " +
+				"May perform Charge with +1 Strength bonus', 6, 'eskel') ");
+		db.execSQL("INSERT INTO Hero VALUES('Gezras of Leyda', 'Neutral', 'Witcher', 'Gold', 'NA', 0, '0', 0, 0, 0, '<br>&#8226; 1 Armour<br>&#8226; " +
+				"May perform Charge with +1 Strength bonus', 7, 'gezras_of_leyda') ");
+		db.execSQL("INSERT INTO Hero VALUES('Ivar Evil-Eye', 'Neutral', 'Witcher', 'Gold', 'NA', 0, '0', 0, 0, 0, '<br>&#8226; 1 Armour<br>&#8226; " +
+				"May perform Charge with +1 Strength bonus', 8, 'ivar_evil_eye') ");
+		db.execSQL("INSERT INTO Hero VALUES('Ivo of Bellhaven', 'Neutral', 'Witcher', 'Gold', 'NA', 0, '0', 0, 0, 0, '<br>&#8226; 1 Armour<br>&#8226; " +
+				"May perform Charge with +1 Strength bonus', 9, 'ivo_of_bellhaven') ");
+		db.execSQL("INSERT INTO Hero VALUES('Junod of Bellhaven', 'Neutral', 'Witcher', 'Gold', 'NA', 0, '0', 0, 0, 0, '<br>&#8226; 1 Armour<br>&#8226; " +
+				"May perform Charge with +1 Strength bonus', 10, 'junod_of_bellhaven') ");
+		db.execSQL("INSERT INTO Hero VALUES('Keldar of Kaer Seren', 'Neutral', 'Witcher', 'Gold', 'NA', 0, '0', 0, 0, 0, '<br>&#8226; 1 Armour<br>&#8226; " +
+				"May perform Charge with +1 Strength bonus', 11, 'keldar_of_kaer_seren') ");
+		db.execSQL("INSERT INTO Hero VALUES('Lambert', 'Neutral', 'Witcher', 'Gold', 'NA', 0, '0', 0, 0, 0, '<br>&#8226; 1 Armour<br>&#8226; " +
+				"May perform Charge with +1 Strength bonus', 12, 'lambert') ");
+		db.execSQL("INSERT INTO Hero VALUES('Letho of Gulet', 'Neutral', 'Witcher', 'Gold', 'NA', 0, '0', 0, 0, 0, '<br>&#8226; 1 Armour<br>&#8226; " +
+				"May perform Charge with +1 Strength bonus', 13, 'letho_of_gulet') ");
+		db.execSQL("INSERT INTO Hero VALUES('Serrit', 'Neutral', 'Witcher', 'Gold', 'NA', 0, '0', 0, 0, 0, '<br>&#8226; 1 Armour<br>&#8226; " +
+				"May perform Charge with +1 Strength bonus', 14, 'serrit') ");
+		db.execSQL("INSERT INTO Hero VALUES('Vesemir of Kaer Morhen', 'Neutral', 'Witcher', 'Gold', 'NA', 0, '0', 0, 0, 0, '<br>&#8226; 1 Armour<br>&#8226; " +
+				"May perform Charge with +1 Strength bonus', 15, 'vesemir_of_kaer_morhen') ");
 
 	}
 
@@ -1061,7 +1097,7 @@ class DBHelper extends SQLiteOpenHelper {
 		db.execSQL("INSERT INTO Overview VALUES('Wild Hunt', 'ic_overview', '') ");
 		db.execSQL("INSERT INTO Overview VALUES('Strays of Spalla', 'ic_overview', '') ");
 		db.execSQL("INSERT INTO Overview VALUES('Salamandra', 'ic_overview', '') ");
-		db.execSQL("INSERT INTO Overview VALUES('Neutral', 'ic_overview', '') ");
+		db.execSQL("INSERT INTO Overview VALUES('Neutral', 'neutral_overview', '') ");
 	}
 
 	private void insertTerritories(SQLiteDatabase db) {
