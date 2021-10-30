@@ -271,6 +271,7 @@ public class ListFragment extends Fragment {
 							System.out.println(monstern);
 						}
 					}
+					subtitleOn = false;
 				}
 				break;
 			}

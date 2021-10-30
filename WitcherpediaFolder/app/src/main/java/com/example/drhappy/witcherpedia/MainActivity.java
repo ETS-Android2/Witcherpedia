@@ -148,7 +148,7 @@ public class MainActivity extends AppCompatActivity
 
 				((Witcherpedia) getApplicationContext()).setFaction_selected("");
 
-			} else if (current_view.equals("Units") || current_view.equals("Territories") || current_view.equals("Overview")) {
+			} else if (current_view.equals("Units") || current_view.equals("Heroes") || current_view.equals("Territories") || current_view.equals("Overview")) {
 				if (current_view.equals("Overview")) {
 					ListFragment listFragment = ListFragment.newInstance("Contents");
 

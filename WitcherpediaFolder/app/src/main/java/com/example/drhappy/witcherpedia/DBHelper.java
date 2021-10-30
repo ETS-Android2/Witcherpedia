@@ -133,6 +133,12 @@ class DBHelper extends SQLiteOpenHelper {
 		return db.rawQuery("SELECT heron, drawablen FROM Hero WHERE factionn = ? ORDER BY priority", new String[]{factionn});
 	}
 
+	Cursor getHero(String heron) {
+		SQLiteDatabase db = instance.getReadableDatabase();
+
+		return db.rawQuery("SELECT * FROM Hero WHERE Hero.heron = ?", new String[]{heron});
+	}
+
 	Cursor getTerritories(String factionn) {
 		SQLiteDatabase db = instance.getReadableDatabase();
 
@@ -980,7 +986,7 @@ class DBHelper extends SQLiteOpenHelper {
 
 	private void insertHeroes(SQLiteDatabase db) {
 		db.execSQL("INSERT INTO Hero VALUES('Emiel Regis Rohellec Terzieff Godefroy', 'Neutral', 'Higher Vampire, Melee', 'Gold', 'NA', 0, '0', 0, 0, 0, '<br>&#8226; 1 Armour<br>&#8226; " +
-				"May perform Charge with +1 Strength bonus', 1, 'ic_menu_monsters') ");
+				"May perform Charge with +1 Strength bonus', 1, 'emiel_regis_rohellec_terzieff_godefroy') ");
 
 		db.execSQL("INSERT INTO Hero VALUES('Arnaghad', 'Neutral', 'Witcher', 'Gold', 'NA', 0, '0', 0, 0, 0, '<br>&#8226; 1 Armour<br>&#8226; " +
 				"May perform Charge with +1 Strength bonus', 1, 'arnaghad') ");

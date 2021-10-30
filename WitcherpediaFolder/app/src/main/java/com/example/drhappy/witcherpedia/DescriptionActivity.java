@@ -149,23 +149,23 @@ public class DescriptionActivity extends AppCompatActivity {
 		public View onCreateView(LayoutInflater inflater, ViewGroup container,
 		                         Bundle savedInstanceState) {
 			View rootView = null;
-			
+
 			String type = ((DescriptionActivity) getActivity()).getType();
-			if (type.equals("Unit Description") || type.equals("Monster Description")) {
+			if (type.equals("Unit Description") || type.equals("Hero Description") || type.equals("Monster Description")) {
 				rootView = inflater.inflate(R.layout.content_unit_description, container, false);
 			} else if (type.equals("Territory Description")) {
 				rootView = inflater.inflate(R.layout.content_territory_description, container, false);
 			}
 
 			setDescription(rootView, type, getArguments().getString(ARG_LIST_ITEM_NAME));
-			
+
 			return rootView;
 		}
 		
 		void setDescription(View rootView, String type, String name) {
 			ScrollView desc_scroll = rootView.findViewById(R.id.dscroll);
 			desc_scroll.scrollTo(0, 0);
-			
+
 			if (type.equals("Unit Description")) {
 				TextView utitle = rootView.findViewById(R.id.utitle);
 				ImageView uicon = rootView.findViewById(R.id.uicon);
@@ -176,22 +176,22 @@ public class DescriptionActivity extends AppCompatActivity {
 					for (resultSet.moveToFirst(); !resultSet.isAfterLast(); resultSet.moveToNext()) {
 						//String unitn = resultSet.getString(resultSet.getColumnIndex(DBHelper.COLUMN_UNITN));
 						utitle.setText(name);
-						
+
 						String drawablen = resultSet.getString(resultSet.getColumnIndex("drawablen"));
 						int resourceId = this.getResources().getIdentifier(drawablen, "drawable", getActivity().getPackageName());
 						uicon.setImageResource(resourceId);
-						
+
 						String specialization = resultSet.getString(resultSet.getColumnIndex("specialization"));
 						String category = resultSet.getString(resultSet.getColumnIndex("category"));
 						udesc.setText(TextUtils.concat(getFontFormattedText(getHtml("009688", "Category: ")), specialization, ", ", category));
-						
+
 						String nationality = resultSet.getString(resultSet.getColumnIndex("nationality"));
 						String classn = resultSet.getString(resultSet.getColumnIndex("class"));
 						udesc.append(TextUtils.concat("\n", getFontFormattedText(getHtml("009688", "Class: ")), nationality, ", ", classn));
 
 						int speed = resultSet.getInt(resultSet.getColumnIndex("speed"));
 						int initiative = resultSet.getInt(resultSet.getColumnIndex("initiative"));
-						
+
 						if (category.equals("Support")) {
 							int cost = resultSet.getInt(resultSet.getColumnIndex("cost"));
 							String armylimit = resultSet.getString(resultSet.getColumnIndex("armylimit"));
@@ -205,10 +205,10 @@ public class DescriptionActivity extends AppCompatActivity {
 								int hitpoints = resultSet.getInt(resultSet.getColumnIndex("hitpoints"));
 								udesc.append(TextUtils.concat("\n", getFontFormattedText(getHtml("009688", "Hit Points: ")), String.valueOf(hitpoints)));
 							}
-							
+
 							String strength = resultSet.getString(resultSet.getColumnIndex("strength"));
 							udesc.append(TextUtils.concat("\n", getFontFormattedText(getHtml("009688", "Strength: ")), strength));
-							
+
 							if (category.equals("Mage")) {
 								int essence = resultSet.getInt(resultSet.getColumnIndex("essence"));
 								udesc.append(TextUtils.concat("\n", getFontFormattedText(getHtml("009688", "Essence: ")), String.valueOf(essence)));
@@ -216,12 +216,12 @@ public class DescriptionActivity extends AppCompatActivity {
 
 							udesc.append(TextUtils.concat("\n", getFontFormattedText(getHtml("009688", "Speed: ")), String.valueOf(speed),
 									"\n", getFontFormattedText(getHtml("009688", "Initiative: ")), String.valueOf(initiative)));
-							
+
 							if (!category.equals("Melee")) {
 								int range = resultSet.getInt(resultSet.getColumnIndex("range"));
 								udesc.append(TextUtils.concat("\n", getFontFormattedText(getHtml("009688", "Range: ")), String.valueOf(range)));
 							}
-							
+
 							if (!category.equals("Monster")) {
 								int cost = resultSet.getInt(resultSet.getColumnIndex("cost"));
 								String armylimit = resultSet.getString(resultSet.getColumnIndex("armylimit"));
@@ -229,6 +229,50 @@ public class DescriptionActivity extends AppCompatActivity {
 										"\n", getFontFormattedText(getHtml("009688", "Limit: ")), armylimit));
 							}
 						}
+						String abilities = resultSet.getString(resultSet.getColumnIndex("abilities"));
+						udesc.append(TextUtils.concat("\n", getFontFormattedText(getHtml("009688", "Abilities: "))/*, getHtml("-1", abilities)*/));
+						if (abilities.contains("@")) {
+							udesc.append(setupLinks(abilities));
+						} else {
+							udesc.append(getHtml("-1", abilities));
+						}
+					}
+
+				}
+			} else if (type.equals("Hero Description")) {
+				TextView utitle = rootView.findViewById(R.id.utitle);
+				ImageView uicon = rootView.findViewById(R.id.uicon);
+				TextView udesc = rootView.findViewById(R.id.udescription);
+				udesc.setMovementMethod(LinkMovementMethod.getInstance());
+
+				try (Cursor resultSet = ((DescriptionActivity) getActivity()).getWitcherDB().getHero(name)) {
+					for (resultSet.moveToFirst(); !resultSet.isAfterLast(); resultSet.moveToNext()) {
+						utitle.setText(name);
+
+						String drawablen = resultSet.getString(resultSet.getColumnIndex("drawablen"));
+						int resourceId = this.getResources().getIdentifier(drawablen, "drawable", getActivity().getPackageName());
+						uicon.setImageResource(resourceId);
+
+						String category = resultSet.getString(resultSet.getColumnIndex("category"));
+						udesc.setText(TextUtils.concat(getFontFormattedText(getHtml("009688", "Category: ")), category));
+
+						String nationality = resultSet.getString(resultSet.getColumnIndex("nationality"));
+						String classn = resultSet.getString(resultSet.getColumnIndex("class"));
+						udesc.append(TextUtils.concat("\n", getFontFormattedText(getHtml("009688", "Class: ")), nationality, ", ", classn));
+
+						int hitpoints = resultSet.getInt(resultSet.getColumnIndex("hitpoints"));
+						udesc.append(TextUtils.concat("\n", getFontFormattedText(getHtml("009688", "Hit Points: ")), String.valueOf(hitpoints)));
+
+						String strength = resultSet.getString(resultSet.getColumnIndex("strength"));
+						udesc.append(TextUtils.concat("\n", getFontFormattedText(getHtml("009688", "Strength: ")), strength));
+
+						int speed = resultSet.getInt(resultSet.getColumnIndex("speed"));
+						int initiative = resultSet.getInt(resultSet.getColumnIndex("initiative"));
+						int range = resultSet.getInt(resultSet.getColumnIndex("range"));
+						udesc.append(TextUtils.concat("\n", getFontFormattedText(getHtml("009688", "Speed: ")), String.valueOf(speed),
+								"\n", getFontFormattedText(getHtml("009688", "Initiative: ")), String.valueOf(initiative),
+								"\n", getFontFormattedText(getHtml("009688", "Range: ")), String.valueOf(range)));
+
 						String abilities = resultSet.getString(resultSet.getColumnIndex("abilities"));
 						udesc.append(TextUtils.concat("\n", getFontFormattedText(getHtml("009688", "Abilities: "))/*, getHtml("-1", abilities)*/));
 						if (abilities.contains("@")) {
