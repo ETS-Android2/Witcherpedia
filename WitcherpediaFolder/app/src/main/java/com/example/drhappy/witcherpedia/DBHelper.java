@@ -989,7 +989,7 @@ class DBHelper extends SQLiteOpenHelper {
 		db.execSQL("INSERT INTO Hero VALUES('Brehen the Cat of Lello', 'Neutral', 'Witcher', 'Gold', 'NA', 0, '0', 0, 0, 0, '<br>&#8226; 1 Armour<br>&#8226; " +
 				"May perform Charge with +1 Strength bonus', 3, 'brehen_the_cat_of_lello') ");
 		db.execSQL("INSERT INTO Hero VALUES('Coën of Poviss', 'Neutral', 'Witcher', 'Gold', 'NA', 0, '0', 0, 0, 0, '<br>&#8226; 1 Armour<br>&#8226; " +
-				"May perform Charge with +1 Strength bonus', 4, 'coën_of_poviss') ");
+				"May perform Charge with +1 Strength bonus', 4, 'coen_of_poviss') ");
 		db.execSQL("INSERT INTO Hero VALUES('Erland of Larvik', 'Neutral', 'Witcher', 'Gold', 'NA', 0, '0', 0, 0, 0, '<br>&#8226; 1 Armour<br>&#8226; " +
 				"May perform Charge with +1 Strength bonus', 5, 'erland_of_larvik') ");
 		db.execSQL("INSERT INTO Hero VALUES('Eskel', 'Neutral', 'Witcher', 'Gold', 'NA', 0, '0', 0, 0, 0, '<br>&#8226; 1 Armour<br>&#8226; " +

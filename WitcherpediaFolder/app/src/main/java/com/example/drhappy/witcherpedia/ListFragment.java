@@ -136,6 +136,10 @@ public class ListFragment extends Fragment {
 				setDescription("Unit Description", item);
 
 				break;
+			case "Heroes":
+				setDescription("Hero Description", item);
+
+				break;
 			case "Territories":
 				setDescription("Territory Description", item);
 
