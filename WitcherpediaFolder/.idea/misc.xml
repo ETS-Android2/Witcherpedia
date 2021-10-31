@@ -3,6 +3,11 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/witcherpedia-app/WitcherpediaFolder/app/src/main/res/drawable/ic_beasts.xml" value="0.17916666666666667" />
+        <entry key="..\:/witcherpedia-app/WitcherpediaFolder/app/src/main/res/drawable/ic_cursed.xml" value="0.17916666666666667" />
+        <entry key="..\:/witcherpedia-app/WitcherpediaFolder/app/src/main/res/drawable/ic_draconids.xml" value="0.17916666666666667" />
+        <entry key="..\:/witcherpedia-app/WitcherpediaFolder/app/src/main/res/drawable/ic_insectoids.xml" value="0.17916666666666667" />
+        <entry key="..\:/witcherpedia-app/WitcherpediaFolder/app/src/main/res/drawable/ic_relicts.xml" value="0.17916666666666667" />
         <entry key="..\:/witcherpedia-app/WitcherpediaFolder/app/src/main/res/layout/content_unit_description.xml" value="0.28229166666666666" />
       </map>
     </option>
